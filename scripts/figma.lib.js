@@ -403,9 +403,13 @@ const createComponent = (component, imgMap, componentMap) => {
               applyFontStyle(styleCache[currStyle], node.styleOverrideTable[currStyle]);
             }
 
-            const id = printStyle(styleCache[currStyle]);
-            if (id) ps.push(`<span className="${id}" key="${key}">${para}</span>`);
-            else ps.push(`<span key="${key}">${para}</span>`);
+            const styleOverride = styleCache[currStyle] ? JSON.stringify(styleCache[currStyle]) : '{}';
+
+            ps.push(`<span style={${styleOverride}} key="${key}">${para}</span>`);
+
+            // const id = printStyle(styleCache[currStyle]);
+            // if (id) ps.push(`<span className="${id}" key="${key}">${para}</span>`);
+            // else ps.push(`<span key="${key}">${para}</span>`);
             para = '';
           }
         };
@@ -436,12 +440,13 @@ const createComponent = (component, imgMap, componentMap) => {
     }
 
     function printDiv(innerStyle, outerStyle, indent) {
-      const innerId = printStyle(innerStyle);
-      const outerId = printStyle(outerStyle);
+      const innerId = false && printStyle(innerStyle);
+      const outerId = false && printStyle(outerStyle);
       if (outerId) print(`<div className="${outerClass} ${outerId}">`, indent);
-      else print(`<div className="${outerClass}">`, indent);
+      else print(`<div className="${outerClass}" style={${JSON.stringify(outerStyle)}}>`, indent);
       print(`<div`, indent, '  ');
       print(`id="${node.id}"`, indent, '    ');
+      print(`style={${JSON.stringify(innerStyle)}}`, indent, '    ');
       if (innerId) print(`className="${innerClass} ${innerId}"`, indent, '    ');
       else print(`className="${innerClass}"`, indent, '    ');
       print(`>`, indent, '  ');
