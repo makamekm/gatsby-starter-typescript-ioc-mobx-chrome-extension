@@ -76,7 +76,7 @@
                                 {
                                     "id": "14:142",
                                     "name": "Icon – More Actions",
-                                    "type": "FRAME",
+                                    "type": "GROUP",
                                     "blendMode": "PASS_THROUGH",
                                     "children": [
                                         {
@@ -93,8 +93,8 @@
                                                 "height": 13
                                             },
                                             "constraints": {
-                                                "vertical": "TOP",
-                                                "horizontal": "LEFT"
+                                                "vertical": "CENTER",
+                                                "horizontal": "RIGHT"
                                             },
                                             "fills": [
                                                 {
@@ -128,32 +128,8 @@
                                         "horizontal": "RIGHT"
                                     },
                                     "clipsContent": false,
-                                    "background": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "visible": false,
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
-                                    "fills": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "visible": false,
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
+                                    "background": [],
+                                    "fills": [],
                                     "strokes": [],
                                     "strokeWeight": 1,
                                     "strokeAlign": "INSIDE",
@@ -178,36 +154,12 @@
                                         "height": 20
                                     },
                                     "constraints": {
-                                        "vertical": "TOP",
-                                        "horizontal": "LEFT"
+                                        "vertical": "CENTER",
+                                        "horizontal": "RIGHT"
                                     },
-                                    "clipsContent": true,
-                                    "background": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "visible": false,
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
-                                    "fills": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "visible": false,
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
+                                    "clipsContent": false,
+                                    "background": [],
+                                    "fills": [],
                                     "strokes": [],
                                     "strokeWeight": 1,
                                     "strokeAlign": "INSIDE",
@@ -703,32 +655,8 @@
                                         "horizontal": "LEFT_RIGHT"
                                     },
                                     "clipsContent": false,
-                                    "background": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "visible": false,
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
-                                    "fills": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "visible": false,
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
+                                    "background": [],
+                                    "fills": [],
                                     "strokes": [],
                                     "strokeWeight": 1,
                                     "strokeAlign": "INSIDE",
@@ -753,42 +681,20 @@
                                         "height": 28
                                     },
                                     "constraints": {
-                                        "vertical": "TOP",
+                                        "vertical": "CENTER",
                                         "horizontal": "LEFT"
                                     },
-                                    "clipsContent": true,
-                                    "background": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
-                                    "fills": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
+                                    "clipsContent": false,
+                                    "background": [],
+                                    "fills": [],
                                     "strokes": [],
                                     "strokeWeight": 1,
                                     "strokeAlign": "INSIDE",
                                     "backgroundColor": {
-                                        "r": 1,
-                                        "g": 1,
-                                        "b": 1,
-                                        "a": 1
+                                        "r": 0,
+                                        "g": 0,
+                                        "b": 0,
+                                        "a": 0
                                     },
                                     "effects": []
                                 },
@@ -805,42 +711,20 @@
                                         "height": 28
                                     },
                                     "constraints": {
-                                        "vertical": "TOP",
+                                        "vertical": "CENTER",
                                         "horizontal": "LEFT"
                                     },
-                                    "clipsContent": true,
-                                    "background": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
-                                    "fills": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
+                                    "clipsContent": false,
+                                    "background": [],
+                                    "fills": [],
                                     "strokes": [],
                                     "strokeWeight": 1,
                                     "strokeAlign": "INSIDE",
                                     "backgroundColor": {
-                                        "r": 1,
-                                        "g": 1,
-                                        "b": 1,
-                                        "a": 1
+                                        "r": 0,
+                                        "g": 0,
+                                        "b": 0,
+                                        "a": 0
                                     },
                                     "effects": []
                                 },
@@ -857,42 +741,20 @@
                                         "height": 28
                                     },
                                     "constraints": {
-                                        "vertical": "TOP",
+                                        "vertical": "CENTER",
                                         "horizontal": "LEFT"
                                     },
-                                    "clipsContent": true,
-                                    "background": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
-                                    "fills": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
+                                    "clipsContent": false,
+                                    "background": [],
+                                    "fills": [],
                                     "strokes": [],
                                     "strokeWeight": 1,
                                     "strokeAlign": "INSIDE",
                                     "backgroundColor": {
-                                        "r": 1,
-                                        "g": 1,
-                                        "b": 1,
-                                        "a": 1
+                                        "r": 0,
+                                        "g": 0,
+                                        "b": 0,
+                                        "a": 0
                                     },
                                     "effects": []
                                 }
@@ -1601,42 +1463,18 @@
                                     "blendMode": "PASS_THROUGH",
                                     "children": [],
                                     "absoluteBoundingBox": {
-                                        "x": 1298,
-                                        "y": -391,
-                                        "width": 28,
-                                        "height": 28
+                                        "x": 1300,
+                                        "y": -389,
+                                        "width": 24,
+                                        "height": 24
                                     },
                                     "constraints": {
-                                        "vertical": "CENTER",
-                                        "horizontal": "CENTER"
+                                        "vertical": "BOTTOM",
+                                        "horizontal": "LEFT"
                                     },
-                                    "clipsContent": true,
-                                    "background": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "visible": false,
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
-                                    "fills": [
-                                        {
-                                            "blendMode": "NORMAL",
-                                            "visible": false,
-                                            "type": "SOLID",
-                                            "color": {
-                                                "r": 1,
-                                                "g": 1,
-                                                "b": 1,
-                                                "a": 1
-                                            }
-                                        }
-                                    ],
+                                    "clipsContent": false,
+                                    "background": [],
+                                    "fills": [],
                                     "strokes": [],
                                     "strokeWeight": 1,
                                     "strokeAlign": "INSIDE",
