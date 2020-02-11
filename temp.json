@@ -11,7 +11,7 @@
             "children": [
                 {
                     "id": "15:0",
-                    "name": "Chrome – Panel",
+                    "name": "Chrome / Panel",
                     "type": "COMPONENT",
                     "blendMode": "PASS_THROUGH",
                     "children": [
@@ -75,8 +75,8 @@
                                 },
                                 {
                                     "id": "14:142",
-                                    "name": "Icon – More Actions",
-                                    "type": "GROUP",
+                                    "name": "Icon / More Actions",
+                                    "type": "FRAME",
                                     "blendMode": "PASS_THROUGH",
                                     "children": [
                                         {
@@ -94,7 +94,7 @@
                                             },
                                             "constraints": {
                                                 "vertical": "CENTER",
-                                                "horizontal": "RIGHT"
+                                                "horizontal": "CENTER"
                                             },
                                             "fills": [
                                                 {
@@ -144,9 +144,40 @@
                                 {
                                     "id": "14:148",
                                     "name": "Avatar",
-                                    "type": "VECTOR",
+                                    "type": "FRAME",
                                     "blendMode": "PASS_THROUGH",
-                                    "children": [],
+                                    "children": [
+                                        {
+                                            "id": "52:1",
+                                            "name": "Image",
+                                            "type": "VECTOR",
+                                            "blendMode": "PASS_THROUGH",
+                                            "children": [],
+                                            "absoluteBoundingBox": {
+                                                "x": 1691,
+                                                "y": -353,
+                                                "width": 20,
+                                                "height": 20
+                                            },
+                                            "constraints": {
+                                                "vertical": "CENTER",
+                                                "horizontal": "CENTER"
+                                            },
+                                            "clipsContent": false,
+                                            "background": [],
+                                            "fills": [],
+                                            "strokes": [],
+                                            "strokeWeight": 1,
+                                            "strokeAlign": "INSIDE",
+                                            "backgroundColor": {
+                                                "r": 0,
+                                                "g": 0,
+                                                "b": 0,
+                                                "a": 0
+                                            },
+                                            "effects": []
+                                        }
+                                    ],
                                     "absoluteBoundingBox": {
                                         "x": 1691,
                                         "y": -353,
@@ -157,7 +188,7 @@
                                         "vertical": "CENTER",
                                         "horizontal": "RIGHT"
                                     },
-                                    "clipsContent": false,
+                                    "clipsContent": true,
                                     "background": [],
                                     "fills": [],
                                     "strokes": [],
@@ -670,10 +701,41 @@
                                 },
                                 {
                                     "id": "14:164",
-                                    "name": "Icon – Refresh",
-                                    "type": "VECTOR",
+                                    "name": "Icon / Refresh",
+                                    "type": "FRAME",
                                     "blendMode": "PASS_THROUGH",
-                                    "children": [],
+                                    "children": [
+                                        {
+                                            "id": "52:2",
+                                            "name": "Button",
+                                            "type": "VECTOR",
+                                            "blendMode": "PASS_THROUGH",
+                                            "children": [],
+                                            "absoluteBoundingBox": {
+                                                "x": 1002,
+                                                "y": -357,
+                                                "width": 28,
+                                                "height": 28
+                                            },
+                                            "constraints": {
+                                                "vertical": "CENTER",
+                                                "horizontal": "LEFT"
+                                            },
+                                            "clipsContent": false,
+                                            "background": [],
+                                            "fills": [],
+                                            "strokes": [],
+                                            "strokeWeight": 1,
+                                            "strokeAlign": "INSIDE",
+                                            "backgroundColor": {
+                                                "r": 0,
+                                                "g": 0,
+                                                "b": 0,
+                                                "a": 0
+                                            },
+                                            "effects": []
+                                        }
+                                    ],
                                     "absoluteBoundingBox": {
                                         "x": 1002,
                                         "y": -357,
@@ -684,7 +746,7 @@
                                         "vertical": "CENTER",
                                         "horizontal": "LEFT"
                                     },
-                                    "clipsContent": false,
+                                    "clipsContent": true,
                                     "background": [],
                                     "fills": [],
                                     "strokes": [],
@@ -700,10 +762,41 @@
                                 },
                                 {
                                     "id": "14:167",
-                                    "name": "Icon – Next",
-                                    "type": "VECTOR",
+                                    "name": "Icon / Next",
+                                    "type": "FRAME",
                                     "blendMode": "PASS_THROUGH",
-                                    "children": [],
+                                    "children": [
+                                        {
+                                            "id": "52:3",
+                                            "name": "Button",
+                                            "type": "VECTOR",
+                                            "blendMode": "PASS_THROUGH",
+                                            "children": [],
+                                            "absoluteBoundingBox": {
+                                                "x": 970,
+                                                "y": -357,
+                                                "width": 28,
+                                                "height": 28
+                                            },
+                                            "constraints": {
+                                                "vertical": "CENTER",
+                                                "horizontal": "CENTER"
+                                            },
+                                            "clipsContent": false,
+                                            "background": [],
+                                            "fills": [],
+                                            "strokes": [],
+                                            "strokeWeight": 1,
+                                            "strokeAlign": "INSIDE",
+                                            "backgroundColor": {
+                                                "r": 0,
+                                                "g": 0,
+                                                "b": 0,
+                                                "a": 0
+                                            },
+                                            "effects": []
+                                        }
+                                    ],
                                     "absoluteBoundingBox": {
                                         "x": 970,
                                         "y": -357,
@@ -714,7 +807,7 @@
                                         "vertical": "CENTER",
                                         "horizontal": "LEFT"
                                     },
-                                    "clipsContent": false,
+                                    "clipsContent": true,
                                     "background": [],
                                     "fills": [],
                                     "strokes": [],
@@ -730,10 +823,41 @@
                                 },
                                 {
                                     "id": "14:170",
-                                    "name": "Icon – Previous",
-                                    "type": "VECTOR",
+                                    "name": "Icon / Previous",
+                                    "type": "FRAME",
                                     "blendMode": "PASS_THROUGH",
-                                    "children": [],
+                                    "children": [
+                                        {
+                                            "id": "52:4",
+                                            "name": "Button",
+                                            "type": "VECTOR",
+                                            "blendMode": "PASS_THROUGH",
+                                            "children": [],
+                                            "absoluteBoundingBox": {
+                                                "x": 938,
+                                                "y": -357,
+                                                "width": 28,
+                                                "height": 28
+                                            },
+                                            "constraints": {
+                                                "vertical": "CENTER",
+                                                "horizontal": "CENTER"
+                                            },
+                                            "clipsContent": false,
+                                            "background": [],
+                                            "fills": [],
+                                            "strokes": [],
+                                            "strokeWeight": 1,
+                                            "strokeAlign": "INSIDE",
+                                            "backgroundColor": {
+                                                "r": 0,
+                                                "g": 0,
+                                                "b": 0,
+                                                "a": 0
+                                            },
+                                            "effects": []
+                                        }
+                                    ],
                                     "absoluteBoundingBox": {
                                         "x": 938,
                                         "y": -357,
@@ -744,7 +868,7 @@
                                         "vertical": "CENTER",
                                         "horizontal": "LEFT"
                                     },
-                                    "clipsContent": false,
+                                    "clipsContent": true,
                                     "background": [],
                                     "fills": [],
                                     "strokes": [],
@@ -1458,23 +1582,79 @@
                                 },
                                 {
                                     "id": "14:175",
-                                    "name": "Icon – Add",
-                                    "type": "VECTOR",
+                                    "name": "Icon / Add",
+                                    "type": "FRAME",
                                     "blendMode": "PASS_THROUGH",
-                                    "children": [],
+                                    "children": [
+                                        {
+                                            "id": "52:0",
+                                            "name": "Button",
+                                            "type": "VECTOR",
+                                            "blendMode": "PASS_THROUGH",
+                                            "children": [],
+                                            "absoluteBoundingBox": {
+                                                "x": 1300,
+                                                "y": -389,
+                                                "width": 24,
+                                                "height": 24
+                                            },
+                                            "constraints": {
+                                                "vertical": "CENTER",
+                                                "horizontal": "CENTER"
+                                            },
+                                            "clipsContent": false,
+                                            "background": [],
+                                            "fills": [],
+                                            "strokes": [],
+                                            "strokeWeight": 1,
+                                            "strokeAlign": "INSIDE",
+                                            "backgroundColor": {
+                                                "r": 0,
+                                                "g": 0,
+                                                "b": 0,
+                                                "a": 0
+                                            },
+                                            "effects": []
+                                        }
+                                    ],
                                     "absoluteBoundingBox": {
                                         "x": 1300,
                                         "y": -389,
                                         "width": 24,
                                         "height": 24
                                     },
+                                    "preserveRatio": true,
                                     "constraints": {
                                         "vertical": "BOTTOM",
                                         "horizontal": "LEFT"
                                     },
-                                    "clipsContent": false,
-                                    "background": [],
-                                    "fills": [],
+                                    "clipsContent": true,
+                                    "background": [
+                                        {
+                                            "blendMode": "NORMAL",
+                                            "visible": false,
+                                            "type": "SOLID",
+                                            "color": {
+                                                "r": 1,
+                                                "g": 1,
+                                                "b": 1,
+                                                "a": 1
+                                            }
+                                        }
+                                    ],
+                                    "fills": [
+                                        {
+                                            "blendMode": "NORMAL",
+                                            "visible": false,
+                                            "type": "SOLID",
+                                            "color": {
+                                                "r": 1,
+                                                "g": 1,
+                                                "b": 1,
+                                                "a": 1
+                                            }
+                                        }
+                                    ],
                                     "strokes": [],
                                     "strokeWeight": 1,
                                     "strokeAlign": "INSIDE",
@@ -1484,6 +1664,7 @@
                                         "b": 0,
                                         "a": 0
                                     },
+                                    "exportSettings": [],
                                     "effects": []
                                 }
                             ],

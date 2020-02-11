@@ -183,16 +183,13 @@ function convertStyles(styles, intent = '', additionalIntent = '') {
     .join('\n');
 }
 
-function genClassName() {
-  return 'figma-' + (Math.random() * 1000000).toFixed(0);
-}
-
 const createComponent = (component, imgMap, componentMap) => {
   const name = component.name.replace(/\W+/g, '');
   const fileName = getFileName(component.name);
   const instance = name + component.id.replace(';', 'S').replace(':', 'D');
   const stylesIntent = '      ';
   let doc = '';
+  let styleCounter = -1;
   let styles = `
       input {
         font: inherit;
@@ -201,40 +198,39 @@ const createComponent = (component, imgMap, componentMap) => {
         background-color: inherit;
         color: inherit;
       }
-
       input:focus {
         outline: none;
       }
-
       .outer-div {
         position: relative;
         display: flex;
         width: 100%;
         pointer-events: none;
       }
-
       .inner-div {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
       }
-
       .centerer {
         position: absolute;
         height: 100%;
         top: 0;
         left: 0;
       }
-
       .vector :global(svg) {
         width: 100%;
         height: 100%;
         position: absolute;
-      }
-`;
+      }`;
 
   function print(msg, indent = '', additional = '') {
     doc += `${additional}${indent}${msg}\n`;
+  }
+
+  function genClassName() {
+    styleCounter++;
+    return 'figma-' + styleCounter;
   }
 
   function printStyle(style) {
