@@ -22,25 +22,22 @@ export const getComponentFromId = (id) => {
 const Clock15D2 = observer(() => {
   return (<>
     <div>
-      <div className="outer-div" style={{}}>
+      <div className="outer-div">
         <div
           id="15:0"
-          style={{"marginLeft":0,"width":1016,"minWidth":1016,"height":null,"marginTop":0,"marginBottom":0,"minHeight":77,"backgroundColor":"rgba(0, 0, 0, 0)"}}
-          className="inner-div"
+          className="inner-div figma-209161"
         >
           <div>
-            <div className="outer-div centerer" style={{}}>
+            <div className="outer-div centerer">
               <div
                 id="14:140"
-                style={{"marginLeft":0,"marginRight":0,"flexGrow":1,"marginTop":40,"marginBottom":1,"backgroundColor":"rgba(255, 255, 255, 1)"}}
-                className="inner-div"
+                className="inner-div figma-870906"
               >
                 <div>
-                  <div className="outer-div" style={{"zIndex":4}}>
+                  <div className="outer-div figma-140021">
                     <div
                       id="14:164"
-                      style={{"marginLeft":72,"width":28,"minWidth":28,"height":null,"marginTop":4,"marginBottom":4,"minHeight":28}}
-                      className="inner-div"
+                      className="inner-div figma-875593"
                     >
                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="28" height="28" fill="white"/>
@@ -49,11 +46,10 @@ const Clock15D2 = observer(() => {
 `}} />
                     </div>
                   </div>
-                  <div className="outer-div" style={{"zIndex":5}}>
+                  <div className="outer-div figma-818339">
                     <div
                       id="14:167"
-                      style={{"marginLeft":40,"width":28,"minWidth":28,"height":null,"marginTop":-32,"marginBottom":4,"minHeight":28}}
-                      className="inner-div"
+                      className="inner-div figma-184185"
                     >
                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="28" height="28" fill="white"/>
@@ -62,11 +58,10 @@ const Clock15D2 = observer(() => {
 `}} />
                     </div>
                   </div>
-                  <div className="outer-div" style={{"zIndex":6}}>
+                  <div className="outer-div figma-987355">
                     <div
                       id="14:170"
-                      style={{"marginLeft":8,"width":28,"minWidth":28,"height":null,"marginTop":-32,"marginBottom":4,"minHeight":28}}
-                      className="inner-div"
+                      className="inner-div figma-609499"
                     >
                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="28" height="28" fill="white"/>
@@ -75,11 +70,10 @@ const Clock15D2 = observer(() => {
 `}} />
                     </div>
                   </div>
-                  <div className="outer-div" style={{"zIndex":2}}>
+                  <div className="outer-div figma-28631">
                     <div
                       id="14:148"
-                      style={{"marginLeft":952,"width":20,"minWidth":20,"height":null,"marginTop":-28,"marginBottom":8,"minHeight":20}}
-                      className="inner-div"
+                      className="inner-div figma-769158"
                     >
                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <circle cx="10" cy="10" r="10" fill="url(#pattern0)"/>
@@ -98,28 +92,25 @@ const Clock15D2 = observer(() => {
 `}} />
                     </div>
                   </div>
-                  <div className="outer-div centerer" style={{}}>
+                  <div className="outer-div centerer">
                     <div
                       id="14:141"
-                      style={{"marginLeft":0,"marginRight":0,"flexGrow":1,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(255, 255, 255, 1)","boxShadow":"0px 1px 0px rgba(239, 241, 244, 1)"}}
-                      className="inner-div"
+                      className="inner-div figma-932794"
                     >
                       <div>
                       </div>
                     </div>
                   </div>
-                  <div className="outer-div centerer" style={{"zIndex":1,"justifyContent":"flex-end","alignItems":"center"}}>
+                  <div className="outer-div centerer figma-431669">
                     <div
                       id="14:142"
-                      style={{"marginRight":8,"width":28,"minWidth":28,"height":28,"marginTop":0,"backgroundColor":"rgba(0, 0, 0, 0)"}}
-                      className="inner-div"
+                      className="inner-div figma-266054"
                     >
                       <div>
-                        <div className="outer-div" style={{}}>
+                        <div className="outer-div">
                           <div
                             id="14:144"
-                            style={{"marginLeft":12.5,"width":3,"minWidth":3,"height":null,"marginTop":7.5,"marginBottom":7.5,"minHeight":13}}
-                            className="inner-div"
+                            className="inner-div figma-216474"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="3" height="13" viewBox="0 0 3 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5C3 2.32843 2.32843 3 1.5 3C0.671573 3 0 2.32843 0 1.5C0 0.671573 0.671573 0 1.5 0C2.32843 0 3 0.671573 3 1.5ZM3 6.5C3 7.32843 2.32843 8 1.5 8C0.671573 8 0 7.32843 0 6.5C0 5.67157 0.671573 5 1.5 5C2.32843 5 3 5.67157 3 6.5ZM1.5 13C2.32843 13 3 12.3284 3 11.5C3 10.6716 2.32843 10 1.5 10C0.671573 10 0 10.6716 0 11.5C0 12.3284 0.671573 13 1.5 13Z" fill="#4B4D52"/>
@@ -130,35 +121,31 @@ const Clock15D2 = observer(() => {
                       </div>
                     </div>
                   </div>
-                  <div className="outer-div centerer" style={{"zIndex":3}}>
+                  <div className="outer-div centerer figma-217951">
                     <div
                       id="14:150"
-                      style={{"marginLeft":112,"marginRight":80,"flexGrow":1,"marginTop":4,"marginBottom":4,"backgroundColor":"rgba(0, 0, 0, 0)"}}
-                      className="inner-div"
+                      className="inner-div figma-580957"
                     >
                       <div>
-                        <div className="outer-div centerer" style={{}}>
+                        <div className="outer-div centerer">
                           <div
                             id="14:151"
-                            style={{"marginLeft":0,"marginRight":0,"flexGrow":1,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(239, 241, 244, 1)","borderRadius":"24px 24px 24px 24px"}}
-                            className="inner-div"
+                            className="inner-div figma-397773"
                           >
                             <div>
                             </div>
                           </div>
                         </div>
-                        <div className="outer-div centerer" style={{"zIndex":1,"justifyContent":"flex-end"}}>
+                        <div className="outer-div centerer figma-513502">
                           <div
                             id="14:153"
-                            style={{"marginRight":0,"width":36,"minWidth":36,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(0, 0, 0, 0)"}}
-                            className="inner-div"
+                            className="inner-div figma-58734"
                           >
                             <div>
-                              <div className="outer-div" style={{}}>
+                              <div className="outer-div">
                                 <div
                                   id="14:155"
-                                  style={{"marginLeft":10,"width":16,"minWidth":16,"height":null,"marginTop":6,"marginBottom":6,"minHeight":16}}
-                                  className="inner-div"
+                                  className="inner-div figma-690079"
                                 >
                                   <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 1.629L9.311 5.69406L9.42302 6.04138L9.78796 6.04059L14.0592 6.03125L10.5982 8.53426L10.3025 8.74812L10.416 9.09496L11.7448 13.1543L8.29478 10.6361L8 10.421L7.70522 10.6361L4.25522 13.1543L5.58398 9.09496L5.69751 8.74812L5.4018 8.53426L1.94081 6.03125L6.21204 6.04059L6.57698 6.04138L6.689 5.69406L8 1.629Z" stroke="#4B4D52"/>
@@ -169,47 +156,42 @@ const Clock15D2 = observer(() => {
                             </div>
                           </div>
                         </div>
-                        <div className="outer-div centerer" style={{"zIndex":2,"alignItems":"center"}}>
+                        <div className="outer-div centerer figma-805336">
                           <div
                             id="14:157"
-                            style={{"marginLeft":36,"marginRight":42,"flexGrow":1,"height":16,"marginTop":0,"color":"rgba(75, 77, 82, 1)","fontSize":14,"fontWeight":400,"fontFamily":"Roboto","textAlign":"LEFT","fontStyle":"normal","lineHeight":"121.90476417541504%","letterSpacing":"0.28px"}}
-                            className="inner-div"
+                            className="inner-div figma-722309"
                           >
                             <div>
-                              <span style={{}} key="6">chrome</span>
-                              <span style={{"fontStyle":"normal","lineHeight":"NaN%","letterSpacing":"undefinedpx"}} key="end">://newtab</span>
+                              <span key="6">chrome</span>
+                              <span className="figma-520665" key="end">://newtab</span>
                             </div>
                           </div>
                         </div>
-                        <div className="outer-div centerer" style={{"zIndex":3}}>
+                        <div className="outer-div centerer figma-330822">
                           <div
                             id="14:158"
-                            style={{"marginLeft":0,"width":36,"minWidth":36,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(0, 0, 0, 0)","overflow":"hidden"}}
-                            className="inner-div"
+                            className="inner-div figma-881474"
                           >
                             <div>
-                              <div className="outer-div centerer" style={{"alignItems":"center"}}>
+                              <div className="outer-div centerer figma-507294">
                                 <div
                                   id="14:160"
-                                  style={{"marginLeft":10,"width":16,"minWidth":16,"height":16,"marginTop":0,"backgroundColor":"rgba(0, 0, 0, 0)","overflow":"hidden"}}
-                                  className="inner-div"
+                                  className="inner-div figma-406"
                                 >
                                   <div>
-                                    <div className="outer-div" style={{"zIndex":1}}>
+                                    <div className="outer-div figma-615859">
                                       <div
                                         id="14:163"
-                                        style={{"marginLeft":6,"width":4,"minWidth":4,"height":null,"marginTop":3,"marginBottom":10,"minHeight":3,"border":"1px solid rgba(75, 77, 82, 1)","borderRadius":"2px 2px 0px 0px"}}
-                                        className="inner-div"
+                                        className="inner-div figma-515365"
                                       >
                                         <div>
                                         </div>
                                       </div>
                                     </div>
-                                    <div className="outer-div" style={{}}>
+                                    <div className="outer-div">
                                       <div
                                         id="14:162"
-                                        style={{"marginLeft":4,"width":8,"minWidth":8,"height":null,"marginTop":-10,"marginBottom":3,"minHeight":7,"backgroundColor":"rgba(75, 77, 82, 1)","borderRadius":"2px 2px 2px 2px"}}
-                                        className="inner-div"
+                                        className="inner-div figma-575106"
                                       >
                                         <div>
                                         </div>
@@ -227,32 +209,28 @@ const Clock15D2 = observer(() => {
                 </div>
               </div>
             </div>
-            <div className="outer-div centerer" style={{"zIndex":1}}>
+            <div className="outer-div centerer figma-125379">
               <div
                 id="14:173"
-                style={{"marginLeft":0,"marginRight":0,"flexGrow":1,"marginTop":0,"marginBottom":37,"backgroundColor":"rgba(0, 0, 0, 0)","overflow":"hidden"}}
-                className="inner-div"
+                className="inner-div figma-140551"
               >
                 <div>
-                  <div className="outer-div" style={{"zIndex":2}}>
+                  <div className="outer-div figma-819042">
                     <div
                       id="14:178"
-                      style={{"marginLeft":80,"width":39,"minWidth":39,"height":null,"marginTop":8,"marginBottom":0,"minHeight":32,"backgroundColor":"rgba(0, 0, 0, 0)"}}
-                      className="inner-div"
+                      className="inner-div figma-765410"
                     >
                       <div>
-                        <div className="outer-div centerer" style={{"alignItems":"center"}}>
+                        <div className="outer-div centerer figma-441698">
                           <div
                             id="14:180"
-                            style={{"marginLeft":12,"width":16,"minWidth":16,"height":16,"marginTop":0,"backgroundColor":"rgba(0, 0, 0, 0)","overflow":"hidden"}}
-                            className="inner-div"
+                            className="inner-div figma-368326"
                           >
                             <div>
-                              <div className="outer-div centerer" style={{}}>
+                              <div className="outer-div centerer">
                                 <div
                                   id="14:181"
-                                  style={{"width":"87.5%","marginLeft":"6.25%","height":"87.5%","top":"6.25%"}}
-                                  className="inner-div"
+                                  className="inner-div figma-292504"
                                 >
                                   <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_i)">
@@ -294,35 +272,31 @@ const Clock15D2 = observer(() => {
                       </div>
                     </div>
                   </div>
-                  <div className="outer-div" style={{"zIndex":3}}>
+                  <div className="outer-div figma-162626">
                     <div
                       id="14:187"
-                      style={{"marginLeft":120,"width":240,"minWidth":240,"height":null,"marginTop":-32,"marginBottom":0,"minHeight":32,"backgroundColor":"rgba(0, 0, 0, 0)"}}
-                      className="inner-div"
+                      className="inner-div figma-857947"
                     >
                       <div>
-                        <div className="outer-div centerer" style={{}}>
+                        <div className="outer-div centerer">
                           <div
                             id="14:188"
-                            style={{"marginLeft":0,"marginRight":0,"flexGrow":1,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"8px 8px 0px 0px"}}
-                            className="inner-div"
+                            className="inner-div figma-271349"
                           >
                             <div>
                             </div>
                           </div>
                         </div>
-                        <div className="outer-div centerer" style={{"zIndex":1,"alignItems":"center"}}>
+                        <div className="outer-div centerer figma-629690">
                           <div
                             id="14:189"
-                            style={{"marginLeft":12,"width":16,"minWidth":16,"height":16,"marginTop":0,"backgroundColor":"rgba(0, 0, 0, 0)","overflow":"hidden"}}
-                            className="inner-div"
+                            className="inner-div figma-654902"
                           >
                             <div>
-                              <div className="outer-div centerer" style={{}}>
+                              <div className="outer-div centerer">
                                 <div
                                   id="14:190"
-                                  style={{"width":"87.50000596046448%","marginLeft":"6.25%","height":"87.50000596046448%","top":"6.25%"}}
-                                  className="inner-div"
+                                  className="inner-div figma-759339"
                                 >
                                   <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_i)">
@@ -359,22 +333,20 @@ const Clock15D2 = observer(() => {
                             </div>
                           </div>
                         </div>
-                        <div className="outer-div centerer" style={{"zIndex":2,"alignItems":"center"}}>
+                        <div className="outer-div centerer figma-429927">
                           <div
                             id="14:193"
-                            style={{"marginLeft":36,"marginRight":28,"flexGrow":1,"height":16,"marginTop":0,"color":"rgba(75, 77, 82, 1)","fontSize":12,"fontWeight":400,"fontFamily":"Roboto","textAlign":"LEFT","fontStyle":"normal","lineHeight":"142.22222328186035%","letterSpacing":"0.24px"}}
-                            className="inner-div"
+                            className="inner-div figma-736081"
                           >
                             <div>
-                              <span style={{}} key="end">Advisor Access</span>
+                              <span key="end">Advisor Access</span>
                             </div>
                           </div>
                         </div>
-                        <div className="outer-div centerer" style={{"zIndex":3,"justifyContent":"center","alignItems":"center"}}>
+                        <div className="outer-div centerer figma-730703">
                           <div
                             id="14:194"
-                            style={{"width":16,"marginLeft":212,"height":16,"marginTop":0}}
-                            className="inner-div"
+                            className="inner-div figma-262662"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5 5L11 11M11 5L5 11" stroke="#4B4D52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -382,17 +354,15 @@ const Clock15D2 = observer(() => {
 `}} />
                           </div>
                         </div>
-                        <div className="outer-div maxer" style={{"zIndex":3}}>
+                        <div className="outer-div maxer figma-715700">
                           <div
                             id="14:187"
-                            style={{"marginLeft":120,"width":"100%","minWidth":240,"height":null,"marginTop":-32,"marginBottom":0,"minHeight":32,"backgroundColor":null,"pointerEvents":"none"}}
-                            className="inner-div"
+                            className="inner-div figma-419142"
                           >
-                            <div className="outer-div" style={{"zIndex":4,"justifyContent":"flex-end"}}>
+                            <div className="outer-div figma-955605">
                               <div
                                 id="14:197"
-                                style={{"marginRight":-8,"width":8,"minWidth":8,"height":null,"marginTop":24,"marginBottom":0,"minHeight":8}}
-                                className="inner-div"
+                                className="inner-div figma-455426"
                               >
                                 <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 8H0V0C0 4.41827 3.58173 8 8 8Z" fill="white"/>
@@ -400,11 +370,10 @@ const Clock15D2 = observer(() => {
 `}} />
                               </div>
                             </div>
-                            <div className="outer-div" style={{"zIndex":5}}>
+                            <div className="outer-div figma-531677">
                               <div
                                 id="14:198"
-                                style={{"marginLeft":-8,"width":8,"minWidth":8,"height":null,"marginTop":-8,"marginBottom":0,"minHeight":8}}
-                                className="inner-div"
+                                className="inner-div figma-92249"
                               >
                                 <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 8H8V0C8 4.41827 4.41827 8 0 8Z" fill="white"/>
@@ -417,21 +386,19 @@ const Clock15D2 = observer(() => {
                       </div>
                     </div>
                   </div>
-                  <div className="outer-div centerer" style={{}}>
+                  <div className="outer-div centerer">
                     <div
                       id="14:174"
-                      style={{"marginLeft":0,"marginRight":0,"flexGrow":1,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(225, 228, 235, 1)","borderRadius":"4px 4px 0px 0px"}}
-                      className="inner-div"
+                      className="inner-div figma-842112"
                     >
                       <div>
                       </div>
                     </div>
                   </div>
-                  <div className="outer-div centerer" style={{"zIndex":1,"justifyContent":"center","alignItems":"center"}}>
+                  <div className="outer-div centerer figma-500738">
                     <div
                       id="14:175"
-                      style={{"width":28,"marginLeft":-252,"height":28,"marginTop":8}}
-                      className="inner-div"
+                      className="inner-div figma-5477"
                     >
                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9 14H19M14 9V19" stroke="#4B4D52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -439,11 +406,10 @@ const Clock15D2 = observer(() => {
 `}} />
                     </div>
                   </div>
-                  <div className="outer-div centerer" style={{"zIndex":4,"alignItems":"center"}}>
+                  <div className="outer-div centerer figma-351312">
                     <div
                       id="14:199"
-                      style={{"marginLeft":0,"width":80,"minWidth":80,"height":32,"marginTop":8}}
-                      className="inner-div"
+                      className="inner-div figma-566261"
                     >
                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="60" cy="16" r="6" fill="#64C255"/>
@@ -463,6 +429,388 @@ const Clock15D2 = observer(() => {
         </div>
       </div>
     </div>
+    <style jsx>{`
+      .figma-209161 {
+        margin-left: 0px;
+        width: 1016px;
+        min-width: 1016px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        min-height: 77px;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .figma-870906 {
+        margin-left: 0px;
+        margin-right: 0px;
+        flex-grow: 1;
+        margin-top: 40px;
+        margin-bottom: 1px;
+        background-color: rgba(255, 255, 255, 1);
+      }
+      .figma-875593 {
+        margin-left: 72px;
+        width: 28px;
+        min-width: 28px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        min-height: 28px;
+      }
+      .figma-140021 {
+        z-index: 4;
+      }
+      .figma-184185 {
+        margin-left: 40px;
+        width: 28px;
+        min-width: 28px;
+        margin-top: -32px;
+        margin-bottom: 4px;
+        min-height: 28px;
+      }
+      .figma-818339 {
+        z-index: 5;
+      }
+      .figma-609499 {
+        margin-left: 8px;
+        width: 28px;
+        min-width: 28px;
+        margin-top: -32px;
+        margin-bottom: 4px;
+        min-height: 28px;
+      }
+      .figma-987355 {
+        z-index: 6;
+      }
+      .figma-769158 {
+        margin-left: 952px;
+        width: 20px;
+        min-width: 20px;
+        margin-top: -28px;
+        margin-bottom: 8px;
+        min-height: 20px;
+      }
+      .figma-28631 {
+        z-index: 2;
+      }
+      .figma-932794 {
+        margin-left: 0px;
+        margin-right: 0px;
+        flex-grow: 1;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: 0px 1px 0px rgba(239, 241, 244, 1);
+      }
+      .figma-266054 {
+        margin-right: 8px;
+        width: 28px;
+        min-width: 28px;
+        height: 28px;
+        margin-top: 0px;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .figma-431669 {
+        z-index: 1;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .figma-216474 {
+        margin-left: 12.5px;
+        width: 3px;
+        min-width: 3px;
+        margin-top: 7.5px;
+        margin-bottom: 7.5px;
+        min-height: 13px;
+      }
+      .figma-580957 {
+        margin-left: 112px;
+        margin-right: 80px;
+        flex-grow: 1;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .figma-217951 {
+        z-index: 3;
+      }
+      .figma-397773 {
+        margin-left: 0px;
+        margin-right: 0px;
+        flex-grow: 1;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: rgba(239, 241, 244, 1);
+        border-radius: 24px 24px 24px 24px;
+      }
+      .figma-58734 {
+        margin-right: 0px;
+        width: 36px;
+        min-width: 36px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .figma-513502 {
+        z-index: 1;
+        justify-content: flex-end;
+      }
+      .figma-690079 {
+        margin-left: 10px;
+        width: 16px;
+        min-width: 16px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        min-height: 16px;
+      }
+      .figma-520665 {
+        font-style: normal;
+        line-height: NaN%;
+        letter-spacing: undefinedpx;
+      }
+      .figma-722309 {
+        margin-left: 36px;
+        margin-right: 42px;
+        flex-grow: 1;
+        height: 16px;
+        margin-top: 0px;
+        color: rgba(75, 77, 82, 1);
+        font-size: 14px;
+        font-weight: 400;
+        font-family: Roboto;
+        text-align: LEFT;
+        font-style: normal;
+        line-height: 121.90476417541504%;
+        letter-spacing: 0.28px;
+      }
+      .figma-805336 {
+        z-index: 2;
+        align-items: center;
+      }
+      .figma-881474 {
+        margin-left: 0px;
+        width: 36px;
+        min-width: 36px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: rgba(0, 0, 0, 0);
+        overflow: hidden;
+      }
+      .figma-330822 {
+        z-index: 3;
+      }
+      .figma-406 {
+        margin-left: 10px;
+        width: 16px;
+        min-width: 16px;
+        height: 16px;
+        margin-top: 0px;
+        background-color: rgba(0, 0, 0, 0);
+        overflow: hidden;
+      }
+      .figma-507294 {
+        align-items: center;
+      }
+      .figma-515365 {
+        margin-left: 6px;
+        width: 4px;
+        min-width: 4px;
+        margin-top: 3px;
+        margin-bottom: 10px;
+        min-height: 3px;
+        border: 1px solid rgba(75, 77, 82, 1);
+        border-radius: 2px 2px 0px 0px;
+      }
+      .figma-615859 {
+        z-index: 1;
+      }
+      .figma-575106 {
+        margin-left: 4px;
+        width: 8px;
+        min-width: 8px;
+        margin-top: -10px;
+        margin-bottom: 3px;
+        min-height: 7px;
+        background-color: rgba(75, 77, 82, 1);
+        border-radius: 2px 2px 2px 2px;
+      }
+      .figma-140551 {
+        margin-left: 0px;
+        margin-right: 0px;
+        flex-grow: 1;
+        margin-top: 0px;
+        margin-bottom: 37px;
+        background-color: rgba(0, 0, 0, 0);
+        overflow: hidden;
+      }
+      .figma-125379 {
+        z-index: 1;
+      }
+      .figma-765410 {
+        margin-left: 80px;
+        width: 39px;
+        min-width: 39px;
+        margin-top: 8px;
+        margin-bottom: 0px;
+        min-height: 32px;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .figma-819042 {
+        z-index: 2;
+      }
+      .figma-368326 {
+        margin-left: 12px;
+        width: 16px;
+        min-width: 16px;
+        height: 16px;
+        margin-top: 0px;
+        background-color: rgba(0, 0, 0, 0);
+        overflow: hidden;
+      }
+      .figma-441698 {
+        align-items: center;
+      }
+      .figma-292504 {
+        width: 87.5%;
+        margin-left: 6.25%;
+        height: 87.5%;
+        top: 6.25%;
+      }
+      .figma-857947 {
+        margin-left: 120px;
+        width: 240px;
+        min-width: 240px;
+        margin-top: -32px;
+        margin-bottom: 0px;
+        min-height: 32px;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .figma-162626 {
+        z-index: 3;
+      }
+      .figma-271349 {
+        margin-left: 0px;
+        margin-right: 0px;
+        flex-grow: 1;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 8px 8px 0px 0px;
+      }
+      .figma-654902 {
+        margin-left: 12px;
+        width: 16px;
+        min-width: 16px;
+        height: 16px;
+        margin-top: 0px;
+        background-color: rgba(0, 0, 0, 0);
+        overflow: hidden;
+      }
+      .figma-629690 {
+        z-index: 1;
+        align-items: center;
+      }
+      .figma-759339 {
+        width: 87.50000596046448%;
+        margin-left: 6.25%;
+        height: 87.50000596046448%;
+        top: 6.25%;
+      }
+      .figma-736081 {
+        margin-left: 36px;
+        margin-right: 28px;
+        flex-grow: 1;
+        height: 16px;
+        margin-top: 0px;
+        color: rgba(75, 77, 82, 1);
+        font-size: 12px;
+        font-weight: 400;
+        font-family: Roboto;
+        text-align: LEFT;
+        font-style: normal;
+        line-height: 142.22222328186035%;
+        letter-spacing: 0.24px;
+      }
+      .figma-429927 {
+        z-index: 2;
+        align-items: center;
+      }
+      .figma-262662 {
+        width: 16px;
+        margin-left: 212px;
+        height: 16px;
+        margin-top: 0px;
+      }
+      .figma-730703 {
+        z-index: 3;
+        justify-content: center;
+        align-items: center;
+      }
+      .figma-419142 {
+        margin-left: 120px;
+        width: 100%;
+        min-width: 240px;
+        margin-top: -32px;
+        margin-bottom: 0px;
+        min-height: 32px;
+        pointer-events: none;
+      }
+      .figma-715700 {
+        z-index: 3;
+      }
+      .figma-455426 {
+        margin-right: -8px;
+        width: 8px;
+        min-width: 8px;
+        margin-top: 24px;
+        margin-bottom: 0px;
+        min-height: 8px;
+      }
+      .figma-955605 {
+        z-index: 4;
+        justify-content: flex-end;
+      }
+      .figma-92249 {
+        margin-left: -8px;
+        width: 8px;
+        min-width: 8px;
+        margin-top: -8px;
+        margin-bottom: 0px;
+        min-height: 8px;
+      }
+      .figma-531677 {
+        z-index: 5;
+      }
+      .figma-842112 {
+        margin-left: 0px;
+        margin-right: 0px;
+        flex-grow: 1;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: rgba(225, 228, 235, 1);
+        border-radius: 4px 4px 0px 0px;
+      }
+      .figma-5477 {
+        width: 28px;
+        margin-left: -252px;
+        height: 28px;
+        margin-top: 8px;
+      }
+      .figma-500738 {
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+      }
+      .figma-566261 {
+        margin-left: 0px;
+        width: 80px;
+        min-width: 80px;
+        height: 32px;
+        margin-top: 8px;
+      }
+      .figma-351312 {
+        z-index: 4;
+        align-items: center;
+      }
+    `}</style>
   </>);
 });
 

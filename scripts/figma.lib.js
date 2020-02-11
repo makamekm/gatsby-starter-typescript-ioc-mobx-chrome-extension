@@ -162,6 +162,7 @@ function convertStyles(styles, intent = '', additionalIntent = '') {
           'right',
           'top',
           'bottom',
+          'font-size',
           'margin-right',
           'margin-left',
           'margin-top',
@@ -172,7 +173,7 @@ function convertStyles(styles, intent = '', additionalIntent = '') {
           'padding-bottom'
         ].includes(name) &&
         styles[key] != null &&
-        String(styles[key]).match(/[^0-9\.]/g) == null
+        String(styles[key]).match(/[^0-9\.\-]/g) == null
       ) {
         styles[key] = `${styles[key]}px`;
       }
@@ -403,13 +404,9 @@ const createComponent = (component, imgMap, componentMap) => {
               applyFontStyle(styleCache[currStyle], node.styleOverrideTable[currStyle]);
             }
 
-            const styleOverride = styleCache[currStyle] ? JSON.stringify(styleCache[currStyle]) : '{}';
-
-            ps.push(`<span style={${styleOverride}} key="${key}">${para}</span>`);
-
-            // const id = printStyle(styleCache[currStyle]);
-            // if (id) ps.push(`<span className="${id}" key="${key}">${para}</span>`);
-            // else ps.push(`<span key="${key}">${para}</span>`);
+            const id = printStyle(styleCache[currStyle]);
+            if (id) ps.push(`<span className="${id}" key="${key}">${para}</span>`);
+            else ps.push(`<span key="${key}">${para}</span>`);
             para = '';
           }
         };
@@ -440,13 +437,12 @@ const createComponent = (component, imgMap, componentMap) => {
     }
 
     function printDiv(innerStyle, outerStyle, indent) {
-      const innerId = false && printStyle(innerStyle);
-      const outerId = false && printStyle(outerStyle);
+      const innerId = printStyle(innerStyle);
+      const outerId = printStyle(outerStyle);
       if (outerId) print(`<div className="${outerClass} ${outerId}">`, indent);
-      else print(`<div className="${outerClass}" style={${JSON.stringify(outerStyle)}}>`, indent);
+      else print(`<div className="${outerClass}">`, indent);
       print(`<div`, indent, '  ');
       print(`id="${node.id}"`, indent, '    ');
-      print(`style={${JSON.stringify(innerStyle)}}`, indent, '    ');
       if (innerId) print(`className="${innerClass} ${innerId}"`, indent, '    ');
       else print(`className="${innerClass}"`, indent, '    ');
       print(`>`, indent, '  ');
