@@ -136,6 +136,8 @@ async function main() {
   contents += `\n`;
   let nextSection = '';
 
+  fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
+
   for (let i = 0; i < canvas.children.length; i++) {
     const child = canvas.children[i];
     if (child.name.charAt(0) === '#' && child.visible !== false) {
@@ -144,11 +146,11 @@ async function main() {
       nextSection += `export const Master${child.name.replace(/\W+/g, '')} = (props) => {\n`;
       nextSection += `  return <div className="master">\n`;
       nextSection += `    <${child.name.replace(/\W+/g, '')} {...props} nodeId="${child.id}" />\n`;
-      nextSection += `    <style jsx>{\`\n`;
-      nextSection += `      .master {\n`;
-      nextSection += `        background-color: "${figma.colorString(child.backgroundColor)}";\n`;
-      nextSection += `      }\n`;
-      nextSection += `    \`}</style>\n`;
+      // nextSection += `    <style jsx>{\`\n`;
+      // nextSection += `      .master {\n`;
+      // nextSection += `        background-color: "${figma.colorString(child.backgroundColor)}";\n`;
+      // nextSection += `      }\n`;
+      // nextSection += `    \`}</style>\n`;
       nextSection += '  </div>\n';
       nextSection += '}\n\n';
     }
@@ -178,7 +180,7 @@ async function main() {
   contents += nextSection;
 
   const path = './src/design-system/generated.tsx';
-  fs.writeFile(path, contents, function(err) {
+  fs.writeFile(path, contents, function (err) {
     if (err) console.log(err);
     console.log(`wrote ${path}`);
   });

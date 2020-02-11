@@ -258,10 +258,21 @@ const createComponent = (component, imgMap, componentMap) => {
   // Stage 2 (Generate the component from the root)
 
   visitNode(component, null, null, '');
-  if (styles) print(`<style jsx>{\`${styles}\n    \`}</style>`, '    ');
+
+  // Stage 3 (Collect all styles)
+
+  print(`<style jsx>{\`${styles}\n    \`}</style>`, '    ');
+
+  // Stage 4 (Finish the component)
+
   print('</>);', '  ');
   print('});', '');
+
+  // Stage 5 (Cache the finished component)
+
   componentMap[component.id] = { instance, name, doc };
+
+  // Template
 
   function visitNode(node, parent, lastVertical, indent) {
     let content = null;
