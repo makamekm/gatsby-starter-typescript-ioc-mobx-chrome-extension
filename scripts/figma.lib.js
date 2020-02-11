@@ -292,6 +292,7 @@ const createComponent = (component, imgMap, componentMap) => {
       }
     } else {
       if (bounds != null) {
+        console.log(bounds);
         styles.marginLeft = bounds.left;
         styles.width = bounds.width;
         styles.minWidth = bounds.width;
