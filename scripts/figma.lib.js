@@ -193,7 +193,45 @@ const createComponent = (component, imgMap, componentMap) => {
   const instance = name + component.id.replace(';', 'S').replace(':', 'D');
   const stylesIntent = '      ';
   let doc = '';
-  let styles = '';
+  let styles = `
+      input {
+        font: inherit;
+        border: inherit;
+        padding: inherit;
+        background-color: inherit;
+        color: inherit;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      .outer-div {
+        position: relative;
+        display: flex;
+        width: 100%;
+        pointer-events: none;
+      }
+
+      .inner-div {
+        position: relative;
+        box-sizing: border-box;
+        pointer-events: auto;
+      }
+
+      .centerer {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      .vector :global(svg) {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+`;
 
   function print(msg, indent = '', additional = '') {
     doc += `${additional}${indent}${msg}\n`;
@@ -292,7 +330,6 @@ const createComponent = (component, imgMap, componentMap) => {
       }
     } else {
       if (bounds != null) {
-        console.log(bounds);
         styles.marginLeft = bounds.left;
         styles.width = bounds.width;
         styles.minWidth = bounds.width;
@@ -440,47 +477,49 @@ const createComponent = (component, imgMap, componentMap) => {
     function printDiv(innerStyle, outerStyle, indent) {
       const innerId = printStyle(innerStyle);
       const outerId = printStyle(outerStyle);
-      if (outerId) print(`<div className="${outerClass} ${outerId}">`, indent);
-      else print(`<div className="${outerClass}">`, indent);
+
+      if (innerId) innerClass += ' ' + innerId;
+      if (outerId) outerClass += ' ' + outerId;
+
+      print(`<div className="${outerClass}">`, indent);
       print(`<div`, indent, '  ');
       print(`id="${node.id}"`, indent, '    ');
-      if (innerId) print(`className="${innerClass} ${innerId}"`, indent, '    ');
-      else print(`className="${innerClass}"`, indent, '    ');
+      print(`className="${innerClass}"`, indent, '    ');
       print(`>`, indent, '  ');
     }
+
     if (parent != null) {
       printDiv(styles, outerStyle, indent);
     }
 
     if (node.id !== component.id && node.name.charAt(0) === '#') {
-      print(`    <${node.name.replace(/\W+/g, '')} {...this.props} nodeId="${node.id}" />`, indent);
+      print(`<${node.name.replace(/\W+/g, '')} {...this.props} nodeId="${node.id}" />`, indent, '    ');
       createComponent(node, imgMap, componentMap);
     } else if (node.type === 'VECTOR') {
-      print(`    <div className="vector" dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`, indent);
+      print(`<div className="vector" dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`, indent, '    ');
     } else {
       const newNodeBounds = node.absoluteBoundingBox;
       const newLastVertical = newNodeBounds && newNodeBounds.y + newNodeBounds.height;
-      print(`    <div>`, indent);
+      print(`<div>`, indent, '    ');
       let first = true;
+
       for (const child of minChildren) {
         visitNode(child, node, first ? null : newLastVertical, indent + '      ');
         first = false;
       }
-      for (const child of centerChildren) visitNode(child, node, null, indent + '      ');
+
+      for (const child of centerChildren) {
+        visitNode(child, node, null, indent + '      ');
+      }
+
       if (maxChildren.length > 0) {
-        outerClass += ' maxer';
-        styles.width = '100%';
-        styles.pointerEvents = 'none';
-        styles.backgroundColor = null;
-        printDiv(styles, outerStyle, indent + '      ');
         first = true;
         for (const child of maxChildren) {
           visitNode(child, node, first ? null : newLastVertical, indent + '          ');
           first = false;
         }
-        print(`        </div>`, indent);
-        print(`      </div>`, indent);
       }
+
       if (content != null) {
         if (node.name.charAt(0) === '$') {
           const varName = node.name.substring(1);
