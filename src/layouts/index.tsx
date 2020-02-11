@@ -12,14 +12,16 @@ const IndexLayout: React.FC = ({ children, ...props }) => {
 
   return (
     <>
-      <Helmet title="App Name" meta={[{ name: 'description', content: 'Desctiption' }, { name: 'keywords', content: 'keyword' }]} />
+      <Helmet title="App Name" meta={[{ name: 'description', content: 'Desctiption' }, { name: 'keywords', content: 'keyword' }]}>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+      </Helmet>
       {children}
       <Loading active={loading} />
       <style global jsx>{`
         body {
           padding: 0;
           margin: 0;
-          font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+          font-family: 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
           background-color: #f3f7fa;
           color: #4a4a4a;
           max-width: 100vw;

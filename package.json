@@ -24,7 +24,8 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "start": "npm run dev",
     "jest": "jest",
-    "test": "run-s lint jest"
+    "test": "run-s lint jest",
+    "figma": "node scripts/figma.js w3ARSZjvPzL0qmu4ZWJSzx"
   },
   "engines": {
     "node": ">=8.0.0"
