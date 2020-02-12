@@ -136,7 +136,7 @@ async function main() {
   contents += `\n`;
   let nextSection = '';
 
-  fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
+  // fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
 
   for (let i = 0; i < canvas.children.length; i++) {
     const child = canvas.children[i];

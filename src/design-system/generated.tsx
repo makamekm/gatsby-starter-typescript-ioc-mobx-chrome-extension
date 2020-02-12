@@ -182,7 +182,7 @@ const Clock15D2 = observer(() => {
                       <div>
                         <div className="outer-div centerer figma-36">
                           <div
-                            id="52:2"
+                            id="54:3"
                             className="inner-div figma-35"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -202,7 +202,7 @@ const Clock15D2 = observer(() => {
                       <div>
                         <div className="outer-div centerer figma-40">
                           <div
-                            id="52:3"
+                            id="54:2"
                             className="inner-div figma-39"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -222,7 +222,7 @@ const Clock15D2 = observer(() => {
                       <div>
                         <div className="outer-div centerer figma-44">
                           <div
-                            id="52:4"
+                            id="54:1"
                             className="inner-div figma-43"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -691,13 +691,13 @@ const Clock15D2 = observer(() => {
         align-items: center;
       }
       .figma-35 {
+        width: 14px;
         margin-left: 0px;
-        width: 28px;
-        min-width: 28px;
-        height: 28px;
+        height: 14px;
         margin-top: 0px;
       }
       .figma-36 {
+        justify-content: center;
         align-items: center;
       }
       .figma-37 {
@@ -714,9 +714,10 @@ const Clock15D2 = observer(() => {
         align-items: center;
       }
       .figma-39 {
-        width: 28px;
-        height: 28px;
-        margin-top: 0px;
+        width: 12px;
+        margin-left: 0px;
+        height: 11px;
+        margin-top: -1px;
       }
       .figma-40 {
         justify-content: center;
@@ -736,9 +737,10 @@ const Clock15D2 = observer(() => {
         align-items: center;
       }
       .figma-43 {
-        width: 28px;
-        height: 28px;
-        margin-top: 0px;
+        width: 12px;
+        margin-left: 0px;
+        height: 11px;
+        margin-top: -1px;
       }
       .figma-44 {
         justify-content: center;
