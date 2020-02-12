@@ -183,6 +183,15 @@ function convertStyles(styles, intent = '', additionalIntent = '') {
     .join('\n');
 }
 
+function getComponentName(name) {
+  if (name.charAt(0) === '#') name = name.substring(1);
+  let match = name.match(/[a-zA-Z0-9 ]+\./g);
+  match = match && match[0];
+  match = match || '';
+  if (name.charAt(name.length - 1) === '.') name = name.substring(0, name.length - 1);
+  return name;
+}
+
 const createComponent = (component, imgMap, componentMap) => {
   const name = component.name.replace(/\W+/g, '');
   const fileName = getFileName(component.name);
