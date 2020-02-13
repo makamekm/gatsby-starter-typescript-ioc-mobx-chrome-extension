@@ -77,9 +77,10 @@ function expandChildren(node, parent, minChildren, maxChildren, centerChildren, 
     for (let i = 0; i < children.length; i++) {
       const child = children[i];
 
-      if (parent != null && (node.type === 'COMPONENT' || node.type === 'INSTANCE')) {
-        child.constraints = { vertical: 'TOP_BOTTOM', horizontal: 'LEFT_RIGHT' };
-      }
+      // WTF?!?!
+      // if (parent != null && (node.type === 'COMPONENT' || node.type === 'INSTANCE')) {
+      //   child.constraints = { vertical: 'TOP_BOTTOM', horizontal: 'LEFT_RIGHT' };
+      // }
 
       if (GROUP_TYPES.indexOf(child.type) >= 0) {
         added += expandChildren(child, parent, minChildren, maxChildren, centerChildren, added + i);
