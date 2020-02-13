@@ -185,6 +185,25 @@ function convertStyles(styles, intent = '', additionalIntent = '') {
 }
 
 function getComponentName(name) {
+  const dotIndex = name.indexOf('??');
+  if (dotIndex >= 0) {
+    name = params.substring(0, dotIndex);
+  }
+  return name.replace(/\W+/g, '');
+}
+
+function getElementParams(name) {
+  let params = {};
+  const dotIndex = name.indexOf('??');
+  if (dotIndex >= 0) {
+    const paramsStr = params.substring(dotIndex + 2);
+    const paramsSplit = paramsStr.split('&');
+    paramsSplit.forEach(paramStr => {
+      const [paramKey, paramValue] = paramStr.split('=');
+      params[paramKey] = paramValue;
+    });
+  }
+
   if (name.charAt(0) === '#') name = name.substring(1);
   let match = name.match(/[a-zA-Z0-9 ]+\./g);
   match = match && match[0];
@@ -565,4 +584,4 @@ const createComponent = (component, imgMap, componentMap) => {
   }
 };
 
-module.exports = { createComponent, colorString, getFileName };
+module.exports = { createComponent, colorString, getFileName, getComponentName, getElementParams };
