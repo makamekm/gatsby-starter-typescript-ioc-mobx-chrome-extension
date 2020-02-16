@@ -119,9 +119,11 @@ function generateComponentFile(path, name, id) {
     componentSrc += `const Component = getComponentFromId("${id}");\n`;
     componentSrc += `return <Component {...props} />;\n`;
     componentSrc += `});\n`;
-    fs.writeFile(path, prettier.format(componentSrc), err => {
-      if (err) console.log(err);
-      console.log(`wrote ${path}`);
+    prettier.resolveConfig('./.prettierrc').then(options => {
+      fs.writeFile(path, prettier.format(componentSrc, options), err => {
+        if (err) console.log(err);
+        console.log(`wrote ${path}`);
+      });
     });
   }
 }
@@ -233,28 +235,30 @@ input:focus {
 
 function visitNode({ component, print, printStyle, imgMap, componentMap }, node, parent, lastVertical) {
   let content = null;
-  let img = null;
+
+  let minChildren = [];
+  const maxChildren = [];
+  const centerChildren = [];
+
+  let bounds = null;
+  let nodeBounds = null;
+
+  let middleClass = '';
+  let outerClass = '';
+  let innerClass = '';
+
+  const outerStyle = {};
+  const innerStyle = {};
   const middleStyle = {
     position: 'relative',
     boxSizing: 'border-box',
     pointerEvents: 'auto'
   };
-  let minChildren = [];
-  const maxChildren = [];
-  const centerChildren = [];
-  let bounds = null;
-  let nodeBounds = null;
 
-  let outerClass = '';
-  let middleClass = '';
-  let innerClass = '';
   const cHorizontal = node.constraints && node.constraints.horizontal;
   const cVertical = node.constraints && node.constraints.vertical;
-  const outerStyle = {};
-  const innerStyle = {};
 
   const props = getElementParams(node.name);
-  if (Object.keys(props).length > 0) console.log(props);
 
   if (parent != null) {
     nodeBounds = node.absoluteBoundingBox;

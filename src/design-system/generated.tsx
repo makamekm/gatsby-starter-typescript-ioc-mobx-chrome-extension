@@ -1,18 +1,8 @@
-import * as React from "react";
-import { observer } from "mobx-react";
-
-import { Clock } from "./clock";
-
-export const MasterClock = props => {
-  return (
-    <div className="master">
-      <Clock {...props} nodeId="15:2" />
-    </div>
-  );
-};
+import * as React from 'react';
+import { observer } from 'mobx-react';
 
 export const getComponentFromId = id => {
-  if (id === "15:2") return Clock15D2;
+  if (id === '15:2') return Clock15D2;
   return null;
 };
 
@@ -366,33 +356,33 @@ const Clock15D2 = observer(() => {
               <div className="figma-131">
                 <div id="72:2" className="figma-130">
                   <div id="96:32" className="figma-133">
-                    <div id="96:33" className="figma-136">
-                      <span key="end">Content Here</span>
-                    </div>
-                    <div id="95:7" className="figma-139">
-                      <div className="figma-141">
-                        <div id="96:2" className="figma-142">
+                    <div id="95:7" className="figma-136">
+                      <div className="figma-138">
+                        <div id="96:2" className="figma-139">
                           <span key="end">Content Here</span>
                         </div>
-                        <div id="96:26" className="figma-145">
+                        <div id="96:26" className="figma-142">
                           <span key="end">Content Here</span>
                         </div>
-                        <div id="96:27" className="figma-148">
+                        <div id="96:27" className="figma-145">
                           <span key="end">Content Here</span>
                         </div>
-                        <div id="96:28" className="figma-151">
+                        <div id="96:28" className="figma-148">
                           <span key="end">Content Here</span>
                         </div>
-                        <div id="96:29" className="figma-154">
+                        <div id="96:29" className="figma-151">
                           <span key="end">Content Here</span>
                         </div>
-                        <div id="96:30" className="figma-157">
+                        <div id="96:30" className="figma-154">
                           <span key="end">Content Here</span>
                         </div>
-                        <div id="96:31" className="figma-160">
+                        <div id="96:31" className="figma-157">
                           <span key="end">Content Here</span>
                         </div>
                       </div>
+                    </div>
+                    <div id="96:33" className="figma-160">
+                      <span key="end">Content Here</span>
                     </div>
                   </div>
                 </div>
@@ -1321,11 +1311,35 @@ const Clock15D2 = observer(() => {
           box-sizing: border-box;
           pointer-events: auto;
           margin-left: 0px;
-          width: 86px;
-          min-width: 86px;
+          margin-right: -100px;
+          flex-grow: 1;
           margin-top: 0px;
           margin-bottom: 26px;
           min-height: 16px;
+          max-width: 100%;
+          background-color: rgba(0, 0, 0, 0);
+          overflow: hidden;
+        }
+        .figma-138 {
+          display: flex;
+          flex-direction: row;
+          max-width: 100%;
+          margin-top: -10px;
+          margin-left: -10px;
+          margin-right: -10px;
+          flex-wrap: wrap;
+        }
+        .figma-139 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
           color: rgba(0, 0, 0, 1);
           font-size: 14px;
           font-weight: 400;
@@ -1335,34 +1349,11 @@ const Clock15D2 = observer(() => {
           line-height: 121.90476417541504%;
           letter-spacing: 0.28px;
         }
-        .figma-139 {
-          position: relative;
-          box-sizing: border-box;
-          pointer-events: auto;
-          z-index: 1;
-          margin-left: 0px;
-          margin-right: -100px;
-          flex-grow: 1;
-          margin-top: -16px;
-          margin-bottom: 0px;
-          min-height: 16px;
-          max-width: 100%;
-          background-color: rgba(0, 0, 0, 0);
-          overflow: hidden;
-        }
-        .figma-141 {
-          display: flex;
-          flex-direction: row;
-          max-width: 100%;
-          margin-top: -10px;
-          margin-left: -10px;
-          margin-right: -10px;
-          flex-wrap: wrap;
-        }
         .figma-142 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
+          z-index: 1;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -1383,7 +1374,7 @@ const Clock15D2 = observer(() => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 1;
+          z-index: 2;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -1404,7 +1395,7 @@ const Clock15D2 = observer(() => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 2;
+          z-index: 3;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -1425,7 +1416,7 @@ const Clock15D2 = observer(() => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 3;
+          z-index: 4;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -1446,7 +1437,7 @@ const Clock15D2 = observer(() => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 4;
+          z-index: 5;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -1467,7 +1458,7 @@ const Clock15D2 = observer(() => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 5;
+          z-index: 6;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -1488,14 +1479,13 @@ const Clock15D2 = observer(() => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 6;
-          margin-left: 10px;
+          z-index: 1;
+          margin-left: 0px;
           width: 86px;
           min-width: 86px;
-          margin-top: 10px;
+          margin-top: -16px;
           margin-bottom: 0px;
           min-height: 16px;
-          margin-right: 10px;
           color: rgba(0, 0, 0, 1);
           font-size: 14px;
           font-weight: 400;

@@ -116,3 +116,6 @@ $RECYCLE.BIN/
 
 # Extension directory
 bundle/
+
+# Temp JSON file
+temp.json

@@ -1,11 +1,10 @@
 require('dotenv').config();
+
 const fetch = require('node-fetch');
 const fs = require('fs');
-const figma = require('./figma.lib');
 const prettier = require("prettier");
+const { createComponent, getComponentName, colorString, getFileName } = require('./figma.lib');
 
-const headers = new fetch.Headers();
-const componentList = [];
 let devToken = process.env.DEV_TOKEN;
 
 if (process.argv.length < 3) {
@@ -17,33 +16,38 @@ if (process.argv.length > 3) {
   devToken = process.argv[3];
 }
 
-headers.append('X-Figma-Token', devToken);
-
 const fileKey = process.argv[2];
 const baseUrl = 'https://api.figma.com';
 
+const headers = new fetch.Headers();
+headers.append('X-Figma-Token', devToken);
+
+const path = './src/design-system/generated.tsx';
+
+const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'ELLIPSE', 'STAR'];
+
 const vectorMap = {};
 const vectorList = [];
-const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'ELLIPSE', 'STAR'];
+const componentMap = {};
+
+function paintsRequireRender(paints) {
+  if (!paints) return false;
+
+  let numPaints = 0;
+  for (const paint of paints) {
+    if (paint.visible === false) continue;
+
+    numPaints++;
+    if (paint.type === 'EMOJI') return true;
+  }
+
+  return numPaints > 1;
+}
 
 function preprocessTree(node) {
   let vectorsOnly = node.name.charAt(0) !== '#';
   let vectorVConstraint = null;
   let vectorHConstraint = null;
-
-  function paintsRequireRender(paints) {
-    if (!paints) return false;
-
-    let numPaints = 0;
-    for (const paint of paints) {
-      if (paint.visible === false) continue;
-
-      numPaints++;
-      if (paint.type === 'EMOJI') return true;
-    }
-
-    return numPaints > 1;
-  }
 
   if (
     paintsRequireRender(node.fills) ||
@@ -89,14 +93,15 @@ function preprocessTree(node) {
   }
 }
 
-async function main() {
+async function loadCanvas() {
   let resp = await fetch(`${baseUrl}/v1/files/${fileKey}`, { headers });
   let data = await resp.json();
+  const document = data.document;
+  const canvas = document.children[0];
+  return canvas;
+}
 
-  const doc = data.document;
-  const canvas = doc.children[0];
-  let html = '';
-
+function preprocessCanvasComponents(canvas) {
   for (let i = 0; i < canvas.children.length; i++) {
     const child = canvas.children[i];
     if (child.name.charAt(0) === '#' && child.visible !== false) {
@@ -104,15 +109,26 @@ async function main() {
       preprocessTree(child);
     }
   }
+}
 
-  let guids = vectorList.join(',');
+async function loadImages() {
+  const guids = vectorList.join(',');
   data = await fetch(`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`, { headers });
-  const imageJSON = await data.json();
+  return await data.json();
+}
 
+async function loadURLImages() {
+  const guids = vectorList.join(',');
+  data = await fetch(`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`, { headers });
+  return await data.json();
+}
+
+async function loadImages(imageJSON) {
   const images = imageJSON.images || {};
   if (images) {
     let promises = [];
     let guids = [];
+
     for (const guid in images) {
       if (images[guid] == null) continue;
       guids.push(guid);
@@ -130,61 +146,59 @@ async function main() {
       images[guids[i]] = responses[i].replace('<svg ', '<svg preserveAspectRatio="none" ');
     }
   }
+  return images;
+}
 
-  const componentMap = {};
-  let contents = `import * as React from 'react';\n`;
-  contents += `import { observer } from 'mobx-react';\n`;
-  contents += `\n`;
-  let nextSection = '';
-
-  fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
-
+function createComponents(canvas, images, componentMap) {
   for (let i = 0; i < canvas.children.length; i++) {
     const child = canvas.children[i];
     if (child.name.charAt(0) === '#' && child.visible !== false) {
       const child = canvas.children[i];
-      figma.createComponent(child, images, componentMap);
-      nextSection += `export const Master${figma.getComponentName(child.name)} = (props) => {\n`;
-      nextSection += `  return <div className="master">\n`;
-      nextSection += `    <${figma.getComponentName(child.name)} {...props} nodeId="${child.id}" />\n`;
-      // nextSection += `    <style jsx>{\`\n`;
-      // nextSection += `      .master {\n`;
-      // nextSection += `        background-color: "${figma.colorString(child.backgroundColor)}";\n`;
-      // nextSection += `      }\n`;
-      // nextSection += `    \`}</style>\n`;
-      nextSection += '  </div>\n';
-      nextSection += '}\n\n';
+      createComponent(child, images, componentMap);
     }
   }
+}
 
-  const imported = {};
-  for (const key in componentMap) {
-    const component = componentMap[key];
-    const name = component.name;
-    if (!imported[name]) {
-      contents += `import { ${name} } from './${figma.getFileName(name)}';\n`;
-    }
-    imported[name] = true;
-  }
-  contents += '\n';
-  contents += nextSection;
-  nextSection = '';
+function writeFile(contents) {
+  prettier.resolveConfig('./.prettierrc').then(options => {
+    fs.writeFile(path, prettier.format(contents, options), (err) => {
+      if (err) console.log(err);
+      console.log(`wrote ${path}`);
+    });
+  });
+}
+
+async function main() {
+  const canvas = await loadCanvas();
+  preprocessCanvasComponents(canvas);
+
+  const imageJSON = await loadURLImages();
+  const images = await loadImages(imageJSON);
+
+  let contents = '';
+  let nextSection = '';
+
+  // Header
+  contents += `import * as React from 'react';\n`;
+  contents += `import { observer } from 'mobx-react';\n`;
+  contents += `\n`;
+
+  // Debug
+  fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
+
+  createComponents(canvas, images, componentMap);
 
   contents += `export const getComponentFromId = (id) => {\n`;
 
   for (const key in componentMap) {
-    contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
+    contents += `if (id === "${key}") return ${componentMap[key].instance};\n`;
     nextSection += componentMap[key].doc + '\n';
   }
 
-  contents += '  return null;\n}\n\n';
+  contents += 'return null;\n}\n\n';
   contents += nextSection;
 
-  const path = './src/design-system/generated.tsx';
-  fs.writeFile(path, prettier.format(contents), (err) => {
-    if (err) console.log(err);
-    console.log(`wrote ${path}`);
-  });
+  writeFile(contents);
 }
 
 main().catch(err => {
