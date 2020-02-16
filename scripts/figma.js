@@ -169,13 +169,20 @@ function writeFile(contents) {
 }
 
 async function main() {
+  // Load the document from Figma
   const canvas = await loadCanvas();
-  preprocessCanvasComponents(canvas);
 
+  // Load all images used in the document from Figma
   const imageJSON = await loadURLImages();
   const images = await loadImages(imageJSON);
 
+  // Wrap vectors and images
+  preprocessCanvasComponents(canvas);
+
+  // Content represents writing cursor
   let contents = '';
+
+  // Next Section represents components' content
   let nextSection = '';
 
   // Header
@@ -186,18 +193,20 @@ async function main() {
   // Debug
   fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
 
+  // Generate components
   createComponents(canvas, images, componentMap);
 
+  // Generate getComponentFromId function
   contents += `export const getComponentFromId = (id) => {\n`;
-
   for (const key in componentMap) {
     contents += `if (id === "${key}") return ${componentMap[key].instance};\n`;
+    // Write the generated component tree
     nextSection += componentMap[key].doc + '\n';
   }
-
   contents += 'return null;\n}\n\n';
   contents += nextSection;
 
+  // Write the final result
   writeFile(contents);
 }
 
