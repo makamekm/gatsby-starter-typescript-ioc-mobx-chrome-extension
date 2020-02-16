@@ -230,6 +230,356 @@ input:focus {
   position: absolute;
 }`.split('\n').map(s => `${s && s.length > 0 ? intent : ''}${s}`).join('\n');
 
+function visitNode({ component, print, printStyle, imgMap, componentMap }, node, parent, lastVertical, indent) {
+  let content = null;
+  let img = null;
+  const middleStyle = {
+    position: 'relative',
+    boxSizing: 'border-box',
+    pointerEvents: 'auto'
+  };
+  let minChildren = [];
+  const maxChildren = [];
+  const centerChildren = [];
+  let bounds = null;
+  let nodeBounds = null;
+
+  let outerClass = '';
+  let middleClass = '';
+  let innerClass = '';
+  const cHorizontal = node.constraints && node.constraints.horizontal;
+  const cVertical = node.constraints && node.constraints.vertical;
+  const outerStyle = {};
+  const innerStyle = {};
+
+  const props = getElementParams(node.name);
+  if (Object.keys(props).length > 0) console.log(props);
+
+  if (parent != null) {
+    nodeBounds = node.absoluteBoundingBox;
+    const nx2 = nodeBounds.x + nodeBounds.width;
+    const ny2 = nodeBounds.y + nodeBounds.height;
+    const parentBounds = parent.absoluteBoundingBox;
+    const px = parentBounds.x;
+    const py = parentBounds.y;
+
+    bounds = {
+      left: nodeBounds.x - px,
+      right: px + parentBounds.width - nx2,
+      top: lastVertical == null ? nodeBounds.y - py : nodeBounds.y - lastVertical,
+      bottom: py + parentBounds.height - ny2,
+      width: nodeBounds.width,
+      height: nodeBounds.height
+    };
+  }
+
+  expandChildren(node, parent, minChildren, maxChildren, centerChildren, 0);
+
+  if (node.order) {
+    middleStyle.zIndex = node.order;
+  }
+
+  if (cHorizontal === 'LEFT_RIGHT') {
+    if (bounds != null) {
+      middleStyle.marginLeft = bounds.left;
+      middleStyle.marginRight = bounds.right;
+      middleStyle.flexGrow = 1;
+    }
+  } else if (cHorizontal === 'RIGHT') {
+    outerStyle.position = 'relative';
+    outerStyle.display = 'flex';
+    outerStyle.width = '100%';
+    outerStyle.pointerEvents = 'none';
+    outerStyle.justifyContent = 'flex-end';
+    if (bounds != null) {
+      middleStyle.marginRight = bounds.right;
+      middleStyle.width = bounds.width;
+      middleStyle.minWidth = bounds.width;
+    }
+  } else if (cHorizontal === 'CENTER') {
+    outerStyle.position = 'relative';
+    outerStyle.display = 'flex';
+    outerStyle.width = '100%';
+    outerStyle.pointerEvents = 'none';
+    outerStyle.justifyContent = 'center';
+    if (bounds != null) {
+      middleStyle.width = bounds.width;
+      middleStyle.marginLeft = bounds.left && bounds.right ? bounds.left - bounds.right : null;
+    }
+  } else if (cHorizontal === 'SCALE') {
+    if (bounds != null) {
+      const parentWidth = bounds.left + bounds.width + bounds.right;
+      middleStyle.width = `${(bounds.width * 100) / parentWidth}%`;
+      middleStyle.marginLeft = `${(bounds.left * 100) / parentWidth}%`;
+    }
+  } else {
+    if (bounds != null) {
+      middleStyle.marginLeft = bounds.left;
+      middleStyle.width = bounds.width;
+      middleStyle.minWidth = bounds.width;
+    }
+  }
+
+  if (bounds && bounds.height && cVertical !== 'TOP_BOTTOM') middleStyle.height = bounds.height;
+  if (cVertical === 'TOP_BOTTOM') {
+    outerStyle.position = 'relative';
+    outerStyle.display = 'flex';
+    outerStyle.width = '100%';
+    outerStyle.pointerEvents = 'none';
+    outerStyle.position = 'absolute';
+    outerStyle.height = '100%';
+    outerStyle.top = 0;
+    outerStyle.left = 0;
+    if (bounds != null) {
+      middleStyle.marginTop = bounds.top;
+      middleStyle.marginBottom = bounds.bottom;
+    }
+  } else if (cVertical === 'CENTER') {
+    outerStyle.position = 'relative';
+    outerStyle.display = 'flex';
+    outerStyle.width = '100%';
+    outerStyle.pointerEvents = 'none';
+    outerStyle.alignItems = 'center';
+    outerStyle.position = 'absolute';
+    outerStyle.height = '100%';
+    outerStyle.top = 0;
+    outerStyle.left = 0;
+    if (bounds != null) {
+      middleStyle.marginTop = bounds.top - bounds.bottom;
+    }
+  } else if (cVertical === 'SCALE') {
+    outerStyle.position = 'relative';
+    outerStyle.display = 'flex';
+    outerStyle.width = '100%';
+    outerStyle.pointerEvents = 'none';
+    outerStyle.position = 'absolute';
+    outerStyle.height = '100%';
+    outerStyle.top = 0;
+    outerStyle.left = 0;
+    if (bounds != null) {
+      const parentHeight = bounds.top + bounds.height + bounds.bottom;
+      middleStyle.height = `${(bounds.height * 100) / parentHeight}%`;
+      middleStyle.top = `${(bounds.top * 100) / parentHeight}%`;
+    }
+  } else {
+    if (bounds != null) {
+      middleStyle.marginTop = bounds.top;
+      middleStyle.marginBottom = bounds.bottom;
+      middleStyle.minHeight = middleStyle.height;
+      middleStyle.height = null;
+    }
+  }
+
+  if (node.layoutMode === 'HORIZONTAL') {
+    innerStyle.display = 'flex';
+    innerStyle.flexDirection = 'row';
+    middleStyle.maxWidth = '100%';
+    innerStyle.maxWidth = '100%';
+    innerStyle.marginTop = -parent.itemSpacing;
+    innerStyle.marginLeft = -parent.itemSpacing;
+    innerStyle.marginRight = -parent.itemSpacing;
+  }
+
+  if (parent && parent.layoutMode === 'HORIZONTAL') {
+    middleStyle.marginLeft = parent.itemSpacing;
+    middleStyle.marginRight = parent.itemSpacing;
+    middleStyle.marginTop = parent.itemSpacing;
+    middleStyle.marginBottom = 0;
+  }
+
+  if (['FRAME', 'RECTANGLE', 'INSTANCE', 'COMPONENT'].indexOf(node.type) >= 0) {
+    if (['FRAME', 'COMPONENT', 'INSTANCE'].indexOf(node.type) >= 0) {
+      middleStyle.backgroundColor = colorString(node.backgroundColor);
+      if (node.clipsContent) middleStyle.overflow = 'hidden';
+    } else if (node.type === 'RECTANGLE') {
+      const lastFill = getPaint(node.fills);
+      if (lastFill) {
+        if (lastFill.type === 'SOLID') {
+          middleStyle.backgroundColor = colorString(lastFill.color);
+          middleStyle.opacity = lastFill.opacity;
+        } else if (lastFill.type === 'IMAGE') {
+          middleStyle.backgroundImage = imageURL(lastFill.imageRef);
+          middleStyle.backgroundSize = backgroundSize(lastFill.scaleMode);
+        } else if (lastFill.type === 'GRADIENT_LINEAR') {
+          middleStyle.background = paintToLinearGradient(lastFill);
+        } else if (lastFill.type === 'GRADIENT_RADIAL') {
+          middleStyle.background = paintToRadialGradient(lastFill);
+        }
+      }
+
+      if (node.effects) {
+        for (let i = 0; i < node.effects.length; i++) {
+          const effect = node.effects[i];
+          if (effect.type === 'DROP_SHADOW') {
+            middleStyle.boxShadow = dropShadow(effect);
+          } else if (effect.type === 'INNER_SHADOW') {
+            middleStyle.boxShadow = innerShadow(effect);
+          } else if (effect.type === 'LAYER_BLUR') {
+            middleStyle.filter = `blur(${effect.radius}px)`;
+          }
+        }
+      }
+
+      const lastStroke = getPaint(node.strokes);
+      if (lastStroke) {
+        if (lastStroke.type === 'SOLID') {
+          const weight = node.strokeWeight || 1;
+          middleStyle.border = `${weight}px solid ${colorString(lastStroke.color)}`;
+        }
+      }
+
+      const cornerRadii = node.rectangleCornerRadii;
+      if (cornerRadii && cornerRadii.length === 4 && cornerRadii[0] + cornerRadii[1] + cornerRadii[2] + cornerRadii[3] > 0) {
+        middleStyle.borderRadius = `${cornerRadii[0]}px ${cornerRadii[1]}px ${cornerRadii[2]}px ${cornerRadii[3]}px`;
+      }
+    }
+  } else if (node.type === 'TEXT') {
+    const lastFill = getPaint(node.fills);
+    if (lastFill) {
+      middleStyle.color = colorString(lastFill.color);
+    }
+
+    const lastStroke = getPaint(node.strokes);
+    if (lastStroke) {
+      const weight = node.strokeWeight || 1;
+      middleStyle.WebkitTextStroke = `${weight}px ${colorString(lastStroke.color)}`;
+    }
+
+    const fontStyle = node.style;
+
+    applyFontStyle(middleStyle, fontStyle);
+
+    if (node.name.substring(0, 6) === 'input:') {
+      content = [`<input key="${node.id}" type="text" placeholder="${node.characters}" name="${node.name.substring(7)}" />`];
+    } else if (node.characterStyleOverrides) {
+      let para = '';
+      const ps = [];
+      const styleCache = {};
+      let currStyle = 0;
+
+      const commitParagraph = key => {
+        if (para !== '') {
+          if (styleCache[currStyle] == null && currStyle !== 0) {
+            styleCache[currStyle] = {};
+            applyFontStyle(styleCache[currStyle], node.styleOverrideTable[currStyle]);
+          }
+
+          const id = printStyle(styleCache[currStyle]);
+          if (id) ps.push(`<span className="${id}" key="${key}">${para}</span>`);
+          else ps.push(`<span key="${key}">${para}</span>`);
+          para = '';
+        }
+      };
+
+      for (const i in node.characters) {
+        let idx = node.characterStyleOverrides[i];
+
+        if (node.characters[i] === '\n') {
+          commitParagraph(i);
+          ps.push(`<br key="${`br${i}`}" />`);
+          continue;
+        }
+
+        if (idx == null) idx = 0;
+        if (idx !== currStyle) {
+          commitParagraph(i);
+          currStyle = idx;
+        }
+
+        para += node.characters[i];
+      }
+      commitParagraph('end');
+
+      content = ps;
+    } else {
+      content = node.characters.split('\n').map((line, idx) => `<div key="${idx}">${line}</div>`);
+    }
+  }
+
+  function printDiv(middleStyle, outerStyle, indent) {
+    if (Object.keys(outerStyle).length > 0 && middleStyle.zIndex != null) {
+      outerStyle.zIndex = middleStyle.zIndex;
+    }
+
+    const middleId = printStyle(middleStyle);
+    const outerId = printStyle(outerStyle);
+    const innerId = printStyle(innerStyle);
+
+    if (middleId) middleClass += middleId;
+    if (outerId) outerClass = outerId;
+    if (innerId) innerClass = innerId;
+
+    if (outerClass) print(`<div className="${outerClass}">`, indent);
+    print(`<div`, indent, '  ');
+    print(`id="${node.id}"`, indent, '    ');
+    print(`className="${middleClass}"`, indent, '    ');
+    print(`>`, indent, '  ');
+    if (innerClass) print(`<div className="${innerClass}">`, indent);
+  }
+
+  Object.assign(middleStyle, props.style);
+  Object.assign(innerStyle, props.innerStyle);
+  Object.assign(outerStyle, props.outerStyle);
+
+  if (parent != null) {
+    printDiv(middleStyle, outerStyle, indent);
+  }
+
+  if (node.id !== component.id && node.name.charAt(0) === '#') {
+    print(`<${getComponentName(node.name)} {...this.props} nodeId="${node.id}" />`, indent, '    ');
+    createComponent(node, imgMap, componentMap);
+  } else if (node.type === 'VECTOR') {
+    print(`<div className="vector" dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`, indent, '    ');
+  } else {
+    const newNodeBounds = node.absoluteBoundingBox;
+    const newLastVertical = newNodeBounds && newNodeBounds.y + newNodeBounds.height;
+    let first = true;
+
+    for (const child of minChildren) {
+      visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, first ? null : newLastVertical, indent + '      ');
+      first = false;
+    }
+
+    for (const child of centerChildren) {
+      visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, null, indent + '      ');
+    }
+
+    if (maxChildren.length > 0) {
+      first = true;
+      for (const child of maxChildren) {
+        visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, first ? null : newLastVertical, indent + '          ');
+        first = false;
+      }
+    }
+
+    if (content != null) {
+      if (node.name.charAt(0) === '$') {
+        const varName = node.name.substring(1);
+        print(
+          `{this.props.${varName} && this.props.${varName}.split("\\n").map((line, idx) => <div key={idx}>{line}</div>)}`,
+          indent,
+          '      '
+        );
+        print(`{!this.props.${varName} && (<div>`, indent, '      ');
+        for (const piece of content) {
+          print(piece, indent + '        ');
+        }
+        print(`</div>)}`, indent, '      ');
+      } else {
+        for (const piece of content) {
+          print(piece, indent + '      ');
+        }
+      }
+    }
+  }
+
+  if (parent != null) {
+    if (innerClass) print(`</div>`, indent);
+    print(`</div>`, indent, '  ');
+    if (outerClass) print(`</div>`, indent);
+  }
+}
+
 const createComponent = (component, imgMap, componentMap) => {
   const name = getComponentName(component.name);
   const fileName = getFileName(name);
@@ -268,7 +618,7 @@ const createComponent = (component, imgMap, componentMap) => {
 
   // Stage 2 (Generate the component from the root)
 
-  visitNode(component, null, null, '');
+  visitNode({ component, print, printStyle, imgMap, componentMap }, component, null, null, '');
 
   // Stage 3 (Collect all styles)
 
@@ -279,336 +629,9 @@ const createComponent = (component, imgMap, componentMap) => {
   print('</>);', '  ');
   print('});', '');
 
-  // Stage 5 (Cache the finished component)
+  // Stage 5 (Cache the component)
 
   componentMap[component.id] = { instance, name, doc };
-
-  // Template
-
-  function visitNode(node, parent, lastVertical, indent) {
-    let content = null;
-    let img = null;
-    const styles = {
-      position: 'relative',
-      boxSizing: 'border-box',
-      pointerEvents: 'auto'
-    };
-    let minChildren = [];
-    const maxChildren = [];
-    const centerChildren = [];
-    let bounds = null;
-    let nodeBounds = null;
-
-    let outerClass = '';
-    let innerClass = '';
-    const cHorizontal = node.constraints && node.constraints.horizontal;
-    const cVertical = node.constraints && node.constraints.vertical;
-    const outerStyle = {};
-
-    const props = getElementParams(node.name);
-    if (Object.keys(props).length > 0) console.log(props);
-
-    if (parent != null) {
-      nodeBounds = node.absoluteBoundingBox;
-      const nx2 = nodeBounds.x + nodeBounds.width;
-      const ny2 = nodeBounds.y + nodeBounds.height;
-      const parentBounds = parent.absoluteBoundingBox;
-      const px = parentBounds.x;
-      const py = parentBounds.y;
-
-      bounds = {
-        left: nodeBounds.x - px,
-        right: px + parentBounds.width - nx2,
-        top: lastVertical == null ? nodeBounds.y - py : nodeBounds.y - lastVertical,
-        bottom: py + parentBounds.height - ny2,
-        width: nodeBounds.width,
-        height: nodeBounds.height
-      };
-    }
-
-    expandChildren(node, parent, minChildren, maxChildren, centerChildren, 0);
-
-    if (node.order) {
-      styles.zIndex = node.order;
-    }
-
-    if (cHorizontal === 'LEFT_RIGHT') {
-      if (bounds != null) {
-        styles.marginLeft = bounds.left;
-        styles.marginRight = bounds.right;
-        styles.flexGrow = 1;
-      }
-    } else if (cHorizontal === 'RIGHT') {
-      outerStyle.position = 'relative';
-      outerStyle.display = 'flex';
-      outerStyle.width = '100%';
-      outerStyle.pointerEvents = 'none';
-      outerStyle.justifyContent = 'flex-end';
-      if (bounds != null) {
-        styles.marginRight = bounds.right;
-        styles.width = bounds.width;
-        styles.minWidth = bounds.width;
-      }
-    } else if (cHorizontal === 'CENTER') {
-      outerStyle.position = 'relative';
-      outerStyle.display = 'flex';
-      outerStyle.width = '100%';
-      outerStyle.pointerEvents = 'none';
-      outerStyle.justifyContent = 'center';
-      if (bounds != null) {
-        styles.width = bounds.width;
-        styles.marginLeft = bounds.left && bounds.right ? bounds.left - bounds.right : null;
-      }
-    } else if (cHorizontal === 'SCALE') {
-      if (bounds != null) {
-        const parentWidth = bounds.left + bounds.width + bounds.right;
-        styles.width = `${(bounds.width * 100) / parentWidth}%`;
-        styles.marginLeft = `${(bounds.left * 100) / parentWidth}%`;
-      }
-    } else {
-      if (bounds != null) {
-        styles.marginLeft = bounds.left;
-        styles.width = bounds.width;
-        styles.minWidth = bounds.width;
-      }
-    }
-
-    if (bounds && bounds.height && cVertical !== 'TOP_BOTTOM') styles.height = bounds.height;
-    if (cVertical === 'TOP_BOTTOM') {
-      outerStyle.position = 'relative';
-      outerStyle.display = 'flex';
-      outerStyle.width = '100%';
-      outerStyle.pointerEvents = 'none';
-      outerStyle.position = 'absolute';
-      outerStyle.height = '100%';
-      outerStyle.top = 0;
-      outerStyle.left = 0;
-      if (bounds != null) {
-        styles.marginTop = bounds.top;
-        styles.marginBottom = bounds.bottom;
-      }
-    } else if (cVertical === 'CENTER') {
-      outerStyle.position = 'relative';
-      outerStyle.display = 'flex';
-      outerStyle.width = '100%';
-      outerStyle.pointerEvents = 'none';
-      outerStyle.alignItems = 'center';
-      outerStyle.position = 'absolute';
-      outerStyle.height = '100%';
-      outerStyle.top = 0;
-      outerStyle.left = 0;
-      if (bounds != null) {
-        styles.marginTop = bounds.top - bounds.bottom;
-      }
-    } else if (cVertical === 'SCALE') {
-      outerStyle.position = 'relative';
-      outerStyle.display = 'flex';
-      outerStyle.width = '100%';
-      outerStyle.pointerEvents = 'none';
-      outerStyle.position = 'absolute';
-      outerStyle.height = '100%';
-      outerStyle.top = 0;
-      outerStyle.left = 0;
-      if (bounds != null) {
-        const parentHeight = bounds.top + bounds.height + bounds.bottom;
-        styles.height = `${(bounds.height * 100) / parentHeight}%`;
-        styles.top = `${(bounds.top * 100) / parentHeight}%`;
-      }
-    } else {
-      if (bounds != null) {
-        styles.marginTop = bounds.top;
-        styles.marginBottom = bounds.bottom;
-        styles.minHeight = styles.height;
-        styles.height = null;
-      }
-    }
-
-    if (['FRAME', 'RECTANGLE', 'INSTANCE', 'COMPONENT'].indexOf(node.type) >= 0) {
-      if (['FRAME', 'COMPONENT', 'INSTANCE'].indexOf(node.type) >= 0) {
-        styles.backgroundColor = colorString(node.backgroundColor);
-        if (node.clipsContent) styles.overflow = 'hidden';
-      } else if (node.type === 'RECTANGLE') {
-        const lastFill = getPaint(node.fills);
-        if (lastFill) {
-          if (lastFill.type === 'SOLID') {
-            styles.backgroundColor = colorString(lastFill.color);
-            styles.opacity = lastFill.opacity;
-          } else if (lastFill.type === 'IMAGE') {
-            styles.backgroundImage = imageURL(lastFill.imageRef);
-            styles.backgroundSize = backgroundSize(lastFill.scaleMode);
-          } else if (lastFill.type === 'GRADIENT_LINEAR') {
-            styles.background = paintToLinearGradient(lastFill);
-          } else if (lastFill.type === 'GRADIENT_RADIAL') {
-            styles.background = paintToRadialGradient(lastFill);
-          }
-        }
-
-        if (node.effects) {
-          for (let i = 0; i < node.effects.length; i++) {
-            const effect = node.effects[i];
-            if (effect.type === 'DROP_SHADOW') {
-              styles.boxShadow = dropShadow(effect);
-            } else if (effect.type === 'INNER_SHADOW') {
-              styles.boxShadow = innerShadow(effect);
-            } else if (effect.type === 'LAYER_BLUR') {
-              styles.filter = `blur(${effect.radius}px)`;
-            }
-          }
-        }
-
-        const lastStroke = getPaint(node.strokes);
-        if (lastStroke) {
-          if (lastStroke.type === 'SOLID') {
-            const weight = node.strokeWeight || 1;
-            styles.border = `${weight}px solid ${colorString(lastStroke.color)}`;
-          }
-        }
-
-        const cornerRadii = node.rectangleCornerRadii;
-        if (cornerRadii && cornerRadii.length === 4 && cornerRadii[0] + cornerRadii[1] + cornerRadii[2] + cornerRadii[3] > 0) {
-          styles.borderRadius = `${cornerRadii[0]}px ${cornerRadii[1]}px ${cornerRadii[2]}px ${cornerRadii[3]}px`;
-        }
-      }
-    } else if (node.type === 'TEXT') {
-      const lastFill = getPaint(node.fills);
-      if (lastFill) {
-        styles.color = colorString(lastFill.color);
-      }
-
-      const lastStroke = getPaint(node.strokes);
-      if (lastStroke) {
-        const weight = node.strokeWeight || 1;
-        styles.WebkitTextStroke = `${weight}px ${colorString(lastStroke.color)}`;
-      }
-
-      const fontStyle = node.style;
-
-      applyFontStyle(styles, fontStyle);
-
-      if (node.name.substring(0, 6) === 'input:') {
-        content = [`<input key="${node.id}" type="text" placeholder="${node.characters}" name="${node.name.substring(7)}" />`];
-      } else if (node.characterStyleOverrides) {
-        let para = '';
-        const ps = [];
-        const styleCache = {};
-        let currStyle = 0;
-
-        const commitParagraph = key => {
-          if (para !== '') {
-            if (styleCache[currStyle] == null && currStyle !== 0) {
-              styleCache[currStyle] = {};
-              applyFontStyle(styleCache[currStyle], node.styleOverrideTable[currStyle]);
-            }
-
-            const id = printStyle(styleCache[currStyle]);
-            if (id) ps.push(`<span className="${id}" key="${key}">${para}</span>`);
-            else ps.push(`<span key="${key}">${para}</span>`);
-            para = '';
-          }
-        };
-
-        for (const i in node.characters) {
-          let idx = node.characterStyleOverrides[i];
-
-          if (node.characters[i] === '\n') {
-            commitParagraph(i);
-            ps.push(`<br key="${`br${i}`}" />`);
-            continue;
-          }
-
-          if (idx == null) idx = 0;
-          if (idx !== currStyle) {
-            commitParagraph(i);
-            currStyle = idx;
-          }
-
-          para += node.characters[i];
-        }
-        commitParagraph('end');
-
-        content = ps;
-      } else {
-        content = node.characters.split('\n').map((line, idx) => `<div key="${idx}">${line}</div>`);
-      }
-    }
-
-    function printDiv(innerStyle, outerStyle, indent) {
-      if (Object.keys(outerStyle).length > 0 && innerStyle.zIndex != null) {
-        outerStyle.zIndex = innerStyle.zIndex;
-      }
-
-      const innerId = printStyle(innerStyle);
-      const outerId = printStyle(outerStyle);
-
-      if (innerId) innerClass += innerId;
-      if (outerId) outerClass = outerId;
-
-      if (outerClass) print(`<div className="${outerClass}">`, indent);
-      print(`<div`, indent, '  ');
-      print(`id="${node.id}"`, indent, '    ');
-      print(`className="${innerClass}"`, indent, '    ');
-      print(`>`, indent, '  ');
-    }
-
-    Object.assign(styles, props.style);
-
-    if (parent != null) {
-      printDiv(styles, outerStyle, indent);
-    }
-
-    if (node.id !== component.id && node.name.charAt(0) === '#') {
-      print(`<${getComponentName(node.name)} {...this.props} nodeId="${node.id}" />`, indent, '    ');
-      createComponent(node, imgMap, componentMap);
-    } else if (node.type === 'VECTOR') {
-      print(`<div className="vector" dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`, indent, '    ');
-    } else {
-      const newNodeBounds = node.absoluteBoundingBox;
-      const newLastVertical = newNodeBounds && newNodeBounds.y + newNodeBounds.height;
-      let first = true;
-
-      for (const child of minChildren) {
-        visitNode(child, node, first ? null : newLastVertical, indent + '      ');
-        first = false;
-      }
-
-      for (const child of centerChildren) {
-        visitNode(child, node, null, indent + '      ');
-      }
-
-      if (maxChildren.length > 0) {
-        first = true;
-        for (const child of maxChildren) {
-          visitNode(child, node, first ? null : newLastVertical, indent + '          ');
-          first = false;
-        }
-      }
-
-      if (content != null) {
-        if (node.name.charAt(0) === '$') {
-          const varName = node.name.substring(1);
-          print(
-            `{this.props.${varName} && this.props.${varName}.split("\\n").map((line, idx) => <div key={idx}>{line}</div>)}`,
-            indent,
-            '      '
-          );
-          print(`{!this.props.${varName} && (<div>`, indent, '      ');
-          for (const piece of content) {
-            print(piece, indent + '        ');
-          }
-          print(`</div>)}`, indent, '      ');
-        } else {
-          for (const piece of content) {
-            print(piece, indent + '      ');
-          }
-        }
-      }
-    }
-
-    if (parent != null) {
-      print(`</div>`, indent, '  ');
-      if (outerClass) print(`</div>`, indent);
-    }
-  }
 };
 
 module.exports = { createComponent, colorString, getFileName, getComponentName, getElementParams };

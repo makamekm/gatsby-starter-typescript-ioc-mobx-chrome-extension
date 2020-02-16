@@ -23,24 +23,24 @@ const Clock15D2 = observer(() => {
         >
               <div
                 id="14:138"
-                className="figma-2"
+                className="figma-3"
               >
               </div>
               <div
                 id="14:173"
-                className="figma-4"
+                className="figma-6"
               >
-                  <div className="figma-7">
+                  <div className="figma-10">
                     <div
                       id="14:174"
-                      className="figma-6"
+                      className="figma-9"
                     >
                     </div>
                   </div>
-                  <div className="figma-9">
+                  <div className="figma-13">
                     <div
                       id="14:199"
-                      className="figma-8"
+                      className="figma-12"
                     >
                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="60" cy="16" r="6" fill="#64C255"/>
@@ -55,17 +55,17 @@ const Clock15D2 = observer(() => {
                   </div>
                         <div
                           id="14:178"
-                          className="figma-10"
+                          className="figma-15"
                         >
-                            <div className="figma-13">
+                            <div className="figma-19">
                               <div
                                 id="14:180"
-                                className="figma-12"
+                                className="figma-18"
                               >
-                                  <div className="figma-15">
+                                  <div className="figma-22">
                                     <div
                                       id="14:181"
-                                      className="figma-14"
+                                      className="figma-21"
                                     >
                                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_i)">
@@ -106,24 +106,24 @@ const Clock15D2 = observer(() => {
                         </div>
                         <div
                           id="14:187"
-                          className="figma-16"
+                          className="figma-24"
                         >
-                            <div className="figma-19">
+                            <div className="figma-28">
                               <div
                                 id="14:188"
-                                className="figma-18"
+                                className="figma-27"
                               >
                               </div>
                             </div>
-                            <div className="figma-21">
+                            <div className="figma-31">
                               <div
                                 id="14:189"
-                                className="figma-20"
+                                className="figma-30"
                               >
-                                  <div className="figma-23">
+                                  <div className="figma-34">
                                     <div
                                       id="14:190"
-                                      className="figma-22"
+                                      className="figma-33"
                                     >
                                       <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_i)">
@@ -159,18 +159,18 @@ const Clock15D2 = observer(() => {
                                   </div>
                               </div>
                             </div>
-                            <div className="figma-25">
+                            <div className="figma-37">
                               <div
                                 id="14:193"
-                                className="figma-24"
+                                className="figma-36"
                               >
                                   <span key="end">Advisor Access</span>
                               </div>
                             </div>
-                            <div className="figma-27">
+                            <div className="figma-40">
                               <div
                                 id="14:194"
-                                className="figma-26"
+                                className="figma-39"
                               >
                                 <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5 5L11 11M11 5L5 11" stroke="#4B4D52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -178,10 +178,10 @@ const Clock15D2 = observer(() => {
 `}} />
                               </div>
                             </div>
-                                <div className="figma-29">
+                                <div className="figma-43">
                                   <div
                                     id="14:197"
-                                    className="figma-28"
+                                    className="figma-42"
                                   >
                                     <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 8H0V0C0 4.41827 3.58173 8 8 8Z" fill="white"/>
@@ -191,7 +191,7 @@ const Clock15D2 = observer(() => {
                                 </div>
                                   <div
                                     id="14:198"
-                                    className="figma-30"
+                                    className="figma-45"
                                   >
                                     <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 8H8V0C8 4.41827 4.41827 8 0 8Z" fill="white"/>
@@ -201,12 +201,12 @@ const Clock15D2 = observer(() => {
                         </div>
                         <div
                           id="14:175"
-                          className="figma-32"
+                          className="figma-48"
                         >
-                            <div className="figma-35">
+                            <div className="figma-52">
                               <div
                                 id="52:0"
-                                className="figma-34"
+                                className="figma-51"
                               >
                                 <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="12" cy="12" r="12" fill="#CED0D6"/>
@@ -219,24 +219,24 @@ const Clock15D2 = observer(() => {
               </div>
               <div
                 id="14:140"
-                className="figma-36"
+                className="figma-54"
               >
-                  <div className="figma-39">
+                  <div className="figma-58">
                     <div
                       id="14:141"
-                      className="figma-38"
+                      className="figma-57"
                     >
                     </div>
                   </div>
-                  <div className="figma-41">
+                  <div className="figma-61">
                     <div
                       id="14:142"
-                      className="figma-40"
+                      className="figma-60"
                     >
-                        <div className="figma-43">
+                        <div className="figma-64">
                           <div
                             id="14:144"
-                            className="figma-42"
+                            className="figma-63"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="3" height="13" viewBox="0 0 3 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5C3 2.32843 2.32843 3 1.5 3C0.671573 3 0 2.32843 0 1.5C0 0.671573 0.671573 0 1.5 0C2.32843 0 3 0.671573 3 1.5ZM3 6.5C3 7.32843 2.32843 8 1.5 8C0.671573 8 0 7.32843 0 6.5C0 5.67157 0.671573 5 1.5 5C2.32843 5 3 5.67157 3 6.5ZM1.5 13C2.32843 13 3 12.3284 3 11.5C3 10.6716 2.32843 10 1.5 10C0.671573 10 0 10.6716 0 11.5C0 12.3284 0.671573 13 1.5 13Z" fill="#4B4D52"/>
@@ -246,15 +246,15 @@ const Clock15D2 = observer(() => {
                         </div>
                     </div>
                   </div>
-                  <div className="figma-45">
+                  <div className="figma-67">
                     <div
                       id="14:148"
-                      className="figma-44"
+                      className="figma-66"
                     >
-                        <div className="figma-47">
+                        <div className="figma-70">
                           <div
                             id="52:1"
-                            className="figma-46"
+                            className="figma-69"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <circle cx="10" cy="10" r="10" fill="url(#pattern0)"/>
@@ -275,15 +275,15 @@ const Clock15D2 = observer(() => {
                         </div>
                     </div>
                   </div>
-                  <div className="figma-49">
+                  <div className="figma-73">
                     <div
                       id="66:0"
-                      className="figma-48"
+                      className="figma-72"
                     >
-                        <div className="figma-51">
+                        <div className="figma-76">
                           <div
                             id="66:1"
-                            className="figma-50"
+                            className="figma-75"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="10" fill="#487EAF"/>
@@ -295,26 +295,26 @@ const Clock15D2 = observer(() => {
                         </div>
                     </div>
                   </div>
-                  <div className="figma-53">
+                  <div className="figma-79">
                     <div
                       id="14:150"
-                      className="figma-52"
+                      className="figma-78"
                     >
-                        <div className="figma-55">
+                        <div className="figma-82">
                           <div
                             id="14:151"
-                            className="figma-54"
+                            className="figma-81"
                           >
                           </div>
                         </div>
-                        <div className="figma-57">
+                        <div className="figma-85">
                           <div
                             id="14:153"
-                            className="figma-56"
+                            className="figma-84"
                           >
                                 <div
                                   id="14:155"
-                                  className="figma-58"
+                                  className="figma-87"
                                 >
                                   <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 1.629L9.311 5.69406L9.42302 6.04138L9.78796 6.04059L14.0592 6.03125L10.5982 8.53426L10.3025 8.74812L10.416 9.09496L11.7448 13.1543L8.29478 10.6361L8 10.421L7.70522 10.6361L4.25522 13.1543L5.58398 9.09496L5.69751 8.74812L5.4018 8.53426L1.94081 6.03125L6.21204 6.04059L6.57698 6.04138L6.689 5.69406L8 1.629Z" stroke="#4B4D52"/>
@@ -323,33 +323,33 @@ const Clock15D2 = observer(() => {
                                 </div>
                           </div>
                         </div>
-                        <div className="figma-62">
+                        <div className="figma-92">
                           <div
                             id="14:157"
-                            className="figma-61"
+                            className="figma-91"
                           >
                               <span key="6">chrome</span>
-                              <span className="figma-60" key="end">://newtab</span>
+                              <span className="figma-90" key="end">://newtab</span>
                           </div>
                         </div>
-                        <div className="figma-64">
+                        <div className="figma-95">
                           <div
                             id="14:158"
-                            className="figma-63"
+                            className="figma-94"
                           >
-                              <div className="figma-66">
+                              <div className="figma-98">
                                 <div
                                   id="14:160"
-                                  className="figma-65"
+                                  className="figma-97"
                                 >
                                       <div
                                         id="14:163"
-                                        className="figma-67"
+                                        className="figma-100"
                                       >
                                       </div>
                                       <div
                                         id="14:162"
-                                        className="figma-69"
+                                        className="figma-103"
                                       >
                                       </div>
                                 </div>
@@ -358,15 +358,15 @@ const Clock15D2 = observer(() => {
                         </div>
                     </div>
                   </div>
-                  <div className="figma-72">
+                  <div className="figma-107">
                     <div
                       id="14:164"
-                      className="figma-71"
+                      className="figma-106"
                     >
-                        <div className="figma-74">
+                        <div className="figma-110">
                           <div
                             id="54:3"
-                            className="figma-73"
+                            className="figma-109"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7 12.5C9.69608 12.5 11.9391 10.5601 12.4093 8H13.9291C13.4439 11.3923 10.5265 14 7 14C3.134 14 0 10.866 0 7C0 3.134 3.134 0 7 0C9.18768 0 11.141 1.00354 12.4246 2.57541L14 1V6H9L11.357 3.64301C10.3513 2.3396 8.77368 1.5 7 1.5C3.96243 1.5 1.5 3.96243 1.5 7C1.5 10.0376 3.96243 12.5 7 12.5Z" fill="#4B4D52"/>
@@ -376,15 +376,15 @@ const Clock15D2 = observer(() => {
                         </div>
                     </div>
                   </div>
-                  <div className="figma-76">
+                  <div className="figma-113">
                     <div
                       id="14:167"
-                      className="figma-75"
+                      className="figma-112"
                     >
-                        <div className="figma-78">
+                        <div className="figma-116">
                           <div
                             id="54:2"
-                            className="figma-77"
+                            className="figma-115"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.777778 6.74074H13.2222M13.2222 6.74074L7.51852 0.777778M13.2222 6.74074L7.51852 12.1852" stroke="#A9AEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -394,15 +394,15 @@ const Clock15D2 = observer(() => {
                         </div>
                     </div>
                   </div>
-                  <div className="figma-80">
+                  <div className="figma-119">
                     <div
                       id="14:170"
-                      className="figma-79"
+                      className="figma-118"
                     >
-                        <div className="figma-82">
+                        <div className="figma-122">
                           <div
                             id="54:1"
-                            className="figma-81"
+                            className="figma-121"
                           >
                             <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.2222 6.74074H0.777778M0.777778 6.74074L6.48148 0.777778M0.777778 6.74074L6.48148 12.1852" stroke="#4B4D52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -413,79 +413,81 @@ const Clock15D2 = observer(() => {
                     </div>
                   </div>
               </div>
-            <div className="figma-84">
+            <div className="figma-125">
               <div
                 id="72:1"
-                className="figma-83"
+                className="figma-124"
               >
-                  <div className="figma-86">
+                  <div className="figma-128">
                     <div
                       id="14:139"
-                      className="figma-85"
+                      className="figma-127"
                     >
                     </div>
                   </div>
-                  <div className="figma-88">
+                  <div className="figma-131">
                     <div
                       id="72:2"
-                      className="figma-87"
+                      className="figma-130"
                     >
                           <div
                             id="96:32"
-                            className="figma-89"
+                            className="figma-133"
                           >
                                 <div
                                   id="96:33"
-                                  className="figma-91"
+                                  className="figma-136"
                                 >
                                     <span key="end">Content Here</span>
                                 </div>
                                 <div
                                   id="95:7"
-                                  className="figma-93"
+                                  className="figma-139"
                                 >
+                              <div className="figma-141">
                                       <div
                                         id="96:2"
-                                        className="figma-95"
+                                        className="figma-142"
                                       >
                                           <span key="end">Content Here</span>
                                       </div>
                                       <div
                                         id="96:26"
-                                        className="figma-97"
+                                        className="figma-145"
                                       >
                                           <span key="end">Content Here</span>
                                       </div>
                                       <div
                                         id="96:27"
-                                        className="figma-99"
+                                        className="figma-148"
                                       >
                                           <span key="end">Content Here</span>
                                       </div>
                                       <div
                                         id="96:28"
-                                        className="figma-101"
+                                        className="figma-151"
                                       >
                                           <span key="end">Content Here</span>
                                       </div>
                                       <div
                                         id="96:29"
-                                        className="figma-103"
+                                        className="figma-154"
                                       >
                                           <span key="end">Content Here</span>
                                       </div>
                                       <div
                                         id="96:30"
-                                        className="figma-105"
+                                        className="figma-157"
                                       >
                                           <span key="end">Content Here</span>
                                       </div>
                                       <div
                                         id="96:31"
-                                        className="figma-107"
+                                        className="figma-160"
                                       >
                                           <span key="end">Content Here</span>
                                       </div>
+                              </div>
                                 </div>
                           </div>
                     </div>
@@ -530,7 +532,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-2 {
+      .figma-3 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -545,7 +547,7 @@ const Clock15D2 = observer(() => {
         box-shadow: 0px 0px 1px rgba(75, 77, 82, 0.47999998927116394);
         border-radius: 4px 4px 0px 0px;
       }
-      .figma-4 {
+      .figma-6 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -559,7 +561,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-6 {
+      .figma-9 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -571,7 +573,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(225, 228, 235, 1);
         border-radius: 4px 4px 0px 0px;
       }
-      .figma-7 {
+      .figma-10 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -580,7 +582,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-8 {
+      .figma-12 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -591,7 +593,7 @@ const Clock15D2 = observer(() => {
         height: 32px;
         margin-top: 8px;
       }
-      .figma-9 {
+      .figma-13 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -602,7 +604,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 1;
       }
-      .figma-10 {
+      .figma-15 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -615,7 +617,7 @@ const Clock15D2 = observer(() => {
         min-height: 32px;
         background-color: rgba(0, 0, 0, 0);
       }
-      .figma-12 {
+      .figma-18 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -627,7 +629,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-13 {
+      .figma-19 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -637,7 +639,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-14 {
+      .figma-21 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -646,7 +648,7 @@ const Clock15D2 = observer(() => {
         height: 87.5%;
         top: 6.25%;
       }
-      .figma-15 {
+      .figma-22 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -655,7 +657,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-16 {
+      .figma-24 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -668,7 +670,7 @@ const Clock15D2 = observer(() => {
         min-height: 32px;
         background-color: rgba(0, 0, 0, 0);
       }
-      .figma-18 {
+      .figma-27 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -680,7 +682,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(255, 255, 255, 1);
         border-radius: 8px 8px 0px 0px;
       }
-      .figma-19 {
+      .figma-28 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -689,7 +691,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-20 {
+      .figma-30 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -702,7 +704,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-21 {
+      .figma-31 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -713,7 +715,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 1;
       }
-      .figma-22 {
+      .figma-33 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -722,7 +724,7 @@ const Clock15D2 = observer(() => {
         height: 87.50000596046448%;
         top: 6.25%;
       }
-      .figma-23 {
+      .figma-34 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -731,7 +733,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-24 {
+      .figma-36 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -750,7 +752,7 @@ const Clock15D2 = observer(() => {
         line-height: 142.22222328186035%;
         letter-spacing: 0.24px;
       }
-      .figma-25 {
+      .figma-37 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -761,7 +763,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 2;
       }
-      .figma-26 {
+      .figma-39 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -771,7 +773,7 @@ const Clock15D2 = observer(() => {
         height: 16px;
         margin-top: 0px;
       }
-      .figma-27 {
+      .figma-40 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -783,7 +785,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 3;
       }
-      .figma-28 {
+      .figma-42 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -795,7 +797,7 @@ const Clock15D2 = observer(() => {
         margin-bottom: 0px;
         min-height: 8px;
       }
-      .figma-29 {
+      .figma-43 {
         position: relative;
         display: flex;
         width: 100%;
@@ -803,7 +805,7 @@ const Clock15D2 = observer(() => {
         justify-content: flex-end;
         z-index: 4;
       }
-      .figma-30 {
+      .figma-45 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -815,7 +817,7 @@ const Clock15D2 = observer(() => {
         margin-bottom: 0px;
         min-height: 8px;
       }
-      .figma-32 {
+      .figma-48 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -829,7 +831,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-34 {
+      .figma-51 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -837,7 +839,7 @@ const Clock15D2 = observer(() => {
         height: 24px;
         margin-top: 0px;
       }
-      .figma-35 {
+      .figma-52 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -848,7 +850,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-36 {
+      .figma-54 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -861,7 +863,7 @@ const Clock15D2 = observer(() => {
         min-height: 36px;
         background-color: rgba(255, 255, 255, 1);
       }
-      .figma-38 {
+      .figma-57 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -873,7 +875,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(255, 255, 255, 1);
         box-shadow: 0px 1px 0px rgba(239, 241, 244, 1);
       }
-      .figma-39 {
+      .figma-58 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -882,7 +884,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-40 {
+      .figma-60 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -894,7 +896,7 @@ const Clock15D2 = observer(() => {
         margin-top: 0px;
         background-color: rgba(0, 0, 0, 0);
       }
-      .figma-41 {
+      .figma-61 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -906,7 +908,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 1;
       }
-      .figma-42 {
+      .figma-63 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -915,7 +917,7 @@ const Clock15D2 = observer(() => {
         height: 13px;
         margin-top: 0px;
       }
-      .figma-43 {
+      .figma-64 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -926,7 +928,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-44 {
+      .figma-66 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -939,7 +941,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-45 {
+      .figma-67 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -951,7 +953,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 2;
       }
-      .figma-46 {
+      .figma-69 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -959,7 +961,7 @@ const Clock15D2 = observer(() => {
         height: 20px;
         margin-top: 0px;
       }
-      .figma-47 {
+      .figma-70 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -970,7 +972,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-48 {
+      .figma-72 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -983,7 +985,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-49 {
+      .figma-73 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -995,7 +997,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 3;
       }
-      .figma-50 {
+      .figma-75 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1003,7 +1005,7 @@ const Clock15D2 = observer(() => {
         height: 20px;
         margin-top: 0px;
       }
-      .figma-51 {
+      .figma-76 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1014,7 +1016,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-52 {
+      .figma-78 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1026,7 +1028,7 @@ const Clock15D2 = observer(() => {
         margin-top: 0px;
         background-color: rgba(0, 0, 0, 0);
       }
-      .figma-53 {
+      .figma-79 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1037,7 +1039,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 4;
       }
-      .figma-54 {
+      .figma-81 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1049,7 +1051,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(239, 241, 244, 1);
         border-radius: 24px 24px 24px 24px;
       }
-      .figma-55 {
+      .figma-82 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1058,7 +1060,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-56 {
+      .figma-84 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1070,7 +1072,7 @@ const Clock15D2 = observer(() => {
         margin-bottom: 0px;
         background-color: rgba(0, 0, 0, 0);
       }
-      .figma-57 {
+      .figma-85 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1081,7 +1083,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 1;
       }
-      .figma-58 {
+      .figma-87 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1092,12 +1094,12 @@ const Clock15D2 = observer(() => {
         margin-bottom: 5px;
         min-height: 16px;
       }
-      .figma-60 {
+      .figma-90 {
         font-style: normal;
         line-height: NaN%;
         letter-spacing: undefinedpx;
       }
-      .figma-61 {
+      .figma-91 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1116,7 +1118,7 @@ const Clock15D2 = observer(() => {
         line-height: 121.90476417541504%;
         letter-spacing: 0.28px;
       }
-      .figma-62 {
+      .figma-92 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1127,7 +1129,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 2;
       }
-      .figma-63 {
+      .figma-94 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1140,7 +1142,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-64 {
+      .figma-95 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1150,7 +1152,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 3;
       }
-      .figma-65 {
+      .figma-97 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1162,7 +1164,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-66 {
+      .figma-98 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1172,7 +1174,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-67 {
+      .figma-100 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1186,7 +1188,7 @@ const Clock15D2 = observer(() => {
         border: 1px solid rgba(75, 77, 82, 1);
         border-radius: 2px 2px 0px 0px;
       }
-      .figma-69 {
+      .figma-103 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1199,7 +1201,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(75, 77, 82, 1);
         border-radius: 2px 2px 2px 2px;
       }
-      .figma-71 {
+      .figma-106 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1212,7 +1214,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-72 {
+      .figma-107 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1223,7 +1225,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 5;
       }
-      .figma-73 {
+      .figma-109 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1232,7 +1234,7 @@ const Clock15D2 = observer(() => {
         height: 14px;
         margin-top: 0px;
       }
-      .figma-74 {
+      .figma-110 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1243,7 +1245,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-75 {
+      .figma-112 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1256,7 +1258,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-76 {
+      .figma-113 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1267,7 +1269,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 6;
       }
-      .figma-77 {
+      .figma-115 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1276,7 +1278,7 @@ const Clock15D2 = observer(() => {
         height: 11px;
         margin-top: -1px;
       }
-      .figma-78 {
+      .figma-116 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1287,7 +1289,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-79 {
+      .figma-118 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1300,7 +1302,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-80 {
+      .figma-119 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1311,7 +1313,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 7;
       }
-      .figma-81 {
+      .figma-121 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1320,7 +1322,7 @@ const Clock15D2 = observer(() => {
         height: 11px;
         margin-top: -1px;
       }
-      .figma-82 {
+      .figma-122 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1331,7 +1333,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-83 {
+      .figma-124 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1343,7 +1345,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-84 {
+      .figma-125 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1352,7 +1354,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-85 {
+      .figma-127 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1364,7 +1366,7 @@ const Clock15D2 = observer(() => {
         background-image: url(https://s3-us-west-2.amazonaws.com/figma-alpha/img/efe9/8099/a0aa97c1aa64e286bc82e633cc9aed22);
         background-size: cover;
       }
-      .figma-86 {
+      .figma-128 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1373,7 +1375,7 @@ const Clock15D2 = observer(() => {
         top: 0px;
         left: 0px;
       }
-      .figma-87 {
+      .figma-130 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1386,7 +1388,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: auto;
       }
-      .figma-88 {
+      .figma-131 {
         position: absolute;
         display: flex;
         width: 100%;
@@ -1396,7 +1398,7 @@ const Clock15D2 = observer(() => {
         left: 0px;
         z-index: 1;
       }
-      .figma-89 {
+      .figma-133 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1409,7 +1411,7 @@ const Clock15D2 = observer(() => {
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
       }
-      .figma-91 {
+      .figma-136 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1428,7 +1430,7 @@ const Clock15D2 = observer(() => {
         line-height: 121.90476417541504%;
         letter-spacing: 0.28px;
       }
-      .figma-93 {
+      .figma-139 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
@@ -1439,21 +1441,30 @@ const Clock15D2 = observer(() => {
         margin-top: -16px;
         margin-bottom: 0px;
         min-height: 16px;
+        max-width: 100%;
         background-color: rgba(0, 0, 0, 0);
         overflow: hidden;
+      }
+      .figma-141 {
+        display: flex;
+        flex-direction: row;
         max-width: 100%;
+        margin-top: -10px;
+        margin-left: -10px;
+        margin-right: -10px;
         flex-wrap: wrap;
       }
-      .figma-95 {
+      .figma-142 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
-        margin-left: 0px;
+        margin-left: 10px;
         width: 86px;
         min-width: 86px;
-        margin-top: 0px;
+        margin-top: 10px;
         margin-bottom: 0px;
         min-height: 16px;
+        margin-right: 10px;
         color: rgba(0, 0, 0, 1);
         font-size: 14px;
         font-weight: 400;
@@ -1463,17 +1474,18 @@ const Clock15D2 = observer(() => {
         line-height: 121.90476417541504%;
         letter-spacing: 0.28px;
       }
-      .figma-97 {
+      .figma-145 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
         z-index: 1;
-        margin-left: 96px;
+        margin-left: 10px;
         width: 86px;
         min-width: 86px;
-        margin-top: -16px;
+        margin-top: 10px;
         margin-bottom: 0px;
         min-height: 16px;
+        margin-right: 10px;
         color: rgba(0, 0, 0, 1);
         font-size: 14px;
         font-weight: 400;
@@ -1483,17 +1495,18 @@ const Clock15D2 = observer(() => {
         line-height: 121.90476417541504%;
         letter-spacing: 0.28px;
       }
-      .figma-99 {
+      .figma-148 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
         z-index: 2;
-        margin-left: 192px;
+        margin-left: 10px;
         width: 86px;
         min-width: 86px;
-        margin-top: -16px;
+        margin-top: 10px;
         margin-bottom: 0px;
         min-height: 16px;
+        margin-right: 10px;
         color: rgba(0, 0, 0, 1);
         font-size: 14px;
         font-weight: 400;
@@ -1503,17 +1516,18 @@ const Clock15D2 = observer(() => {
         line-height: 121.90476417541504%;
         letter-spacing: 0.28px;
       }
-      .figma-101 {
+      .figma-151 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
         z-index: 3;
-        margin-left: 288px;
+        margin-left: 10px;
         width: 86px;
         min-width: 86px;
-        margin-top: -16px;
+        margin-top: 10px;
         margin-bottom: 0px;
         min-height: 16px;
+        margin-right: 10px;
         color: rgba(0, 0, 0, 1);
         font-size: 14px;
         font-weight: 400;
@@ -1523,17 +1537,18 @@ const Clock15D2 = observer(() => {
         line-height: 121.90476417541504%;
         letter-spacing: 0.28px;
       }
-      .figma-103 {
+      .figma-154 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
         z-index: 4;
-        margin-left: 384px;
+        margin-left: 10px;
         width: 86px;
         min-width: 86px;
-        margin-top: -16px;
+        margin-top: 10px;
         margin-bottom: 0px;
         min-height: 16px;
+        margin-right: 10px;
         color: rgba(0, 0, 0, 1);
         font-size: 14px;
         font-weight: 400;
@@ -1543,17 +1558,18 @@ const Clock15D2 = observer(() => {
         line-height: 121.90476417541504%;
         letter-spacing: 0.28px;
       }
-      .figma-105 {
+      .figma-157 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
         z-index: 5;
-        margin-left: 480px;
+        margin-left: 10px;
         width: 86px;
         min-width: 86px;
-        margin-top: -16px;
+        margin-top: 10px;
         margin-bottom: 0px;
         min-height: 16px;
+        margin-right: 10px;
         color: rgba(0, 0, 0, 1);
         font-size: 14px;
         font-weight: 400;
@@ -1563,17 +1579,18 @@ const Clock15D2 = observer(() => {
         line-height: 121.90476417541504%;
         letter-spacing: 0.28px;
       }
-      .figma-107 {
+      .figma-160 {
         position: relative;
         box-sizing: border-box;
         pointer-events: auto;
         z-index: 6;
-        margin-left: 576px;
+        margin-left: 10px;
         width: 86px;
         min-width: 86px;
-        margin-top: -16px;
+        margin-top: 10px;
         margin-bottom: 0px;
         min-height: 16px;
+        margin-right: 10px;
         color: rgba(0, 0, 0, 1);
         font-size: 14px;
         font-weight: 400;
