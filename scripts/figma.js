@@ -160,12 +160,17 @@ function createComponents(canvas, images, componentMap) {
 }
 
 function writeFile(contents) {
-  prettier.resolveConfig('./.prettierrc').then(options => {
-    fs.writeFile(path, prettier.format(contents, options), (err) => {
-      if (err) console.log(err);
-      console.log(`wrote ${path}`);
+  new Promise((r, e) => prettier.resolveConfig('./.prettierrc').then(options => {
+    fs.writeFile(path, prettier.format(contents, options), err => {
+      if (err) {
+        console.error(err);
+        e(err);
+      } else {
+        console.log(`wrote ${path}`);
+        r();
+      }
     });
-  });
+  }));
 }
 
 async function main() {
@@ -207,7 +212,7 @@ async function main() {
   contents += nextSection;
 
   // Write the final result
-  writeFile(contents);
+  await writeFile(contents);
 }
 
 main().catch(err => {
