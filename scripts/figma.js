@@ -2,6 +2,7 @@ require('dotenv').config();
 const fetch = require('node-fetch');
 const fs = require('fs');
 const figma = require('./figma.lib');
+const prettier = require("prettier");
 
 const headers = new fetch.Headers();
 const componentList = [];
@@ -180,7 +181,7 @@ async function main() {
   contents += nextSection;
 
   const path = './src/design-system/generated.tsx';
-  fs.writeFile(path, contents, function (err) {
+  fs.writeFile(path, prettier.format(contents), (err) => {
     if (err) console.log(err);
     console.log(`wrote ${path}`);
   });

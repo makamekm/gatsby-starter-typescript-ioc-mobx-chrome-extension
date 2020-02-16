@@ -1,4 +1,5 @@
 const fs = require('fs');
+const prettier = require("prettier");
 
 const VECTOR_TYPES = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'ELLIPSE'];
 const GROUP_TYPES = ['GROUP', 'BOOLEAN_OPERATION'];
@@ -115,10 +116,10 @@ function generateComponentFile(path, name, id) {
     componentSrc += `import { getComponentFromId } from './generated';\n`;
     componentSrc += `\n`;
     componentSrc += `export const ${name} = observer(props => {\n`;
-    componentSrc += `  const Component = getComponentFromId("${id}");\n`;
-    componentSrc += `  return <Component {...props} />;\n`;
+    componentSrc += `const Component = getComponentFromId("${id}");\n`;
+    componentSrc += `return <Component {...props} />;\n`;
     componentSrc += `});\n`;
-    fs.writeFile(path, componentSrc, err => {
+    fs.writeFile(path, prettier.format(componentSrc), err => {
       if (err) console.log(err);
       console.log(`wrote ${path}`);
     });
@@ -147,7 +148,7 @@ function getFileName(str) {
   return camelToSnake(str.replace(/\W+/g, ''));
 }
 
-function convertStyles(styles, intent = '', additionalIntent = '') {
+function convertStyles(styles) {
   return Object.keys(styles)
     .map(key => {
       const name = camelToSnake(key);
@@ -178,7 +179,7 @@ function convertStyles(styles, intent = '', additionalIntent = '') {
       ) {
         styles[key] = `${styles[key]}px`;
       }
-      return styles[key] != null && `${additionalIntent}${intent}${name}: ${styles[key]};`;
+      return styles[key] != null && `${name}: ${styles[key]};`;
     })
     .filter(n => !!n)
     .join('\n');
@@ -213,7 +214,7 @@ function getElementParams(name) {
   return params;
 }
 
-const defaultStyles = (intent) => `
+const defaultStyles = `
 input {
   font: inherit;
   border: inherit;
@@ -228,9 +229,9 @@ input:focus {
   width: 100%;
   height: 100%;
   position: absolute;
-}`.split('\n').map(s => `${s && s.length > 0 ? intent : ''}${s}`).join('\n');
+}`;
 
-function visitNode({ component, print, printStyle, imgMap, componentMap }, node, parent, lastVertical, indent) {
+function visitNode({ component, print, printStyle, imgMap, componentMap }, node, parent, lastVertical) {
   let content = null;
   let img = null;
   const middleStyle = {
@@ -496,7 +497,7 @@ function visitNode({ component, print, printStyle, imgMap, componentMap }, node,
     }
   }
 
-  function printDiv(middleStyle, outerStyle, indent) {
+  function printDiv(middleStyle, outerStyle) {
     if (Object.keys(outerStyle).length > 0 && middleStyle.zIndex != null) {
       outerStyle.zIndex = middleStyle.zIndex;
     }
@@ -509,12 +510,12 @@ function visitNode({ component, print, printStyle, imgMap, componentMap }, node,
     if (outerId) outerClass = outerId;
     if (innerId) innerClass = innerId;
 
-    if (outerClass) print(`<div className="${outerClass}">`, indent);
-    print(`<div`, indent, '  ');
-    print(`id="${node.id}"`, indent, '    ');
-    print(`className="${middleClass}"`, indent, '    ');
-    print(`>`, indent, '  ');
-    if (innerClass) print(`<div className="${innerClass}">`, indent);
+    if (outerClass) print(`<div className="${outerClass}">`);
+    print(`<div`);
+    print(`id="${node.id}"`);
+    print(`className="${middleClass}"`);
+    print(`>`);
+    if (innerClass) print(`<div className="${innerClass}">`);
   }
 
   Object.assign(middleStyle, props.style);
@@ -522,32 +523,32 @@ function visitNode({ component, print, printStyle, imgMap, componentMap }, node,
   Object.assign(outerStyle, props.outerStyle);
 
   if (parent != null) {
-    printDiv(middleStyle, outerStyle, indent);
+    printDiv(middleStyle, outerStyle);
   }
 
   if (node.id !== component.id && node.name.charAt(0) === '#') {
-    print(`<${getComponentName(node.name)} {...this.props} nodeId="${node.id}" />`, indent, '    ');
+    print(`<${getComponentName(node.name)} {...this.props} nodeId="${node.id}" />`);
     createComponent(node, imgMap, componentMap);
   } else if (node.type === 'VECTOR') {
-    print(`<div className="vector" dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`, indent, '    ');
+    print(`<div className="vector" dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`);
   } else {
     const newNodeBounds = node.absoluteBoundingBox;
     const newLastVertical = newNodeBounds && newNodeBounds.y + newNodeBounds.height;
     let first = true;
 
     for (const child of minChildren) {
-      visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, first ? null : newLastVertical, indent + '      ');
+      visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, first ? null : newLastVertical);
       first = false;
     }
 
     for (const child of centerChildren) {
-      visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, null, indent + '      ');
+      visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, null);
     }
 
     if (maxChildren.length > 0) {
       first = true;
       for (const child of maxChildren) {
-        visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, first ? null : newLastVertical, indent + '          ');
+        visitNode({ component, print, printStyle, imgMap, componentMap }, child, node, first ? null : newLastVertical);
         first = false;
       }
     }
@@ -556,27 +557,25 @@ function visitNode({ component, print, printStyle, imgMap, componentMap }, node,
       if (node.name.charAt(0) === '$') {
         const varName = node.name.substring(1);
         print(
-          `{this.props.${varName} && this.props.${varName}.split("\\n").map((line, idx) => <div key={idx}>{line}</div>)}`,
-          indent,
-          '      '
+          `{this.props.${varName} && this.props.${varName}.split("\\n").map((line, idx) => <div key={idx}>{line}</div>)}`
         );
-        print(`{!this.props.${varName} && (<div>`, indent, '      ');
+        print(`{!this.props.${varName} && (<div>`);
         for (const piece of content) {
-          print(piece, indent + '        ');
+          print(piece);
         }
-        print(`</div>)}`, indent, '      ');
+        print(`</div>)}`);
       } else {
         for (const piece of content) {
-          print(piece, indent + '      ');
+          print(piece);
         }
       }
     }
   }
 
   if (parent != null) {
-    if (innerClass) print(`</div>`, indent);
-    print(`</div>`, indent, '  ');
-    if (outerClass) print(`</div>`, indent);
+    if (innerClass) print(`</div>`);
+    print(`</div>`);
+    if (outerClass) print(`</div>`);
   }
 }
 
@@ -584,13 +583,12 @@ const createComponent = (component, imgMap, componentMap) => {
   const name = getComponentName(component.name);
   const fileName = getFileName(name);
   const instance = name + component.id.replace(';', 'S').replace(':', 'D');
-  const stylesIntent = '      ';
   let doc = '';
   let styleCounter = -1;
-  let styles = defaultStyles('      ');
+  let styles = defaultStyles;
 
-  function print(msg, indent = '', additional = '') {
-    doc += `${additional}${indent}${msg}\n`;
+  function print(msg) {
+    doc += `${msg}\n`;
   }
 
   function genClassName() {
@@ -601,14 +599,14 @@ const createComponent = (component, imgMap, componentMap) => {
   function printStyle(style) {
     if (!style) return null;
     const id = genClassName();
-    const convertedStyle = convertStyles(style, stylesIntent, '  ');
-    const finalStyleStr = !!convertedStyle && `\n${stylesIntent}.${id} {\n${convertedStyle}\n${stylesIntent}}`;
+    const convertedStyle = convertStyles(style);
+    const finalStyleStr = !!convertedStyle && `\n.${id} {\n${convertedStyle}\n}`;
     if (finalStyleStr) styles += finalStyleStr;
     return finalStyleStr ? id : null;
   }
 
-  print(`const ${instance} = observer(() => {`, ''); // Can be replaced with React.memo(...)
-  print(`return (<>`, '  ');
+  print(`const ${instance} = observer(() => {`); // Can be replaced with React.memo(...)
+  print(`return (<>`);
 
   const path = `src/design-system/${fileName}.tsx`;
 
@@ -618,16 +616,16 @@ const createComponent = (component, imgMap, componentMap) => {
 
   // Stage 2 (Generate the component from the root)
 
-  visitNode({ component, print, printStyle, imgMap, componentMap }, component, null, null, '');
+  visitNode({ component, print, printStyle, imgMap, componentMap }, component, null, null);
 
   // Stage 3 (Collect all styles)
 
-  print(`<style jsx>{\`${styles}\n    \`}</style>`, '    ');
+  print(`<style jsx>{\`${styles}\n    \`}</style>`);
 
   // Stage 4 (Finish the component)
 
-  print('</>);', '  ');
-  print('});', '');
+  print('</>);');
+  print('});');
 
   // Stage 5 (Cache the component)
 
