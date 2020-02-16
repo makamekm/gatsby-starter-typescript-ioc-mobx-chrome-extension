@@ -136,16 +136,16 @@ async function main() {
   contents += `\n`;
   let nextSection = '';
 
-  // fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
+  fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
 
   for (let i = 0; i < canvas.children.length; i++) {
     const child = canvas.children[i];
     if (child.name.charAt(0) === '#' && child.visible !== false) {
       const child = canvas.children[i];
       figma.createComponent(child, images, componentMap);
-      nextSection += `export const Master${child.name.replace(/\W+/g, '')} = (props) => {\n`;
+      nextSection += `export const Master${figma.getComponentName(child.name)} = (props) => {\n`;
       nextSection += `  return <div className="master">\n`;
-      nextSection += `    <${child.name.replace(/\W+/g, '')} {...props} nodeId="${child.id}" />\n`;
+      nextSection += `    <${figma.getComponentName(child.name)} {...props} nodeId="${child.id}" />\n`;
       // nextSection += `    <style jsx>{\`\n`;
       // nextSection += `      .master {\n`;
       // nextSection += `        background-color: "${figma.colorString(child.backgroundColor)}";\n`;

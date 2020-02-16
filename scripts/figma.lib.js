@@ -187,71 +187,57 @@ function convertStyles(styles, intent = '', additionalIntent = '') {
 function getComponentName(name) {
   const dotIndex = name.indexOf('??');
   if (dotIndex >= 0) {
-    name = params.substring(0, dotIndex);
+    name = name.substring(0, dotIndex);
   }
   return name.replace(/\W+/g, '');
 }
 
 function getElementParams(name) {
   let params = {};
-  const dotIndex = name.indexOf('??');
-  if (dotIndex >= 0) {
-    const paramsStr = params.substring(dotIndex + 2);
+  const delIndex = name.indexOf('??');
+  if (delIndex >= 0) {
+    const paramsStr = name.substring(delIndex + 2);
     const paramsSplit = paramsStr.split('&');
     paramsSplit.forEach(paramStr => {
       const [paramKey, paramValue] = paramStr.split('=');
-      params[paramKey] = paramValue;
+      const dotIndex = paramKey.indexOf('.');
+      if (dotIndex >= 0) {
+        const [firstKey, secondKey] = paramKey.split('.');
+        if (!params[firstKey]) params[firstKey] = {};
+        params[firstKey][secondKey] = paramValue;
+      }
+      else params[paramKey] = paramValue;
     });
   }
 
-  if (name.charAt(0) === '#') name = name.substring(1);
-  let match = name.match(/[a-zA-Z0-9 ]+\./g);
-  match = match && match[0];
-  match = match || '';
-  if (name.charAt(name.length - 1) === '.') name = name.substring(0, name.length - 1);
-  return name;
+  return params;
 }
 
+const defaultStyles = (intent) => `
+input {
+  font: inherit;
+  border: inherit;
+  padding: inherit;
+  background-color: inherit;
+  color: inherit;
+}
+input:focus {
+  outline: none;
+}
+.vector :global(svg) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}`.split('\n').map(s => `${s && s.length > 0 ? intent : ''}${s}`).join('\n');
+
 const createComponent = (component, imgMap, componentMap) => {
-  const name = component.name.replace(/\W+/g, '');
-  const fileName = getFileName(component.name);
+  const name = getComponentName(component.name);
+  const fileName = getFileName(name);
   const instance = name + component.id.replace(';', 'S').replace(':', 'D');
   const stylesIntent = '      ';
   let doc = '';
   let styleCounter = -1;
-  let styles = `
-      input {
-        font: inherit;
-        border: inherit;
-        padding: inherit;
-        background-color: inherit;
-        color: inherit;
-      }
-      input:focus {
-        outline: none;
-      }
-      .outer-div {
-        position: relative;
-        display: flex;
-        width: 100%;
-        pointer-events: none;
-      }
-      .inner-div {
-        position: relative;
-        box-sizing: border-box;
-        pointer-events: auto;
-      }
-      .centerer {
-        position: absolute;
-        height: 100%;
-        top: 0;
-        left: 0;
-      }
-      .vector :global(svg) {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      }`;
+  let styles = defaultStyles('      ');
 
   function print(msg, indent = '', additional = '') {
     doc += `${additional}${indent}${msg}\n`;
@@ -302,12 +288,25 @@ const createComponent = (component, imgMap, componentMap) => {
   function visitNode(node, parent, lastVertical, indent) {
     let content = null;
     let img = null;
-    const styles = {};
+    const styles = {
+      position: 'relative',
+      boxSizing: 'border-box',
+      pointerEvents: 'auto'
+    };
     let minChildren = [];
     const maxChildren = [];
     const centerChildren = [];
     let bounds = null;
     let nodeBounds = null;
+
+    let outerClass = '';
+    let innerClass = '';
+    const cHorizontal = node.constraints && node.constraints.horizontal;
+    const cVertical = node.constraints && node.constraints.vertical;
+    const outerStyle = {};
+
+    const props = getElementParams(node.name);
+    if (Object.keys(props).length > 0) console.log(props);
 
     if (parent != null) {
       nodeBounds = node.absoluteBoundingBox;
@@ -329,14 +328,8 @@ const createComponent = (component, imgMap, componentMap) => {
 
     expandChildren(node, parent, minChildren, maxChildren, centerChildren, 0);
 
-    let outerClass = 'outer-div';
-    let innerClass = 'inner-div';
-    const cHorizontal = node.constraints && node.constraints.horizontal;
-    const cVertical = node.constraints && node.constraints.vertical;
-    const outerStyle = {};
-
     if (node.order) {
-      outerStyle.zIndex = node.order;
+      styles.zIndex = node.order;
     }
 
     if (cHorizontal === 'LEFT_RIGHT') {
@@ -346,6 +339,10 @@ const createComponent = (component, imgMap, componentMap) => {
         styles.flexGrow = 1;
       }
     } else if (cHorizontal === 'RIGHT') {
+      outerStyle.position = 'relative';
+      outerStyle.display = 'flex';
+      outerStyle.width = '100%';
+      outerStyle.pointerEvents = 'none';
       outerStyle.justifyContent = 'flex-end';
       if (bounds != null) {
         styles.marginRight = bounds.right;
@@ -353,6 +350,10 @@ const createComponent = (component, imgMap, componentMap) => {
         styles.minWidth = bounds.width;
       }
     } else if (cHorizontal === 'CENTER') {
+      outerStyle.position = 'relative';
+      outerStyle.display = 'flex';
+      outerStyle.width = '100%';
+      outerStyle.pointerEvents = 'none';
       outerStyle.justifyContent = 'center';
       if (bounds != null) {
         styles.width = bounds.width;
@@ -374,19 +375,40 @@ const createComponent = (component, imgMap, componentMap) => {
 
     if (bounds && bounds.height && cVertical !== 'TOP_BOTTOM') styles.height = bounds.height;
     if (cVertical === 'TOP_BOTTOM') {
-      outerClass += ' centerer';
+      outerStyle.position = 'relative';
+      outerStyle.display = 'flex';
+      outerStyle.width = '100%';
+      outerStyle.pointerEvents = 'none';
+      outerStyle.position = 'absolute';
+      outerStyle.height = '100%';
+      outerStyle.top = 0;
+      outerStyle.left = 0;
       if (bounds != null) {
         styles.marginTop = bounds.top;
         styles.marginBottom = bounds.bottom;
       }
     } else if (cVertical === 'CENTER') {
-      outerClass += ' centerer';
+      outerStyle.position = 'relative';
+      outerStyle.display = 'flex';
+      outerStyle.width = '100%';
+      outerStyle.pointerEvents = 'none';
       outerStyle.alignItems = 'center';
+      outerStyle.position = 'absolute';
+      outerStyle.height = '100%';
+      outerStyle.top = 0;
+      outerStyle.left = 0;
       if (bounds != null) {
         styles.marginTop = bounds.top - bounds.bottom;
       }
     } else if (cVertical === 'SCALE') {
-      outerClass += ' centerer';
+      outerStyle.position = 'relative';
+      outerStyle.display = 'flex';
+      outerStyle.width = '100%';
+      outerStyle.pointerEvents = 'none';
+      outerStyle.position = 'absolute';
+      outerStyle.height = '100%';
+      outerStyle.top = 0;
+      outerStyle.left = 0;
       if (bounds != null) {
         const parentHeight = bounds.top + bounds.height + bounds.bottom;
         styles.height = `${(bounds.height * 100) / parentHeight}%`;
@@ -511,32 +533,37 @@ const createComponent = (component, imgMap, componentMap) => {
     }
 
     function printDiv(innerStyle, outerStyle, indent) {
+      if (Object.keys(outerStyle).length > 0 && innerStyle.zIndex != null) {
+        outerStyle.zIndex = innerStyle.zIndex;
+      }
+
       const innerId = printStyle(innerStyle);
       const outerId = printStyle(outerStyle);
 
-      if (innerId) innerClass += ' ' + innerId;
-      if (outerId) outerClass += ' ' + outerId;
+      if (innerId) innerClass += innerId;
+      if (outerId) outerClass = outerId;
 
-      print(`<div className="${outerClass}">`, indent);
+      if (outerClass) print(`<div className="${outerClass}">`, indent);
       print(`<div`, indent, '  ');
       print(`id="${node.id}"`, indent, '    ');
       print(`className="${innerClass}"`, indent, '    ');
       print(`>`, indent, '  ');
     }
 
+    Object.assign(styles, props.style);
+
     if (parent != null) {
       printDiv(styles, outerStyle, indent);
     }
 
     if (node.id !== component.id && node.name.charAt(0) === '#') {
-      print(`<${node.name.replace(/\W+/g, '')} {...this.props} nodeId="${node.id}" />`, indent, '    ');
+      print(`<${getComponentName(node.name)} {...this.props} nodeId="${node.id}" />`, indent, '    ');
       createComponent(node, imgMap, componentMap);
     } else if (node.type === 'VECTOR') {
       print(`<div className="vector" dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`, indent, '    ');
     } else {
       const newNodeBounds = node.absoluteBoundingBox;
       const newLastVertical = newNodeBounds && newNodeBounds.y + newNodeBounds.height;
-      print(`<div>`, indent, '    ');
       let first = true;
 
       for (const child of minChildren) {
@@ -560,26 +587,26 @@ const createComponent = (component, imgMap, componentMap) => {
         if (node.name.charAt(0) === '$') {
           const varName = node.name.substring(1);
           print(
-            `      {this.props.${varName} && this.props.${varName}.split("\\n").map((line, idx) => <div key={idx}>{line}</div>)}`,
-            indent
+            `{this.props.${varName} && this.props.${varName}.split("\\n").map((line, idx) => <div key={idx}>{line}</div>)}`,
+            indent,
+            '      '
           );
-          print(`      {!this.props.${varName} && (<div>`, indent);
+          print(`{!this.props.${varName} && (<div>`, indent, '      ');
           for (const piece of content) {
             print(piece, indent + '        ');
           }
-          print(`      </div>)}`, indent);
+          print(`</div>)}`, indent, '      ');
         } else {
           for (const piece of content) {
             print(piece, indent + '      ');
           }
         }
       }
-      print(`    </div>`, indent);
     }
 
     if (parent != null) {
-      print(`  </div>`, indent);
-      print(`</div>`, indent);
+      print(`</div>`, indent, '  ');
+      if (outerClass) print(`</div>`, indent);
     }
   }
 };
