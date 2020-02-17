@@ -86,7 +86,7 @@ async function main(options = {}) {
   fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
 
   // Generate components
-  createComponents(canvas, images, componentMap, options);
+  await createComponents(canvas, images, componentMap, options);
 
   // Generate getComponentFromId function
   contents += `export const getComponentFromId = (id) => {\n`;
