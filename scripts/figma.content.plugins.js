@@ -76,7 +76,6 @@ function setOnClick(state, { props: componentProps }) {
 function setId(state) {
   const { props, nodeProps } = state;
   if (Object.keys(props).includes('id')) {
-    console.log(props);
     nodeProps['id'] = `'${props.id}'`;
   }
 }
