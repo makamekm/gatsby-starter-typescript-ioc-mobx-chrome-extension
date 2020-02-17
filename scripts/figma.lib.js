@@ -61,7 +61,7 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
   visitNode(shared, component);
 
   // Render props
-  preprint(`const ${instance} = observer(({ ${Object.keys(props).join(', ')} }) => {`); // Can be replaced with React.memo(...)
+  preprint(`const ${instance} = observer(props => { const { ${Object.keys(props).join(', ')} } = props;`); // Can be replaced with React.memo(...)
 
   // Stage 3 (Collect all styles)
 

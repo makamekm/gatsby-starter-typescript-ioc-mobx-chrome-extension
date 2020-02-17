@@ -6,7 +6,8 @@ export const getComponentFromId = id => {
   return null;
 };
 
-const Clock15D2 = observer(({ test, children }) => {
+const Clock15D2 = observer(props => {
+  const { test, children } = props;
   return (
     <>
       <div className="figma-1">

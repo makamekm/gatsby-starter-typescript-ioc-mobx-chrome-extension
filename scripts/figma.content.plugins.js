@@ -16,7 +16,7 @@ function setComponentFromCache(state, { component, imgMap, componentMap }) {
   const { node, content } = state;
   if (node.id !== component.id && node.name.charAt(0) === '#') {
     emptyChildren(state);
-    content.push(`<${getComponentName(node.name)} {...this.props} nodeId="${node.id}" />`);
+    content.push(`<${getComponentName(node.name)} {...props} nodeId="${node.id}" />`);
     createComponent(node, imgMap, componentMap);
   }
 }
