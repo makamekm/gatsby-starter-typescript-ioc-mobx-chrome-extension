@@ -11,6 +11,11 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
   let doc = '';
   let styleCounter = 0;
   let styles = defaultStyles;
+  let props = {};
+
+  const preprint = msg => {
+    doc = `${msg}\n` + doc;
+  };
 
   const print = msg => {
     doc += `${msg}\n`;
@@ -31,8 +36,10 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
   };
 
   const shared = {
+    props,
     component,
     print,
+    preprint,
     printStyle,
     imgMap,
     componentMap,
@@ -41,7 +48,6 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
     options
   };
 
-  print(`const ${instance} = observer(() => {`); // Can be replaced with React.memo(...)
   print(`return (<>`);
 
   const path = `src/design-system/${fileName}.tsx`;
@@ -53,6 +59,9 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
   // Stage 2 (Generate the component from the root)
 
   visitNode(shared, component);
+
+  // Render props
+  preprint(`const ${instance} = observer(({ ${Object.keys(props).join(', ')} }) => {`); // Can be replaced with React.memo(...)
 
   // Stage 3 (Collect all styles)
 

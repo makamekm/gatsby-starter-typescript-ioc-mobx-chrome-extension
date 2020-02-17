@@ -2,7 +2,8 @@ const { getComponentName, emptyChildren } = require('./figma.shared');
 
 const contentPlugins = [
   setComponentFromCache,
-  renderVector
+  renderVector,
+  renderPropsChildren
 ];
 
 function setComponentFromCache(state, { component, imgMap, componentMap }) {
@@ -22,8 +23,18 @@ function renderVector(state, { imgMap }) {
   }
 }
 
+function renderPropsChildren(state, { props: componentProps }) {
+  const { content, props } = state;
+  if (Object.keys(props).includes('content')) {
+    emptyChildren(state);
+    content.push(`{${props.content}}`);
+    componentProps[props.content] = 'any';
+  }
+}
+
 module.exports = {
   contentPlugins,
   setComponentFromCache,
-  renderVector
+  renderVector,
+  renderPropsChildren
 };

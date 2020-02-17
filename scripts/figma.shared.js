@@ -362,7 +362,6 @@ function visitNode(shared, node, parent = null, lastVertical = null) {
   }
 
   // Content Plugins
-
   contentPlugins.forEach(plugin => plugin(state, shared));
 
   renderChildren(state, shared);
