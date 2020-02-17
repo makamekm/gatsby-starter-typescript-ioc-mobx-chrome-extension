@@ -3,7 +3,10 @@ const { getComponentName, emptyChildren } = require('./figma.shared');
 const contentPlugins = [
   setComponentFromCache,
   renderVector,
-  renderPropsChildren
+  renderPropsChildren,
+  renderPropsChildrenIfEmpty,
+  renderIfTrue,
+  renderIfFalse
 ];
 
 function setComponentFromCache(state, { component, imgMap, componentMap }) {
@@ -25,10 +28,38 @@ function renderVector(state, { imgMap }) {
 
 function renderPropsChildren(state, { props: componentProps }) {
   const { content, props } = state;
-  if (Object.keys(props).includes('content')) {
+  if (Object.keys(props).includes('content') && !Object.keys(props).includes('contentIfEmpty')) {
     emptyChildren(state);
     content.push(`{${props.content}}`);
     componentProps[props.content] = 'any';
+  }
+}
+
+function renderPropsChildrenIfEmpty(state, { props: componentProps, print }) {
+  const { content, props } = state;
+  if (Object.keys(props).includes('content') && Object.keys(props).includes('contentIfEmpty')) {
+    print(`{ !!${props.content} && (`);
+    content.push(`)}`);
+    content.push(`{${props.content}}`);
+    componentProps[props.content] = 'any';
+  }
+}
+
+function renderIfTrue(state, { props: componentProps, print }) {
+  const { content, props } = state;
+  if (Object.keys(props).includes('ifTrue')) {
+    print(`{ !!${props.ifTrue} && (`);
+    content.push(`)}`);
+    componentProps[props.ifTrue] = 'any';
+  }
+}
+
+function renderIfFalse(state, { props: componentProps, print }) {
+  const { content, props } = state;
+  if (Object.keys(props).includes('ifFalse')) {
+    print(`{ !!${props.ifFalse} && (`);
+    content.push(`)}`);
+    componentProps[props.ifFalse] = 'any';
   }
 }
 
@@ -36,5 +67,8 @@ module.exports = {
   contentPlugins,
   setComponentFromCache,
   renderVector,
-  renderPropsChildren
+  renderPropsChildren,
+  renderPropsChildrenIfEmpty,
+  renderIfTrue,
+  renderIfFalse
 };

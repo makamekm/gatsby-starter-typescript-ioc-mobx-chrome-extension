@@ -360,6 +360,38 @@ const Clock15D2 = observer(({ children }) => {
               </div>
               <div className="figma-80">
                 <div id="72:2" className="figma-79">
+                  {!!children && (
+                    <div id="96:32" className="figma-81">
+                      <div id="95:7" className="figma-82">
+                        <div className="figma-83">
+                          <div id="96:2" className="figma-84">
+                            <span key="end">Content Here</span>
+                          </div>
+                          <div id="96:26" className="figma-85">
+                            <span key="end">Content Here</span>
+                          </div>
+                          <div id="96:27" className="figma-86">
+                            <span key="end">Content Here</span>
+                          </div>
+                          <div id="96:28" className="figma-87">
+                            <span key="end">Content Here</span>
+                          </div>
+                          <div id="96:29" className="figma-88">
+                            <span key="end">Content Here</span>
+                          </div>
+                          <div id="96:30" className="figma-89">
+                            <span key="end">Content Here</span>
+                          </div>
+                          <div id="96:31" className="figma-90">
+                            <span key="end">Content Here</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="96:33" className="figma-91">
+                        <span key="end">Content Here</span>
+                      </div>
+                    </div>
+                  )}
                   {children}
                 </div>
               </div>
@@ -1288,6 +1320,224 @@ const Clock15D2 = observer(({ children }) => {
           top: 0px;
           left: 0px;
           z-index: 1;
+        }
+        .figma-81 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          margin-left: 0px;
+          margin-right: 0px;
+          flex-grow: 1;
+          margin-top: 0px;
+          margin-bottom: 85px;
+          min-height: 42px;
+          background-color: rgba(0, 0, 0, 0);
+          overflow: hidden;
+        }
+        .figma-82 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          margin-left: 0px;
+          margin-right: -53px;
+          flex-grow: 1;
+          margin-top: 0px;
+          margin-bottom: 26px;
+          min-height: 16px;
+          max-width: 100%;
+          background-color: rgba(0, 0, 0, 0);
+          overflow: hidden;
+        }
+        .figma-83 {
+          display: flex;
+          flex-direction: row;
+          max-width: 100%;
+          margin-top: -10px;
+          margin-left: -10px;
+          margin-right: -10px;
+          flex-wrap: wrap;
+        }
+        .figma-84 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-85 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 1;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-86 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 2;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-87 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 3;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-88 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 4;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-89 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 5;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-90 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 6;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-91 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 1;
+          margin-left: 0px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: -16px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
         }
       `}</style>
     </>
