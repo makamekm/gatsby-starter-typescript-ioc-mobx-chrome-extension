@@ -2,7 +2,7 @@ const { generateComponentFile, getFileName, convertStyles, getComponentName, def
 const { contentPlugins } = require('./figma.content.plugins');
 const { stylePlugins } = require('./figma.style.plugins');
 
-const createComponent = (component, imgMap, componentMap, options = {}) => {
+const createComponent = async (component, imgMap, componentMap, options = {}) => {
   const name = getComponentName(component.name);
   const fileName = getFileName(name);
   const instance = name + component.id.replace(';', 'S').replace(':', 'D');
@@ -47,7 +47,7 @@ const createComponent = (component, imgMap, componentMap, options = {}) => {
 
   // Stage 1 (Generate the /Component for importing and code reuse)
 
-  generateComponentFile(path, name, component.id);
+  await generateComponentFile(path, name, component.id);
 
   // Stage 2 (Generate the component from the root)
 
@@ -67,12 +67,12 @@ const createComponent = (component, imgMap, componentMap, options = {}) => {
   componentMap[component.id] = { instance, name, doc };
 };
 
-function createComponents(canvas, images, componentMap, options = {}) {
+async function createComponents(canvas, images, componentMap, options = {}) {
   for (let i = 0; i < canvas.children.length; i++) {
     const child = canvas.children[i];
     if (child.name.charAt(0) === '#' && child.visible !== false) {
       const child = canvas.children[i];
-      createComponent(child, images, componentMap, options);
+      await createComponent(child, images, componentMap, options);
     }
   }
 }
