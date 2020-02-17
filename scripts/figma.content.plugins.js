@@ -1,6 +1,7 @@
 const { getComponentName, emptyChildren } = require('./figma.shared');
 
 const contentPlugins = [
+  applyStyles,
   setComponentFromCache,
   renderVector,
   renderPropsChildren,
@@ -10,6 +11,13 @@ const contentPlugins = [
   setOnClick,
   setId
 ];
+
+function applyStyles(state) {
+  const { middleStyle, innerStyle, outerStyle, props } = state;
+  Object.assign(middleStyle, props.style);
+  Object.assign(innerStyle, props.innerStyle);
+  Object.assign(outerStyle, props.outerStyle);
+}
 
 // TODO: use import from './${getComponentName(node.name, options)}'
 function setComponentFromCache(state, { component, imgMap, componentMap, options }) {
@@ -82,6 +90,7 @@ function setId(state) {
 }
 
 module.exports = {
+  applyStyles,
   contentPlugins,
   setComponentFromCache,
   renderVector,

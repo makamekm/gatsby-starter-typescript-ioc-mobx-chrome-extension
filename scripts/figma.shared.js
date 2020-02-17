@@ -310,7 +310,7 @@ function renderChildren({ node, minChildren, centerChildren, maxChildren }, shar
 }
 
 function visitNode(shared, node, parent = null, lastVertical = null) {
-  const { print, stylePlugins, contentPlugins, options } = shared;
+  const { print, preprint, stylePlugins, contentPlugins, options } = shared;
 
   const nodeProps = {};
 
@@ -353,15 +353,6 @@ function visitNode(shared, node, parent = null, lastVertical = null) {
 
   expandChildren(node, parent, minChildren, maxChildren, centerChildren, 0);
 
-  // Style Plugins
-
-  stylePlugins.forEach(plugin => plugin(state, shared));
-
-  // Apply styles
-  Object.assign(middleStyle, props.style);
-  Object.assign(innerStyle, props.innerStyle);
-  Object.assign(outerStyle, props.outerStyle);
-
   let docBuffer = '';
 
   const preprintBuffer = msg => {
@@ -372,12 +363,18 @@ function visitNode(shared, node, parent = null, lastVertical = null) {
     docBuffer += `${msg}\n`;
   };
 
-  // Content Plugins
-  contentPlugins.forEach(plugin => plugin(state, {
+  const sharedScoped = {
     ...shared,
     print: printBuffer,
-    preprint: preprintBuffer
-  }));
+    preprint: preprintBuffer,
+    preprintComponent: preprint
+  };
+
+  // Style Plugins
+  stylePlugins.forEach(plugin => plugin(state, sharedScoped));
+
+  // Content Plugins
+  contentPlugins.forEach(plugin => plugin(state, sharedScoped));
 
   // Render if it's not a parent
   if (parent != null) {
