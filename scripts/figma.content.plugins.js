@@ -11,6 +11,7 @@ const contentPlugins = [
   setId
 ];
 
+// TODO: use import from './${getComponentName(node.name)}'
 function setComponentFromCache(state, { component, imgMap, componentMap }) {
   const { node, content } = state;
   if (node.id !== component.id && node.name.charAt(0) === '#') {
