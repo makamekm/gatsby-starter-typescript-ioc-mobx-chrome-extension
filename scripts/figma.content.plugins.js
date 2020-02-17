@@ -78,7 +78,7 @@ function setOnClick(state, { props: componentProps }) {
   const { props, nodeProps } = state;
   if (Object.keys(props).includes('onClick')) {
     nodeProps['onClick'] = props.onClick;
-    componentProps[props.onClick] = 'Function';
+    componentProps[props.onClick] = 'React.MouseEventHandler<HTMLElement>';
   }
 }
 

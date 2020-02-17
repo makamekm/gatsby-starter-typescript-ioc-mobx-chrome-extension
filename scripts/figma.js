@@ -27,7 +27,7 @@ function getHeaders(devToken) {
 // - objectIndex // default '.'
 // - imports // default ['import { observer } from 'mobx-react';']
 // - decorator // default 'observer'
-// - typeFactory // default shared => 'any'
+// - typeFactory // default ({ props: componentProps }) => `{ ${Object.keys(componentProps).map(key => `${key}: ${componentProps[key] || 'any'};\n`).join('')} }`
 
 function getConfig(options = {}) {
   let fileKey = options.fileKey || process.argv[2] || process.env.FIGMA_FILE_KEY_DEFAULT;

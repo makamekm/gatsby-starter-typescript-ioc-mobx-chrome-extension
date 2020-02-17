@@ -6,7 +6,7 @@ export const getComponentFromId = id => {
   return null;
 };
 
-const Clock15D2: React.FC<any> = observer(props => {
+const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, children: any }> = observer(props => {
   const { test, children } = props;
   return (
     <>
