@@ -2,181 +2,73 @@ require('dotenv').config();
 
 const fetch = require('node-fetch');
 const fs = require('fs');
-const prettier = require("prettier");
-const { createComponent, getComponentName, colorString, getFileName } = require('./figma.lib');
 
-let devToken = process.env.DEV_TOKEN;
+const { preprocessCanvasComponents, writeFile } = require('./figma.shared');
+const { createComponents } = require('./figma.lib');
+const { loadCanvas, loadImages, loadURLImages } = require('./figma.api');
 
-if (process.argv.length < 3) {
-  console.log('Usage: node setup.js <file-key> [figma-dev-token]');
-  process.exit(0);
+function getHeaders(devToken) {
+  const headers = new fetch.Headers();
+  headers.append('X-Figma-Token', devToken);
+  return headers;
 }
 
-if (process.argv.length > 3) {
-  devToken = process.argv[3];
-}
+function getConfig() {
+  let fileKey = process.env.FIGMA_FILE_KEY_DEFAULT;
+  let devToken = process.env.FIGMA_DEV_TOKEN;
+  let dir = process.env.FIGMA_DIR;
 
-const fileKey = process.argv[2];
-const baseUrl = 'https://api.figma.com';
-
-const headers = new fetch.Headers();
-headers.append('X-Figma-Token', devToken);
-
-const path = './src/design-system/generated.tsx';
-
-const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'ELLIPSE', 'STAR'];
-
-const vectorMap = {};
-const vectorList = [];
-const componentMap = {};
-
-function paintsRequireRender(paints) {
-  if (!paints) return false;
-
-  let numPaints = 0;
-  for (const paint of paints) {
-    if (paint.visible === false) continue;
-
-    numPaints++;
-    if (paint.type === 'EMOJI') return true;
+  if (process.argv.length > 2) {
+    fileKey = process.argv[2];
   }
 
-  return numPaints > 1;
-}
-
-function preprocessTree(node) {
-  let vectorsOnly = node.name.charAt(0) !== '#';
-  let vectorVConstraint = null;
-  let vectorHConstraint = null;
-
-  if (
-    paintsRequireRender(node.fills) ||
-    paintsRequireRender(node.strokes) ||
-    (node.blendMode != null && ['PASS_THROUGH', 'NORMAL'].indexOf(node.blendMode) < 0)
-  ) {
-    node.type = 'VECTOR';
+  if (process.argv.length > 3) {
+    devToken = process.argv[3];
   }
 
-  const children = node.children && node.children.filter(child => child.visible !== false);
-  if (children) {
-    for (let j = 0; j < children.length; j++) {
-      if (vectorTypes.indexOf(children[j].type) < 0) vectorsOnly = false;
-      else {
-        if (vectorVConstraint != null && children[j].constraints.vertical != vectorVConstraint) vectorsOnly = false;
-        if (vectorHConstraint != null && children[j].constraints.horizontal != vectorHConstraint) vectorsOnly = false;
-        vectorVConstraint = children[j].constraints.vertical;
-        vectorHConstraint = children[j].constraints.horizontal;
-      }
-    }
-  }
-  node.children = children;
-
-  if (children && children.length > 0 && vectorsOnly) {
-    node.type = 'VECTOR';
-    node.constraints = {
-      vertical: vectorVConstraint,
-      horizontal: vectorHConstraint
-    };
+  if (!dir) {
+    dir = './src/design-system/';
   }
 
-  if (vectorTypes.indexOf(node.type) >= 0) {
-    node.type = 'VECTOR';
-    vectorMap[node.id] = node;
-    vectorList.push(node.id);
-    node.children = [];
+  const path = dir + '/generated.tsx';
+
+  if (!fileKey || !devToken) {
+    console.log('Usage: node figma.js <file-key> [figma-dev-token] or use env.FIGMA_FILE_KEY_DEFAULT, env.FIGMA_DEV_TOKEN');
+    process.exit(0);
   }
 
-  if (node.children) {
-    for (const child of node.children) {
-      preprocessTree(child);
-    }
-  }
+  const headers = getHeaders(devToken);
+
+  return {
+    headers,
+    fileKey,
+    path
+  };
 }
 
-async function loadCanvas() {
-  let resp = await fetch(`${baseUrl}/v1/files/${fileKey}`, { headers });
-  let data = await resp.json();
-  const document = data.document;
-  const canvas = document.children[0];
-  return canvas;
-}
+async function main(options = {}) {
+  const { headers, fileKey, path } = getConfig();
 
-function preprocessCanvasComponents(canvas) {
-  for (let i = 0; i < canvas.children.length; i++) {
-    const child = canvas.children[i];
-    if (child.name.charAt(0) === '#' && child.visible !== false) {
-      const child = canvas.children[i];
-      preprocessTree(child);
-    }
-  }
-}
+  // Create shared objects
+  const vectorMap = {};
+  const componentMap = {};
+  const vectorList = [];
 
-async function loadURLImages() {
-  const guids = vectorList.join(',');
-  data = await fetch(`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`, { headers });
-  return await data.json();
-}
+  const shared = {
+    componentMap,
+    vectorMap,
+    vectorList
+  };
 
-async function loadImages(imageJSON) {
-  const images = imageJSON.images || {};
-  if (images) {
-    let promises = [];
-    let guids = [];
-
-    for (const guid in images) {
-      if (images[guid] == null) continue;
-      guids.push(guid);
-      promises.push(fetch(images[guid]));
-    }
-
-    let responses = await Promise.all(promises);
-    promises = [];
-    for (const resp of responses) {
-      promises.push(resp.text());
-    }
-
-    responses = await Promise.all(promises);
-    for (let i = 0; i < responses.length; i++) {
-      images[guids[i]] = responses[i].replace('<svg ', '<svg preserveAspectRatio="none" ');
-    }
-  }
-  return images;
-}
-
-function createComponents(canvas, images, componentMap) {
-  for (let i = 0; i < canvas.children.length; i++) {
-    const child = canvas.children[i];
-    if (child.name.charAt(0) === '#' && child.visible !== false) {
-      const child = canvas.children[i];
-      createComponent(child, images, componentMap);
-    }
-  }
-}
-
-function writeFile(contents) {
-  new Promise((r, e) => prettier.resolveConfig('./.prettierrc').then(options => {
-    fs.writeFile(path, prettier.format(contents, options), err => {
-      if (err) {
-        console.error(err);
-        e(err);
-      } else {
-        console.log(`wrote ${path}`);
-        r();
-      }
-    });
-  }));
-}
-
-async function main() {
   // Load the document from Figma
-  const canvas = await loadCanvas();
+  const canvas = await loadCanvas(fileKey, headers);
 
   // Wrap vectors and images
-  preprocessCanvasComponents(canvas);
+  preprocessCanvasComponents(canvas, shared);
 
   // Load all images used in the document from Figma
-  const imageJSON = await loadURLImages();
-  const images = await loadImages(imageJSON);
+  const imageJSON = await loadURLImages(vectorList, fileKey, headers);
+  const images = await loadImages(imageJSON, fileKey, headers);
 
   // Content represents writing cursor
   let contents = '';
@@ -193,7 +85,7 @@ async function main() {
   fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
 
   // Generate components
-  createComponents(canvas, images, componentMap);
+  createComponents(canvas, images, componentMap, options);
 
   // Generate getComponentFromId function
   contents += `export const getComponentFromId = (id) => {\n`;
@@ -206,10 +98,12 @@ async function main() {
   contents += nextSection;
 
   // Write the final result
-  await writeFile(contents);
+  await writeFile(path, contents);
 }
 
-main().catch(err => {
-  console.error(err);
-  console.error(err.stack);
-});
+if (process.env.FIGMA_FILE_KEY_DEFAULT) {
+  main().catch(err => {
+    console.error(err);
+    console.error(err.stack);
+  });
+}
