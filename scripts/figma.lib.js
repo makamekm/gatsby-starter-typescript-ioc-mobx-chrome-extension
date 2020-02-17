@@ -3,7 +3,7 @@ const { contentPlugins } = require('./figma.content.plugins');
 const { stylePlugins } = require('./figma.style.plugins');
 
 const createComponent = async (component, imgMap, componentMap, options = {}) => {
-  const name = getComponentName(component.name);
+  const name = getComponentName(component.name, options);
   const fileName = getFileName(name);
   const instance = name + component.id.replace(';', 'S').replace(':', 'D');
   const classPrefix = options.classPrefix || 'figma-';

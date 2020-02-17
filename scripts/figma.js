@@ -21,6 +21,10 @@ function getHeaders(devToken) {
 // - stylePlugins // default from './figma.style.plugins'
 // - contentPlugins // default from './figma.content.plugins'
 // - classPrefix // default 'figma-'
+// - delIndex // default '??'
+// - paramsSplitIndex // default '&'
+// - paramSplitIndex // default '='
+// - objectIndex // default '.'
 
 function getConfig(options = {}) {
   let fileKey = options.fileKey || process.argv[2] || process.env.FIGMA_FILE_KEY_DEFAULT;

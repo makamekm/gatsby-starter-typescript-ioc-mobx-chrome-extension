@@ -182,25 +182,25 @@ function convertStyles(styles) {
     .join('\n');
 }
 
-function getComponentName(name) {
-  const dotIndex = name.indexOf('??');
+function getComponentName(name, options = {}) {
+  const dotIndex = name.indexOf(options.delIndex || '??');
   if (dotIndex >= 0) {
     name = name.substring(0, dotIndex);
   }
   return name.replace(/\W+/g, '');
 }
 
-function getElementParams(name) {
+function getElementParams(name, options = {}) {
   let params = {};
-  const delIndex = name.indexOf('??');
+  const delIndex = name.indexOf(options.delIndex || '??');
   if (delIndex >= 0) {
     const paramsStr = name.substring(delIndex + 2);
-    const paramsSplit = paramsStr.split('&');
+    const paramsSplit = paramsStr.split(options.paramsSplitIndex || '&');
     paramsSplit.forEach(paramStr => {
-      const [paramKey, paramValue] = paramStr.split('=');
-      const dotIndex = paramKey.indexOf('.');
+      const [paramKey, paramValue] = paramStr.split(options.paramSplitIndex || '=');
+      const dotIndex = paramKey.indexOf(options.objectIndex || '.');
       if (dotIndex >= 0) {
-        const [firstKey, secondKey] = paramKey.split('.');
+        const [firstKey, secondKey] = paramKey.split(options.objectIndex || '.');
         if (!params[firstKey]) params[firstKey] = {};
         params[firstKey][secondKey] = paramValue;
       } else params[paramKey] = paramValue;
@@ -310,7 +310,7 @@ function renderChildren({ node, minChildren, centerChildren, maxChildren }, shar
 }
 
 function visitNode(shared, node, parent = null, lastVertical = null) {
-  const { print, stylePlugins, contentPlugins } = shared;
+  const { print, stylePlugins, contentPlugins, options } = shared;
 
   const nodeProps = {};
 
@@ -331,7 +331,7 @@ function visitNode(shared, node, parent = null, lastVertical = null) {
     pointerEvents: 'auto'
   };
 
-  const props = getElementParams(node.name);
+  const props = getElementParams(node.name, options);
   const bounds = createNodeBounds(node, parent, lastVertical);
 
   const state = {

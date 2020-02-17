@@ -11,12 +11,12 @@ const contentPlugins = [
   setId
 ];
 
-// TODO: use import from './${getComponentName(node.name)}'
-function setComponentFromCache(state, { component, imgMap, componentMap }) {
+// TODO: use import from './${getComponentName(node.name, options)}'
+function setComponentFromCache(state, { component, imgMap, componentMap, options }) {
   const { node, content } = state;
   if (node.id !== component.id && node.name.charAt(0) === '#') {
     emptyChildren(state);
-    content.push(`<${getComponentName(node.name)} {...props} nodeId="${node.id}" />`);
+    content.push(`<${getComponentName(node.name, options)} {...props} nodeId="${node.id}" />`);
     createComponent(node, imgMap, componentMap);
   }
 }
