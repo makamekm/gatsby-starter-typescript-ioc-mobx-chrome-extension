@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const fetch = require('node-fetch');
 const fs = require('fs');
+const fsPath = require('path');
 
 const { preprocessCanvasComponents, writeFile } = require('./figma.shared');
 const { createComponents } = require('./figma.lib');
@@ -13,24 +14,16 @@ function getHeaders(devToken) {
   return headers;
 }
 
-function getConfig() {
-  let fileKey = process.env.FIGMA_FILE_KEY_DEFAULT;
-  let devToken = process.env.FIGMA_DEV_TOKEN;
-  let dir = process.env.FIGMA_DIR;
-
-  if (process.argv.length > 2) {
-    fileKey = process.argv[2];
-  }
-
-  if (process.argv.length > 3) {
-    devToken = process.argv[3];
-  }
+function getConfig(options = {}) {
+  let fileKey = options.fileKey || process.argv[2] || process.env.FIGMA_FILE_KEY_DEFAULT;
+  let devToken = options.devToken || process.argv[3] || process.env.FIGMA_DEV_TOKEN;
+  let dir = options.dir || process.env.FIGMA_DIR;
 
   if (!dir) {
-    dir = './src/design-system/';
+    dir = './src/design-system';
   }
 
-  const path = dir + '/generated.tsx';
+  const path = fsPath.resolve(dir, 'generated.tsx');
 
   if (!fileKey || !devToken) {
     console.log('Usage: node figma.js <file-key> [figma-dev-token] or use env.FIGMA_FILE_KEY_DEFAULT, env.FIGMA_DEV_TOKEN');
@@ -47,7 +40,7 @@ function getConfig() {
 }
 
 async function main(options = {}) {
-  const { headers, fileKey, path } = getConfig();
+  const { headers, fileKey, path } = getConfig(options);
 
   // Create shared objects
   const vectorMap = {};
