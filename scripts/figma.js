@@ -111,12 +111,6 @@ function preprocessCanvasComponents(canvas) {
   }
 }
 
-async function loadImages() {
-  const guids = vectorList.join(',');
-  data = await fetch(`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`, { headers });
-  return await data.json();
-}
-
 async function loadURLImages() {
   const guids = vectorList.join(',');
   data = await fetch(`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`, { headers });
@@ -177,12 +171,12 @@ async function main() {
   // Load the document from Figma
   const canvas = await loadCanvas();
 
+  // Wrap vectors and images
+  preprocessCanvasComponents(canvas);
+
   // Load all images used in the document from Figma
   const imageJSON = await loadURLImages();
   const images = await loadImages(imageJSON);
-
-  // Wrap vectors and images
-  preprocessCanvasComponents(canvas);
 
   // Content represents writing cursor
   let contents = '';
