@@ -253,6 +253,10 @@ function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyl
     outerStyle.zIndex = middleStyle.zIndex;
   }
 
+  if (Object.keys(innerStyle).length > 0 && middleStyle.zIndex != null) {
+    innerStyle.zIndex = middleStyle.zIndex;
+  }
+
   const middleId = printStyle(middleStyle);
   const outerId = printStyle(outerStyle);
   const innerId = printStyle(innerStyle);
