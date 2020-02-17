@@ -116,7 +116,7 @@ async function generateComponentFile(path, name, id) {
     componentSrc += `import { getComponentFromId } from './generated';\n`;
     componentSrc += `\n`;
     componentSrc += `export const ${name} = observer(props => {\n`;
-    componentSrc += `const Component = getComponentFromId("${id}");\n`;
+    componentSrc += `const Component = getComponentFromId('${id}');\n`;
     componentSrc += `return <Component {...props} />;\n`;
     componentSrc += `});\n`;
     await writeFile(path, componentSrc);
@@ -258,18 +258,18 @@ function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyl
   const innerId = printStyle(innerStyle);
 
   if (outerId) {
-    print(`<div className="${outerId}">`);
+    print(`<div className='${outerId}'>`);
     increaseDivCounter();
   }
 
   print(`<div`);
-  print(`id="${node.id}"`);
-  print(`className="${middleId}"`);
+  print(`id='${node.id}'`);
+  print(`className='${middleId}'`);
   print(`>`);
   increaseDivCounter();
 
   if (innerId) {
-    print(`<div className="${innerId}">`);
+    print(`<div className='${innerId}'>`);
     increaseDivCounter();
   }
 }
@@ -302,7 +302,7 @@ function renderChildren({ node, minChildren, centerChildren, maxChildren }, shar
   }
 }
 
-function visitNode(shared, node, parent, lastVertical) {
+function visitNode(shared, node, parent = null, lastVertical = null) {
   const { print, stylePlugins, contentPlugins } = shared;
 
   const minChildren = [];
@@ -366,7 +366,7 @@ function visitNode(shared, node, parent, lastVertical) {
   // WTF?!?!
   // if (node.name.charAt(0) === '$') {
   //   const varName = node.name.substring(1);
-  //   print(`{this.props.${varName} && this.props.${varName}.split("\\n").map((line, idx) => <div key={idx}>{line}</div>)}`);
+  //   print(`{this.props.${varName} && this.props.${varName}.split('\\n').map((line, idx) => <div key={idx}>{line}</div>)}`);
   //   print(`{!this.props.${varName} && (<div>`);
   //   for (const piece of content) {
   //     print(piece);

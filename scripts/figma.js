@@ -91,7 +91,7 @@ async function main(options = {}) {
   // Generate getComponentFromId function
   contents += `export const getComponentFromId = (id) => {\n`;
   for (const key in componentMap) {
-    contents += `if (id === "${key}") return ${componentMap[key].instance};\n`;
+    contents += `if (id === '${key}') return ${componentMap[key].instance};\n`;
     // Write the generated component tree
     nextSection += componentMap[key].doc + '\n';
   }

@@ -37,7 +37,8 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
     imgMap,
     componentMap,
     stylePlugins: options.stylePlugins || stylePlugins,
-    contentPlugins: options.contentPlugins || contentPlugins
+    contentPlugins: options.contentPlugins || contentPlugins,
+    options
   };
 
   print(`const ${instance} = observer(() => {`); // Can be replaced with React.memo(...)
@@ -51,7 +52,7 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
 
   // Stage 2 (Generate the component from the root)
 
-  visitNode(shared, component, null, null);
+  visitNode(shared, component);
 
   // Stage 3 (Collect all styles)
 
