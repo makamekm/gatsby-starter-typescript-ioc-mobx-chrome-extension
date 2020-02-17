@@ -25,6 +25,7 @@ function getHeaders(devToken) {
 // - paramsSplitIndex // default '&'
 // - paramSplitIndex // default '='
 // - objectIndex // default '.'
+// - imports // default ['import { observer } from 'mobx-react';']
 
 function getConfig(options = {}) {
   let fileKey = options.fileKey || process.argv[2] || process.env.FIGMA_FILE_KEY_DEFAULT;
@@ -83,7 +84,12 @@ async function main(options = {}) {
 
   // Header
   contents += `import * as React from 'react';\n`;
-  contents += `import { observer } from 'mobx-react';\n`;
+
+  const imports = options.imports || [`import { observer } from 'mobx-react';`];
+  imports.forEach(imp => {
+    contents += `${imp}\n`;
+  });
+
   contents += `\n`;
 
   // Debug
