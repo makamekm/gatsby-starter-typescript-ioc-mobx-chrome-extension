@@ -14,6 +14,14 @@ function getHeaders(devToken) {
   return headers;
 }
 
+// Options:
+// - fileKey // * required
+// - devToken // * required
+// - dir // default './src/design-system'
+// - stylePlugins // default from './figma.style.plugins'
+// - contentPlugins // default from './figma.content.plugins'
+// - classPrefix // default 'figma-'
+
 function getConfig(options = {}) {
   let fileKey = options.fileKey || process.argv[2] || process.env.FIGMA_FILE_KEY_DEFAULT;
   let devToken = options.devToken || process.argv[3] || process.env.FIGMA_DEV_TOKEN;
