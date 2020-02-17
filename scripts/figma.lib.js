@@ -66,7 +66,7 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
   // Render props
   const decorator = options.decorator || 'observer';
   const typeFactory = options.typeFactory || (({ props: componentProps }) => `{ ${Object.keys(componentProps).map(key => `${key}: ${componentProps[key] || 'any'};\n`).join('')} }`);
-  preprint(`const ${instance}: React.FC<${typeFactory(shared)}> = ${decorator}(props => { const { ${Object.keys(props).join(', ')} } = props;`); // Can be replaced with React.memo(...)
+  preprint(`export const ${instance}: React.FC<${typeFactory(shared)}> = ${decorator}(props => { const { ${Object.keys(props).join(', ')} } = props;`); // Can be replaced with React.memo(...)
 
   // Stage 3 (Collect all styles)
 
