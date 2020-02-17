@@ -6,7 +6,7 @@ export const getComponentFromId = id => {
   return null;
 };
 
-const Clock15D2 = observer(({ children }) => {
+const Clock15D2 = observer(({ test, children }) => {
   return (
     <>
       <div className="figma-1">
@@ -238,7 +238,7 @@ const Clock15D2 = observer(({ children }) => {
               </div>
             </div>
             <div className="figma-42">
-              <div id="66:0" className="figma-41">
+              <div onClick={test} id={'adam--extension'} className="figma-41">
                 <div className="figma-44">
                   <div id="66:1" className="figma-43">
                     <div

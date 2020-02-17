@@ -248,7 +248,7 @@ function createNodeBounds(node, parent, lastVertical) {
   return null;
 }
 
-function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyle }, { printStyle, print }) {
+function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyle, nodeProps }, { printStyle, print }) {
   if (Object.keys(outerStyle).length > 0 && middleStyle.zIndex != null) {
     outerStyle.zIndex = middleStyle.zIndex;
   }
@@ -267,7 +267,10 @@ function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyl
   }
 
   print(`<div`);
-  print(`id='${node.id}'`);
+  if (!Object.keys(nodeProps).includes('id')) print(`id='${node.id}'`);
+  Object.keys(nodeProps).forEach(key => {
+    print(`${key}={${nodeProps[key]}}`);
+  })
   print(`className='${middleId}'`);
   print(`>`);
   increaseDivCounter();
@@ -309,6 +312,8 @@ function renderChildren({ node, minChildren, centerChildren, maxChildren }, shar
 function visitNode(shared, node, parent = null, lastVertical = null) {
   const { print, stylePlugins, contentPlugins } = shared;
 
+  const nodeProps = {};
+
   const minChildren = [];
   const maxChildren = [];
   const centerChildren = [];
@@ -342,7 +347,8 @@ function visitNode(shared, node, parent = null, lastVertical = null) {
     minChildren,
     maxChildren,
     centerChildren,
-    content
+    content,
+    nodeProps
   };
 
   expandChildren(node, parent, minChildren, maxChildren, centerChildren, 0);
@@ -356,13 +362,29 @@ function visitNode(shared, node, parent = null, lastVertical = null) {
   Object.assign(innerStyle, props.innerStyle);
   Object.assign(outerStyle, props.outerStyle);
 
+  let docBuffer = '';
+
+  const preprintBuffer = msg => {
+    docBuffer = `${msg}\n` + docBuffer;
+  };
+
+  const printBuffer = msg => {
+    docBuffer += `${msg}\n`;
+  };
+
+  // Content Plugins
+  contentPlugins.forEach(plugin => plugin(state, {
+    ...shared,
+    print: printBuffer,
+    preprint: preprintBuffer
+  }));
+
   // Render if it's not a parent
   if (parent != null) {
     printDiv(state, shared);
   }
 
-  // Content Plugins
-  contentPlugins.forEach(plugin => plugin(state, shared));
+  print(docBuffer);
 
   renderChildren(state, shared);
 

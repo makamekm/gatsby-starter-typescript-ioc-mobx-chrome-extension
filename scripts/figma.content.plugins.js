@@ -6,7 +6,9 @@ const contentPlugins = [
   renderPropsChildren,
   renderPropsChildrenIfEmpty,
   renderIfTrue,
-  renderIfFalse
+  renderIfFalse,
+  setOnClick,
+  setId
 ];
 
 function setComponentFromCache(state, { component, imgMap, componentMap }) {
@@ -63,6 +65,22 @@ function renderIfFalse(state, { props: componentProps, print }) {
   }
 }
 
+function setOnClick(state, { props: componentProps }) {
+  const { props, nodeProps } = state;
+  if (Object.keys(props).includes('onClick')) {
+    nodeProps['onClick'] = props.onClick;
+    componentProps[props.onClick] = 'Function';
+  }
+}
+
+function setId(state) {
+  const { props, nodeProps } = state;
+  if (Object.keys(props).includes('id')) {
+    console.log(props);
+    nodeProps['id'] = `'${props.id}'`;
+  }
+}
+
 module.exports = {
   contentPlugins,
   setComponentFromCache,
@@ -70,5 +88,7 @@ module.exports = {
   renderPropsChildren,
   renderPropsChildrenIfEmpty,
   renderIfTrue,
-  renderIfFalse
+  renderIfFalse,
+  setOnClick,
+  setId
 };
