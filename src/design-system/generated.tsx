@@ -360,7 +360,7 @@ const Clock15D2 = observer(({ children }) => {
               </div>
               <div className="figma-80">
                 <div id="72:2" className="figma-79">
-                  {!!children && (
+                  {!children && (
                     <div id="96:32" className="figma-81">
                       <div id="95:7" className="figma-82">
                         <div className="figma-83">

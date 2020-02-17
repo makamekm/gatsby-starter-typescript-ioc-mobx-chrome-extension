@@ -38,7 +38,7 @@ function renderPropsChildren(state, { props: componentProps }) {
 function renderPropsChildrenIfEmpty(state, { props: componentProps, print }) {
   const { content, props } = state;
   if (Object.keys(props).includes('content') && Object.keys(props).includes('contentIfEmpty')) {
-    print(`{ !!${props.content} && (`);
+    print(`{ !${props.content} && (`);
     content.push(`)}`);
     content.push(`{${props.content}}`);
     componentProps[props.content] = 'any';
