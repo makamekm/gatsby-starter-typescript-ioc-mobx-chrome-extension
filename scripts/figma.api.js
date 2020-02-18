@@ -5,11 +5,18 @@ const baseUrl = 'https://api.figma.com';
 module.exports = {
   loadCanvas,
   loadURLImages,
-  loadImages
+  loadImages,
+  getHeaders
 };
 
+function getHeaders(devToken) {
+  const headers = new fetch.Headers();
+  headers.append('X-Figma-Token', devToken);
+  return headers;
+}
+
 async function loadCanvas(fileKey, headers) {
-  let resp = await fetch(`${baseUrl}/v1/files/${fileKey}`, { headers });
+  let resp = await fetch(`${baseUrl}/v1/files/${fileKey}?geometry=paths`, { headers });
   let data = await resp.json();
   const document = data.document;
   const canvas = document.children[0];

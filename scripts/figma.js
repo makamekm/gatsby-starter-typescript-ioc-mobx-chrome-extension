@@ -1,17 +1,12 @@
 require('dotenv').config();
 
+const fs = require('fs');
 const fetch = require('node-fetch');
 
 const { preprocessCanvasComponents, createComponents, generateComponent } = require('./figma.lib');
-const { loadCanvas, loadImages, loadURLImages } = require('./figma.api');
+const { loadCanvas, loadImages, loadURLImages, getHeaders } = require('./figma.api');
 const { contentPlugins } = require('./figma.content.plugins');
 const { stylePlugins } = require('./figma.style.plugins');
-
-function getHeaders(devToken) {
-  const headers = new fetch.Headers();
-  headers.append('X-Figma-Token', devToken);
-  return headers;
-}
 
 // Options:
 // - fileKey // * required
@@ -80,7 +75,7 @@ async function main(options = {}) {
   const images = await loadImages(imageJSON, fileKey, headers);
 
   // Debug
-  // fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
+  fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
 
   // Create components
   await createComponents(canvas, images, componentMap, options);

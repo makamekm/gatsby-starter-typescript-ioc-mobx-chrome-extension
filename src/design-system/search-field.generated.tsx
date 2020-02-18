@@ -13,8 +13,15 @@ export const SearchField14D150: React.FC<{}> = observer(props => {
             <div
               className="vector"
               dangerouslySetInnerHTML={{
-                __html: `<svg preserveAspectRatio="none" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 1.629L9.311 5.69406L9.42302 6.04138L9.78796 6.04059L14.0592 6.03125L10.5982 8.53426L10.3025 8.74812L10.416 9.09496L11.7448 13.1543L8.29478 10.6361L8 10.421L7.70522 10.6361L4.25522 13.1543L5.58398 9.09496L5.69751 8.74812L5.4018 8.53426L1.94081 6.03125L6.21204 6.04059L6.57698 6.04138L6.689 5.69406L8 1.629Z" stroke="#4B4D52"/>
+                __html: `<svg preserveAspectRatio="none" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path d="M8.86763 2.09845L9.95035 6.25865L10.0429 6.61411L10.4096 6.63437L14.7018 6.87146L11.0798 9.18675L10.7704 9.38458L10.8644 9.73963L11.9653 13.8951L8.64407 11.1658L8.36029 10.9326L8.05169 11.1318L4.43983 13.4629L6.0092 9.46079L6.14329 9.11885L5.8585 8.88689L2.52536 6.17217L6.81653 6.42802L7.18318 6.44988L7.31577 6.10735L8.86763 2.09845Z" stroke="#4B4D52"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect x="0.923276" width="16.1032" height="16.1032" transform="rotate(3.28687 0.923276 0)" fill="white"/>
+</clipPath>
+</defs>
 </svg>
 `
               }}
@@ -87,11 +94,11 @@ export const SearchField14D150: React.FC<{}> = observer(props => {
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 1;
-          margin-right: 0px;
-          width: 36px;
-          min-width: 36px;
-          margin-top: 0px;
-          margin-bottom: 0px;
+          margin-right: -0.00003814697265625px;
+          width: 37.431495666503906px;
+          min-width: 37.431495666503906px;
+          margin-top: 19.7806396484375px;
+          margin-bottom: 0.000011444091796875px;
           background-color: rgba(0, 0, 0, 0);
         }
         .figma-3 {
@@ -109,12 +116,12 @@ export const SearchField14D150: React.FC<{}> = observer(props => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          margin-left: 10px;
-          width: 16px;
-          min-width: 16px;
-          margin-top: 5px;
-          margin-bottom: 5px;
-          min-height: 16px;
+          margin-left: 10.270263671875px;
+          width: 16.891042709350586px;
+          min-width: 16.891042709350586px;
+          margin-top: 5.56512451171875px;
+          margin-bottom: 5.565130233764648px;
+          min-height: 16.891042709350586px;
         }
         .figma-5 {
           overflow: hidden;
@@ -142,11 +149,11 @@ export const SearchField14D150: React.FC<{}> = observer(props => {
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 2;
-          margin-left: 36px;
-          margin-right: 42px;
+          margin-left: 36.2274169921875px;
+          margin-right: 42.217620849609375px;
           flex-grow: 1;
-          height: 16px;
-          margin-top: 0px;
+          height: 33.346248626708984px;
+          margin-top: -0.3440055847167969px;
           color: rgba(75, 77, 82, 1);
           font-size: 14px;
           font-weight: 400;
@@ -175,10 +182,10 @@ export const SearchField14D150: React.FC<{}> = observer(props => {
           pointer-events: auto;
           z-index: 3;
           margin-left: 0px;
-          width: 36px;
-          min-width: 36px;
+          width: 37.431495666503906px;
+          min-width: 37.431495666503906px;
           margin-top: 0px;
-          margin-bottom: 0px;
+          margin-bottom: 19.780651092529297px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -196,11 +203,11 @@ export const SearchField14D150: React.FC<{}> = observer(props => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          margin-left: 10px;
-          width: 16px;
-          min-width: 16px;
-          height: 16px;
-          margin-top: 0px;
+          margin-left: 10.270263671875px;
+          width: 16.891042709350586px;
+          min-width: 16.891042709350586px;
+          height: 16.891042709350586px;
+          margin-top: -0.0000057220458984375px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -219,12 +226,12 @@ export const SearchField14D150: React.FC<{}> = observer(props => {
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 1;
-          margin-left: 6px;
-          width: 4px;
-          min-width: 4px;
-          margin-top: 3px;
-          margin-bottom: 10px;
-          min-height: 3px;
+          margin-left: 6.5634765625px;
+          width: 4.1654253005981445px;
+          min-width: 4.1654253005981445px;
+          margin-top: 3.339080810546875px;
+          margin-bottom: 10.327556133270264px;
+          min-height: 3.2244057655334473px;
           border: 1px solid rgba(75, 77, 82, 1);
           border-radius: 2px 2px 0px 0px;
         }
@@ -232,12 +239,12 @@ export const SearchField14D150: React.FC<{}> = observer(props => {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          margin-left: 4px;
-          width: 8px;
-          min-width: 8px;
-          margin-top: -10px;
-          margin-bottom: 3px;
-          min-height: 7px;
+          margin-left: 4.1654052734375px;
+          width: 8.38818645477295px;
+          min-width: 8.38818645477295px;
+          margin-top: -10.671590805053711px;
+          margin-bottom: 3.224424362182617px;
+          min-height: 7.447166442871094px;
           background-color: rgba(75, 77, 82, 1);
           border-radius: 2px 2px 2px 2px;
         }

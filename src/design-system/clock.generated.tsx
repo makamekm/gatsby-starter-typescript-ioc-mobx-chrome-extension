@@ -196,8 +196,8 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
                     <div
                       className="vector"
                       dangerouslySetInnerHTML={{
-                        __html: `<svg preserveAspectRatio="none" width="3" height="13" viewBox="0 0 3 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5C3 2.32843 2.32843 3 1.5 3C0.671573 3 0 2.32843 0 1.5C0 0.671573 0.671573 0 1.5 0C2.32843 0 3 0.671573 3 1.5ZM3 6.5C3 7.32843 2.32843 8 1.5 8C0.671573 8 0 7.32843 0 6.5C0 5.67157 0.671573 5 1.5 5C2.32843 5 3 5.67157 3 6.5ZM1.5 13C2.32843 13 3 12.3284 3 11.5C3 10.6716 2.32843 10 1.5 10C0.671573 10 0 10.6716 0 11.5C0 12.3284 0.671573 13 1.5 13Z" fill="#4B4D52"/>
+                        __html: `<svg preserveAspectRatio="none" width="4" height="13" viewBox="0 0 4 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.57543 1.58804C3.52787 2.41615 2.818 3.04891 1.9899 3.00135C1.16179 2.95379 0.52903 2.24392 0.576588 1.41582C0.624146 0.587712 1.33401 -0.045048 2.16212 0.00250989C2.99023 0.0500678 3.62299 0.759934 3.57543 1.58804ZM3.28839 6.58611C3.24083 7.41421 2.53097 8.04697 1.70286 7.99941C0.874753 7.95186 0.241993 7.24199 0.289551 6.41388C0.337109 5.58578 1.04698 4.95302 1.87508 5.00058C2.70319 5.04813 3.33595 5.758 3.28839 6.58611ZM1.41582 12.9975C2.24393 13.045 2.95379 12.4123 3.00135 11.5842C3.04891 10.7561 2.41615 10.0462 1.58804 9.99864C0.759938 9.95108 0.0500713 10.5838 0.00251341 11.4119C-0.0450445 12.2401 0.587715 12.9499 1.41582 12.9975Z" fill="#4B4D52"/>
 </svg>
 `
                       }}
@@ -214,8 +214,8 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
                       className="vector"
                       dangerouslySetInnerHTML={{
                         __html: `<svg preserveAspectRatio="none" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<circle cx="10" cy="10" r="10" fill="url(#pattern0)"/>
-<circle cx="10" cy="10" r="10" fill="url(#pattern1)"/>
+<circle cx="9.99999" cy="10" r="9.99971" transform="rotate(3.28687 9.99999 10)" fill="url(#pattern0)"/>
+<circle cx="9.99999" cy="10" r="9.99971" transform="rotate(3.28687 9.99999 10)" fill="url(#pattern1)"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="translate(-0.195652) scale(0.00543478)"/>
@@ -242,9 +242,9 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
                       className="vector"
                       dangerouslySetInnerHTML={{
                         __html: `<svg preserveAspectRatio="none" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="10" cy="10" r="10" fill="#487EAF"/>
-<path d="M5.78407 10.5437V13.2946L6.76534 13.4533V13.8824H3.07417V13.4533L3.98127 13.2946V6.58193L3 6.4291V6H6.65695C7.78275 6 8.62329 6.1783 9.17859 6.5349C9.73388 6.8915 10.0115 7.44795 10.0115 8.20426C10.0115 9.33284 9.49807 10.0578 8.47116 10.3791L10.5136 13.2946L11.3408 13.4533V13.8824H8.86481L6.73111 10.5437H5.78407ZM8.23154 8.21602C8.23154 7.62821 8.11364 7.22067 7.87783 6.99339C7.64202 6.76218 7.21034 6.64658 6.58278 6.64658H5.78407V9.89713H6.61131C7.19703 9.89713 7.6135 9.77174 7.86072 9.52094C8.10793 9.27014 8.23154 8.83517 8.23154 8.21602Z" fill="white"/>
-<path d="M14.3357 6.58193L13.3545 6.4291V6H17V6.4291L16.1328 6.58193V11.3431C16.1328 12.1935 15.9046 12.8499 15.4482 13.3123C14.9918 13.7708 14.3414 14 13.4971 14C13.2118 14 12.9304 13.9824 12.6527 13.9471C12.3789 13.9157 12.1602 13.8746 11.9967 13.8237V12.0367H12.5044L12.6756 13.0889C12.7478 13.179 12.8505 13.2496 12.9836 13.3005C13.1168 13.3515 13.2632 13.3769 13.4229 13.3769C13.6854 13.3769 13.9022 13.2829 14.0733 13.0948C14.2483 12.9067 14.3357 12.6285 14.3357 12.2601V6.58193Z" fill="white"/>
+<circle cx="9.99999" cy="10" r="9.99971" transform="rotate(3.28687 9.99999 10)" fill="#487EAF"/>
+<path d="M5.7599 10.3011L5.60218 13.0474L6.57271 13.2621L6.54811 13.6905L2.86311 13.4789L2.88771 13.0505L3.8024 12.944L4.18726 6.24258L3.21639 6.03374L3.24099 5.60537L6.89182 5.81503C8.01573 5.87958 8.84465 6.10577 9.37857 6.49361C9.91249 6.88145 10.1578 7.45289 10.1144 8.20793C10.0497 9.33463 9.49554 10.0289 8.45192 10.2908L10.3238 13.3186L11.1405 13.5244L11.1159 13.9528L8.64405 13.8109L6.70535 10.3554L5.7599 10.3011ZM8.33673 8.11762C8.37043 7.5308 8.27609 7.11718 8.0537 6.87675C7.83155 6.63242 7.40721 6.49226 6.78071 6.45628L5.98333 6.41049L5.79697 9.6556L6.62282 9.70303C7.20756 9.73661 7.63052 9.6353 7.8917 9.39909C8.15289 9.16289 8.30123 8.73573 8.33673 8.11762Z" fill="white"/>
+<path d="M14.5244 6.83623L13.5535 6.6274L13.5781 6.19902L17.2176 6.40804L17.193 6.83641L16.3185 6.93927L16.0455 11.6925C15.9967 12.5414 15.7313 13.1836 15.2491 13.6191C14.7672 14.0506 14.1048 14.2422 13.2618 14.1938C12.9771 14.1775 12.6971 14.1437 12.4219 14.0926C12.1504 14.0456 11.9344 13.992 11.774 13.9317L11.8765 12.1478L12.3834 12.1769L12.4939 13.2371C12.5609 13.3313 12.6594 13.4076 12.7894 13.4661C12.9193 13.5245 13.0641 13.5584 13.2235 13.5675C13.4855 13.5826 13.7073 13.5011 13.889 13.3231C14.0744 13.1454 14.1777 12.8726 14.1988 12.5049L14.5244 6.83623Z" fill="white"/>
 </svg>
 `
                       }}
@@ -264,8 +264,15 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
                       <div
                         className="vector"
                         dangerouslySetInnerHTML={{
-                          __html: `<svg preserveAspectRatio="none" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 1.629L9.311 5.69406L9.42302 6.04138L9.78796 6.04059L14.0592 6.03125L10.5982 8.53426L10.3025 8.74812L10.416 9.09496L11.7448 13.1543L8.29478 10.6361L8 10.421L7.70522 10.6361L4.25522 13.1543L5.58398 9.09496L5.69751 8.74812L5.4018 8.53426L1.94081 6.03125L6.21204 6.04059L6.57698 6.04138L6.689 5.69406L8 1.629Z" stroke="#4B4D52"/>
+                          __html: `<svg preserveAspectRatio="none" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path d="M8.86763 2.09845L9.95035 6.25865L10.0429 6.61411L10.4096 6.63437L14.7018 6.87146L11.0798 9.18675L10.7704 9.38458L10.8644 9.73963L11.9653 13.8951L8.64407 11.1658L8.36029 10.9326L8.05169 11.1318L4.43983 13.4629L6.0092 9.46079L6.14329 9.11885L5.8585 8.88689L2.52536 6.17217L6.81653 6.42802L7.18318 6.44988L7.31577 6.10735L8.86763 2.09845Z" stroke="#4B4D52"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect x="0.923276" width="16.1032" height="16.1032" transform="rotate(3.28687 0.923276 0)" fill="white"/>
+</clipPath>
+</defs>
 </svg>
 `
                         }}
@@ -306,8 +313,8 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
                     <div
                       className="vector"
                       dangerouslySetInnerHTML={{
-                        __html: `<svg preserveAspectRatio="none" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7 12.5C9.69608 12.5 11.9391 10.5601 12.4093 8H13.9291C13.4439 11.3923 10.5265 14 7 14C3.134 14 0 10.866 0 7C0 3.134 3.134 0 7 0C9.18768 0 11.141 1.00354 12.4246 2.57541L14 1V6H9L11.357 3.64301C10.3513 2.3396 8.77368 1.5 7 1.5C3.96243 1.5 1.5 3.96243 1.5 7C1.5 10.0376 3.96243 12.5 7 12.5Z" fill="#4B4D52"/>
+                        __html: `<svg preserveAspectRatio="none" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.18 13.0728C9.91176 13.2297 12.2973 11.3947 12.9228 8.82801L14.4627 8.91644C13.7736 12.3254 10.6659 14.7979 7.09271 14.5927C3.17553 14.3677 0.18241 11.0098 0.407372 7.09267C0.632334 3.17549 3.99019 0.182368 7.90737 0.40733C10.124 0.534631 12.0448 1.66512 13.2539 3.33249L14.9419 1.8279L14.6509 6.89409L9.58471 6.60314L12.1101 4.3521C11.1669 2.97291 9.61725 2.0304 7.82009 1.92719C4.74231 1.75043 2.10399 4.10217 1.92723 7.17995C1.75047 10.2577 4.10222 12.8961 7.18 13.0728Z" fill="#4B4D52"/>
 </svg>
 `
                       }}
@@ -324,7 +331,7 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
                       className="vector"
                       dangerouslySetInnerHTML={{
                         __html: `<svg preserveAspectRatio="none" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.777778 6.74074H13.2222M13.2222 6.74074L7.51852 0.777778M13.2222 6.74074L7.51852 12.1852" stroke="#A9AEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0.778915 6.35375L13.2211 7.0683M13.2211 7.0683L7.8608 0.778941M13.2211 7.0683L7.20579 12.1842" stroke="#A9AEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `
                       }}
@@ -341,7 +348,7 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
                       className="vector"
                       dangerouslySetInnerHTML={{
                         __html: `<svg preserveAspectRatio="none" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13.2222 6.74074H0.777778M0.777778 6.74074L6.48148 0.777778M0.777778 6.74074L6.48148 12.1852" stroke="#4B4D52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.221 7.12783L0.778888 6.41328M0.778888 6.41328L6.82393 0.778921M0.778888 6.41328L6.16892 12.1842" stroke="#4B4D52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `
                       }}
@@ -758,12 +765,12 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 2;
-          margin-left: 0px;
-          margin-right: 0px;
+          margin-left: -0.5311279296875px;
+          margin-right: -0.5311279296875px;
           flex-grow: 1;
-          margin-top: -163px;
-          margin-bottom: 127px;
-          min-height: 36px;
+          margin-top: -180.428955078125px;
+          margin-bottom: 109.57102966308594px;
+          min-height: 70.85792541503906px;
           background-color: rgba(255, 255, 255, 1);
         }
         .figma-31 {
@@ -792,11 +799,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 1;
-          margin-right: 8px;
-          width: 28px;
-          min-width: 28px;
-          height: 28px;
-          margin-top: 0px;
+          margin-right: 8.2161865234375px;
+          width: 29.559326171875px;
+          min-width: 29.559326171875px;
+          height: 29.559326171875px;
+          margin-top: 32.39439392089844px;
           background-color: rgba(0, 0, 0, 0);
         }
         .figma-34 {
@@ -815,10 +822,10 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          width: 3px;
-          margin-left: 0px;
-          height: 13px;
-          margin-top: 0px;
+          width: 3.7404227256774902px;
+          margin-left: -0.000055789947509765625px;
+          height: 13.150620460510254px;
+          margin-top: -0.00001430511474609375px;
         }
         .figma-36 {
           position: absolute;
@@ -836,11 +843,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 2;
-          margin-right: 44px;
-          width: 20px;
-          min-width: 20px;
-          height: 20px;
-          margin-top: 0px;
+          margin-right: 44.38631820678711px;
+          width: 21.11380386352539px;
+          min-width: 21.11380386352539px;
+          height: 21.11380386352539px;
+          margin-top: 28.724933624267578px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -860,8 +867,8 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          width: 20px;
-          height: 20px;
+          width: 21.11380386352539px;
+          height: 21.11380386352539px;
           margin-top: 0px;
         }
         .figma-40 {
@@ -880,11 +887,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 3;
-          margin-right: 80px;
-          width: 20px;
-          min-width: 20px;
-          height: 20px;
-          margin-top: 0px;
+          margin-right: 80.32711410522461px;
+          width: 21.11380386352539px;
+          min-width: 21.11380386352539px;
+          height: 21.11380386352539px;
+          margin-top: 24.596820831298828px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -904,8 +911,8 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          width: 20px;
-          height: 20px;
+          width: 21.11380386352539px;
+          height: 21.11380386352539px;
           margin-top: 0px;
         }
         .figma-44 {
@@ -924,11 +931,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 4;
-          margin-left: 112px;
-          margin-right: 116px;
+          margin-left: 112.1024169921875px;
+          margin-right: 116.09588623046875px;
           flex-grow: 1;
-          height: 26px;
-          margin-top: 0px;
+          height: 47.80194854736328px;
+          margin-top: -0.22931671142578125px;
           background-color: rgba(0, 0, 0, 0);
         }
         .figma-46 {
@@ -968,11 +975,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 1;
-          margin-right: 0px;
-          width: 36px;
-          min-width: 36px;
-          margin-top: 0px;
-          margin-bottom: 0px;
+          margin-right: -0.00003814697265625px;
+          width: 37.431495666503906px;
+          min-width: 37.431495666503906px;
+          margin-top: 19.7806396484375px;
+          margin-bottom: 0.000011444091796875px;
           background-color: rgba(0, 0, 0, 0);
         }
         .figma-50 {
@@ -990,12 +997,12 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          margin-left: 10px;
-          width: 16px;
-          min-width: 16px;
-          margin-top: 5px;
-          margin-bottom: 5px;
-          min-height: 16px;
+          margin-left: 10.270263671875px;
+          width: 16.891042709350586px;
+          min-width: 16.891042709350586px;
+          margin-top: 5.56512451171875px;
+          margin-bottom: 5.565130233764648px;
+          min-height: 16.891042709350586px;
         }
         .figma-52 {
           overflow: hidden;
@@ -1023,11 +1030,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 2;
-          margin-left: 36px;
-          margin-right: 42px;
+          margin-left: 36.2274169921875px;
+          margin-right: 42.217620849609375px;
           flex-grow: 1;
-          height: 16px;
-          margin-top: 0px;
+          height: 33.346248626708984px;
+          margin-top: -0.3440055847167969px;
           color: rgba(75, 77, 82, 1);
           font-size: 14px;
           font-weight: 400;
@@ -1056,10 +1063,10 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           pointer-events: auto;
           z-index: 3;
           margin-left: 0px;
-          width: 36px;
-          min-width: 36px;
+          width: 37.431495666503906px;
+          min-width: 37.431495666503906px;
           margin-top: 0px;
-          margin-bottom: 0px;
+          margin-bottom: 19.780651092529297px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -1077,11 +1084,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          margin-left: 10px;
-          width: 16px;
-          min-width: 16px;
-          height: 16px;
-          margin-top: 0px;
+          margin-left: 10.270263671875px;
+          width: 16.891042709350586px;
+          min-width: 16.891042709350586px;
+          height: 16.891042709350586px;
+          margin-top: -0.0000057220458984375px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -1100,12 +1107,12 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 1;
-          margin-left: 6px;
-          width: 4px;
-          min-width: 4px;
-          margin-top: 3px;
-          margin-bottom: 10px;
-          min-height: 3px;
+          margin-left: 6.5634765625px;
+          width: 4.1654253005981445px;
+          min-width: 4.1654253005981445px;
+          margin-top: 3.339080810546875px;
+          margin-bottom: 10.327556133270264px;
+          min-height: 3.2244057655334473px;
           border: 1px solid rgba(75, 77, 82, 1);
           border-radius: 2px 2px 0px 0px;
         }
@@ -1113,12 +1120,12 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          margin-left: 4px;
-          width: 8px;
-          min-width: 8px;
-          margin-top: -10px;
-          margin-bottom: 3px;
-          min-height: 7px;
+          margin-left: 4.1654052734375px;
+          width: 8.38818645477295px;
+          min-width: 8.38818645477295px;
+          margin-top: -10.671590805053711px;
+          margin-bottom: 3.224424362182617px;
+          min-height: 7.447166442871094px;
           background-color: rgba(75, 77, 82, 1);
           border-radius: 2px 2px 2px 2px;
         }
@@ -1127,11 +1134,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 5;
-          margin-left: 72px;
-          width: 28px;
-          min-width: 28px;
-          height: 28px;
-          margin-top: 0px;
+          margin-left: 72.1109619140625px;
+          width: 29.559326171875px;
+          min-width: 29.559326171875px;
+          height: 29.559326171875px;
+          margin-top: -25.055496215820312px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -1150,9 +1157,9 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          width: 14px;
-          margin-left: 0px;
-          height: 14px;
+          width: 14.7796630859375px;
+          margin-left: -0.0001220703125px;
+          height: 14.7796630859375px;
           margin-top: 0px;
         }
         .figma-66 {
@@ -1171,11 +1178,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 6;
-          margin-left: 40px;
-          width: 28px;
-          min-width: 28px;
-          height: 28px;
-          margin-top: 0px;
+          margin-left: 40.16357421875px;
+          width: 29.559326171875px;
+          min-width: 29.559326171875px;
+          height: 29.559326171875px;
+          margin-top: -28.724929809570312px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -1194,10 +1201,10 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          width: 12px;
-          margin-left: 0px;
-          height: 11px;
-          margin-top: -1px;
+          width: 12.610946655273438px;
+          margin-left: 0.0572357177734375px;
+          height: 11.669927597045898px;
+          margin-top: -0.9983463287353516px;
         }
         .figma-70 {
           position: absolute;
@@ -1215,11 +1222,11 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           box-sizing: border-box;
           pointer-events: auto;
           z-index: 7;
-          margin-left: 8px;
-          width: 28px;
-          min-width: 28px;
-          height: 28px;
-          margin-top: 0px;
+          margin-left: 8.2161865234375px;
+          width: 29.559326171875px;
+          min-width: 29.559326171875px;
+          height: 29.559326171875px;
+          margin-top: -32.39442443847656px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -1238,10 +1245,10 @@ export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, c
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          width: 12px;
-          margin-left: 0px;
-          height: 11px;
-          margin-top: -1px;
+          width: 12.610946655273438px;
+          margin-left: 0.0573577880859375px;
+          height: 11.669927597045898px;
+          margin-top: -0.9983463287353516px;
         }
         .figma-74 {
           position: absolute;
