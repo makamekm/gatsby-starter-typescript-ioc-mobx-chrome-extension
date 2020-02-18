@@ -2,8 +2,7 @@ require('dotenv').config();
 
 const fetch = require('node-fetch');
 
-const { preprocessCanvasComponents } = require('./figma.shared');
-const { createComponents, generateComponent } = require('./figma.lib');
+const { preprocessCanvasComponents, createComponents, generateComponent } = require('./figma.lib');
 const { loadCanvas, loadImages, loadURLImages } = require('./figma.api');
 const { contentPlugins } = require('./figma.content.plugins');
 const { stylePlugins } = require('./figma.style.plugins');
@@ -96,5 +95,6 @@ if (process.env.FIGMA_FILE_KEY_DEFAULT) {
   main().catch(err => {
     console.error(err);
     console.error(err.stack);
+    process.exit(1);
   });
 }

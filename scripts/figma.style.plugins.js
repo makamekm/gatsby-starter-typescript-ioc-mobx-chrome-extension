@@ -8,7 +8,7 @@ const {
   paintToLinearGradient,
   paintToRadialGradient,
   applyFontStyle
-} = require('./figma.shared');
+} = require('./figma.lib');
 
 const stylePlugins = [setMiddleOrder, setHorizontalAlign, setVerticalAlign, setHorizontalLayout, setFrameStyles, setTextRenderer];
 

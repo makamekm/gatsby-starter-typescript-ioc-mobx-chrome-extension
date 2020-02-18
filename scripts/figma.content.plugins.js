@@ -1,5 +1,4 @@
-const { emptyChildren, getComponentName } = require('./figma.shared');
-const { createComponent } = require('./figma.lib');
+const { emptyChildren, getComponentName, createComponent } = require('./figma.lib');
 
 const contentPlugins = [
   applyStyles,
