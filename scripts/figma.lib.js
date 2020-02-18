@@ -238,7 +238,7 @@ function getComponentName(name, options = {}) {
 
 function getComponentInstance(component, options = {}) {
   const name = getComponentName(component.name, options);
-  return name + component.id.replace(';', 'S').replace(':', 'D');
+  return name + component.id.replace(/;/g, 'S').replace(/:/g, 'D');
 }
 
 function getElementParams(name, options = {}) {
@@ -261,22 +261,38 @@ function getElementParams(name, options = {}) {
   return params;
 }
 
-function createNodeBounds(node, parent, lastVertical) {
+function createNodeBounds(node, parent, notFirst) {
   if (parent != null) {
-    const nodeBounds = node.absoluteBoundingBox;
+    const parentBounds = { ...parent.absoluteBoundingBox };
+    parentBounds.width = parent.size.x;
+    parentBounds.height = parent.size.y;
+
+    const nodeBounds = { ...node.absoluteBoundingBox };
+    nodeBounds.width = node.size.x;
+    nodeBounds.height = node.size.y;
+
+    let angle = 0;
+    if (node.relativeTransform) {
+      const [[m00, m01, m02], [m10, m11, m12]] = node.relativeTransform;
+      angle += Math.atan2(-m10, m00) * (180 / Math.PI);
+    }
+
     const nx2 = nodeBounds.x + nodeBounds.width;
     const ny2 = nodeBounds.y + nodeBounds.height;
-    const parentBounds = parent.absoluteBoundingBox;
+
     const px = parentBounds.x;
     const py = parentBounds.y;
 
     return {
+      xCenter: ((px + parentBounds.width - nx2) - (nodeBounds.x - px)) / 2,
+      yCenter: ((py + parentBounds.height - ny2) - (notFirst && parent.absoluteBoundingBox ? nodeBounds.y - (parentBounds.y + parentBounds.height) : nodeBounds.y - py)) / 2,
       left: nodeBounds.x - px,
       right: px + parentBounds.width - nx2,
-      top: lastVertical == null ? nodeBounds.y - py : nodeBounds.y - lastVertical,
+      top: notFirst && parent.absoluteBoundingBox ? nodeBounds.y - (parentBounds.y + parentBounds.height) : nodeBounds.y - py,
       bottom: py + parentBounds.height - ny2,
       width: nodeBounds.width,
-      height: nodeBounds.height
+      height: nodeBounds.height,
+      angle
     };
   }
   return null;
@@ -317,33 +333,31 @@ function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyl
 
 function emptyChildren({ content, minChildren, centerChildren, maxChildren }) {
   minChildren.splice(0, minChildren.length);
-  centerChildren.splice(0, minChildren.length);
-  maxChildren.splice(0, minChildren.length);
+  centerChildren.splice(0, centerChildren.length);
+  maxChildren.splice(0, maxChildren.length);
   content.splice(0, content.length);
 }
 
 async function renderChildren({ node, minChildren, centerChildren, maxChildren }, shared) {
-  const newNodeBounds = node.absoluteBoundingBox;
-  const newLastVertical = newNodeBounds && newNodeBounds.y + newNodeBounds.height;
   let first = true;
 
   for (const child of minChildren) {
-    await visitNode(shared, child, node, first ? null : newLastVertical);
+    await visitNode(shared, child, node, !first);
     first = false;
   }
 
   for (const child of centerChildren) {
-    await visitNode(shared, child, node, null);
+    await visitNode(shared, child, node);
   }
 
   first = true;
   for (const child of maxChildren) {
-    await visitNode(shared, child, node, first ? null : newLastVertical);
+    await visitNode(shared, child, node, !first);
     first = false;
   }
 }
 
-async function visitNode(shared, node, parent = null, lastVertical = null) {
+async function visitNode(shared, node, parent = null, notFirst = false) {
   const { print, preprint, options } = shared;
 
   const nodeProps = {};
@@ -366,7 +380,7 @@ async function visitNode(shared, node, parent = null, lastVertical = null) {
   };
 
   const props = getElementParams(node.name, options);
-  const bounds = createNodeBounds(node, parent, lastVertical);
+  const bounds = createNodeBounds(node, parent, notFirst);
 
   const state = {
     node,
@@ -522,15 +536,14 @@ function preprocessCanvasComponents(canvas, shared) {
 function writeFile(path, contents) {
   new Promise((r, e) =>
     prettier.resolveConfig('./.prettierrc').then(options => {
-      fs.writeFile(path, prettier.format(contents, options), err => {
-        if (err) {
-          console.error(err);
-          e(err);
-        } else {
-          console.log(`wrote ${path}`);
-          r();
-        }
-      });
+      try {
+        fs.writeFileSync(path, prettier.format(contents, options));
+        console.log(`wrote ${path}`);
+        r()
+      } catch (err) {
+        console.error(err);
+        e(err);
+      }
     })
   );
 }
@@ -538,7 +551,8 @@ function writeFile(path, contents) {
 async function createComponent(component, imgMap, componentMap, options = {}) {
   const name = getComponentName(component.name, options);
   const fileName = getFileName(name);
-  const instance = name + component.id.replace(';', 'S').replace(':', 'D');
+  const instance = getComponentInstance(component);
+
   const classPrefix = options.classPrefix || 'figma-';
   const localComponentMap = {};
 
@@ -604,13 +618,13 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
   const typeFactory = options.typeFactory || typeFactoryDefault;
   preprint(
     `export const ${instance}: React.FC<${typeFactory(shared)}> = ${decorator}(props => { ${
-      Object.keys(props).length ? `const { ${Object.keys(props).join(', ')} } = props;` : ''
+    Object.keys(props).length ? `const { ${Object.keys(props).join(', ')} } = props;` : ''
     }`
   ); // Can be replaced with React.memo(...)
 
   // Stage 3 (Collect all styles)
 
-  print(`<style jsx>{\`${styles}\n    \`}</style>`);
+  print(`<style jsx>{\`${styles}\n\`}</style>`);
 
   // Stage 4 (Finish the component)
 
@@ -619,7 +633,7 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
 
   // Stage 5 (Cache the component)
 
-  componentMap[component.id] = { instance, name, doc, fileName, localComponentMap };
+  componentMap[name] = { instance, name, doc, fileName, localComponentMap };
 }
 
 async function createComponents(canvas, images, componentMap, options = {}) {

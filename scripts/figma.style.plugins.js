@@ -10,11 +10,12 @@ const {
   applyFontStyle
 } = require('./figma.lib');
 
-const stylePlugins = [setMiddleOrder, setHorizontalAlign, setVerticalAlign, setHorizontalLayout, setFrameStyles, setTextRenderer];
+const stylePlugins = [setMiddleOrder, setTransformation, setHorizontalAlign, setVerticalAlign, setHorizontalLayout, setFrameStyles, setTextRenderer];
 
 module.exports = {
   stylePlugins,
   setMiddleOrder,
+  setTransformation,
   setHorizontalAlign,
   setVerticalAlign,
   setHorizontalLayout,
@@ -25,6 +26,13 @@ module.exports = {
 function setMiddleOrder({ node, middleStyle }) {
   if (node.order) {
     middleStyle.zIndex = node.order;
+  }
+}
+
+function setTransformation({ middleStyle, bounds }) {
+  if (bounds && Math.abs(bounds.angle) > 0.01) {
+    middleStyle.transform = `rotate(${-bounds.angle}deg)`;
+    middleStyle.transformOrigin = '50% 50%';
   }
 }
 

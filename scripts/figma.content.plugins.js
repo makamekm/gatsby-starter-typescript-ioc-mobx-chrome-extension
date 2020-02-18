@@ -26,8 +26,8 @@ async function setComponentFromCache(state, { component, imgMap, componentMap, l
     const name = getComponentName(node.name, options);
     emptyChildren(state);
     content.push(`<${name} {...props} nodeId='${node.id}' />`);
-    await createComponent(node, imgMap, componentMap, options);
-    localComponentMap[node.id] = componentMap[node.id];
+    if (!componentMap[name]) await createComponent(node, imgMap, componentMap, options);
+    localComponentMap[name] = componentMap[name];
   }
 }
 
