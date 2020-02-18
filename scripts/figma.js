@@ -101,13 +101,11 @@ async function main(options = {}) {
   await createComponents(canvas, images, componentMap, options);
 
   // Generate getComponentFromId function
-  contents += `export const getComponentFromId = (id) => {\n`;
   for (const key in componentMap) {
-    contents += `if (id === '${key}') return ${componentMap[key].instance};\n`;
-    // Write the generated component tree
-    nextSection += componentMap[key].doc + '\n';
+    contents += `import { ${componentMap[key].name} } from './${componentMap[key].fileName}.tsx';\n`;
+    nextSection += componentMap[key].doc + '\n\n';
   }
-  contents += 'return null;\n}\n\n';
+  contents += '\n';
   contents += nextSection;
 
   // Write the final result

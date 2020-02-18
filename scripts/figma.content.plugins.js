@@ -24,7 +24,7 @@ function setComponentFromCache(state, { component, imgMap, componentMap, options
   const { node, content } = state;
   if (node.id !== component.id && node.name.charAt(0) === '#') {
     emptyChildren(state);
-    content.push(`<${getComponentName(node.name, options)} {...props} nodeId="${node.id}" />`);
+    content.push(`<${node.name} {...props} nodeId='${node.id}' />`);
     createComponent(node, imgMap, componentMap);
   }
 }
@@ -33,7 +33,7 @@ function renderVector(state, { imgMap }) {
   const { node, content } = state;
   if (node.type === 'VECTOR') {
     emptyChildren(state);
-    content.push(`<div className="vector" dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`);
+    content.push(`<div className='vector' dangerouslySetInnerHTML={{__html: \`${imgMap[node.id]}\`}} />`);
   }
 }
 

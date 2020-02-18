@@ -57,7 +57,7 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
 
   // Stage 1 (Generate the /Component for importing and code reuse)
 
-  await generateComponentFile(path, name, component.id);
+  await generateComponentFile(path, instance, name);
 
   // Stage 2 (Generate the component from the root)
 
@@ -65,8 +65,17 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
 
   // Render props
   const decorator = options.decorator || 'observer';
-  const typeFactory = options.typeFactory || (({ props: componentProps }) => `{ ${Object.keys(componentProps).map(key => `${key}: ${componentProps[key] || 'any'};\n`).join('')} }`);
-  preprint(`export const ${instance}: React.FC<${typeFactory(shared)}> = ${decorator}(props => { const { ${Object.keys(props).join(', ')} } = props;`); // Can be replaced with React.memo(...)
+  const typeFactory =
+    options.typeFactory ||
+    (({ props: componentProps }) =>
+      `{ ${Object.keys(componentProps)
+        .map(key => `${key}: ${componentProps[key] || 'any'};\n`)
+        .join('')} }`);
+  preprint(
+    `export const ${instance}: React.FC<${typeFactory(shared)}> = ${decorator}(props => { const { ${Object.keys(props).join(
+      ', '
+    )} } = props;`
+  ); // Can be replaced with React.memo(...)
 
   // Stage 3 (Collect all styles)
 
@@ -79,7 +88,7 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
 
   // Stage 5 (Cache the component)
 
-  componentMap[component.id] = { instance, name, doc };
+  componentMap[component.id] = { instance, name, doc, fileName };
 };
 
 async function createComponents(canvas, images, componentMap, options = {}) {

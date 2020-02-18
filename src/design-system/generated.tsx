@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 
-export const getComponentFromId = id => {
-  if (id === '15:2') return Clock15D2;
-  return null;
-};
+import { Clock } from './clock.tsx';
 
 export const Clock15D2: React.FC<{ test: React.MouseEventHandler<HTMLElement>, children: any }> = observer(props => {
   const { test, children } = props;

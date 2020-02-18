@@ -108,16 +108,15 @@ function expandChildren(node, parent, minChildren, maxChildren, centerChildren, 
   return added - offset;
 }
 
-async function generateComponentFile(path, name, id) {
+async function generateComponentFile(path, instance, name) {
   if (!fs.existsSync(path)) {
     let componentSrc = '';
     componentSrc += `import * as React from 'react';\n`;
     componentSrc += `import { observer } from 'mobx-react';\n`;
-    componentSrc += `import { getComponentFromId } from './generated';\n`;
+    componentSrc += `import { ${instance} } from './generated';\n`;
     componentSrc += `\n`;
     componentSrc += `export const ${name} = observer(props => {\n`;
-    componentSrc += `const Component = getComponentFromId('${id}');\n`;
-    componentSrc += `return <Component {...props} />;\n`;
+    componentSrc += `return <${instance} {...props} />;\n`;
     componentSrc += `});\n`;
     await writeFile(path, componentSrc);
   }
@@ -270,7 +269,7 @@ function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyl
   if (!Object.keys(nodeProps).includes('id')) print(`id='${node.id}'`);
   Object.keys(nodeProps).forEach(key => {
     print(`${key}={${nodeProps[key]}}`);
-  })
+  });
   print(`className='${middleId}'`);
   print(`>`);
   increaseDivCounter();
