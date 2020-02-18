@@ -5,39 +5,43 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
   const { children } = props;
   return (
     <>
-      {!children && (
-        <div id="96:32" className="figma-0">
-          <div id="95:7" className="figma-1">
-            <div className="figma-2">
-              <div id="96:2" className="figma-3">
-                <span key="end">Content Here</span>
+      <div className="figma-1">
+        <div id="146:77" className="figma-0">
+          {!children && (
+            <div id="96:32" className="figma-2">
+              <div id="95:7" className="figma-3">
+                <div className="figma-4">
+                  <div id="96:2" className="figma-5">
+                    <span key="end">Content Here</span>
+                  </div>
+                  <div id="96:26" className="figma-6">
+                    <span key="end">Content Here</span>
+                  </div>
+                  <div id="96:27" className="figma-7">
+                    <span key="end">Content Here</span>
+                  </div>
+                  <div id="96:28" className="figma-8">
+                    <span key="end">Content Here</span>
+                  </div>
+                  <div id="96:29" className="figma-9">
+                    <span key="end">Content Here</span>
+                  </div>
+                  <div id="96:30" className="figma-10">
+                    <span key="end">Content Here</span>
+                  </div>
+                  <div id="96:31" className="figma-11">
+                    <span key="end">Content Here</span>
+                  </div>
+                </div>
               </div>
-              <div id="96:26" className="figma-4">
-                <span key="end">Content Here</span>
-              </div>
-              <div id="96:27" className="figma-5">
-                <span key="end">Content Here</span>
-              </div>
-              <div id="96:28" className="figma-6">
-                <span key="end">Content Here</span>
-              </div>
-              <div id="96:29" className="figma-7">
-                <span key="end">Content Here</span>
-              </div>
-              <div id="96:30" className="figma-8">
-                <span key="end">Content Here</span>
-              </div>
-              <div id="96:31" className="figma-9">
+              <div id="96:33" className="figma-12">
                 <span key="end">Content Here</span>
               </div>
             </div>
-          </div>
-          <div id="96:33" className="figma-10">
-            <span key="end">Content Here</span>
-          </div>
+          )}
+          {children}
         </div>
-      )}
-      {children}
+      </div>
       <style jsx>{`
         input {
           font: inherit;
@@ -55,6 +59,23 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           position: absolute;
         }
         .figma-0 {
+          box-sizing: border-box;
+          pointer-events: auto;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0);
+          overflow: auto;
+        }
+        .figma-1 {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          pointer-events: none;
+          height: 100%;
+          top: 0px;
+          left: 0px;
+        }
+        .figma-2 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -67,7 +88,7 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-1 {
+        .figma-3 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -81,7 +102,7 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-2 {
+        .figma-4 {
           display: flex;
           flex-direction: row;
           max-width: 100%;
@@ -90,56 +111,10 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           margin-right: -10px;
           flex-wrap: wrap;
         }
-        .figma-3 {
-          position: relative;
-          box-sizing: border-box;
-          pointer-events: auto;
-          margin-left: 10px;
-          width: 86px;
-          min-width: 86px;
-          margin-top: 10px;
-          margin-bottom: 0px;
-          min-height: 16px;
-          margin-right: 10px;
-          color: rgba(0, 0, 0, 1);
-          font-size: 14px;
-          font-weight: 400;
-          font-family: Roboto;
-          text-align: LEFT;
-          font-style: normal;
-          line-height: 121.90476417541504%;
-          letter-spacing: 0.28px;
-          display: flex;
-          max-width: -webkit-fill-available;
-        }
-        .figma-4 {
-          position: relative;
-          box-sizing: border-box;
-          pointer-events: auto;
-          z-index: 1;
-          margin-left: 10px;
-          width: 86px;
-          min-width: 86px;
-          margin-top: 10px;
-          margin-bottom: 0px;
-          min-height: 16px;
-          margin-right: 10px;
-          color: rgba(0, 0, 0, 1);
-          font-size: 14px;
-          font-weight: 400;
-          font-family: Roboto;
-          text-align: LEFT;
-          font-style: normal;
-          line-height: 121.90476417541504%;
-          letter-spacing: 0.28px;
-          display: flex;
-          max-width: -webkit-fill-available;
-        }
         .figma-5 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 2;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -162,7 +137,7 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 3;
+          z-index: 1;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -185,7 +160,7 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 4;
+          z-index: 2;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -208,7 +183,7 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 5;
+          z-index: 3;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -231,7 +206,7 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          z-index: 6;
+          z-index: 4;
           margin-left: 10px;
           width: 86px;
           min-width: 86px;
@@ -251,6 +226,52 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           max-width: -webkit-fill-available;
         }
         .figma-10 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 5;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-11 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 6;
+          margin-left: 10px;
+          width: 86px;
+          min-width: 86px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          min-height: 16px;
+          margin-right: 10px;
+          color: rgba(0, 0, 0, 1);
+          font-size: 14px;
+          font-weight: 400;
+          font-family: Roboto;
+          text-align: LEFT;
+          font-style: normal;
+          line-height: 121.90476417541504%;
+          letter-spacing: 0.28px;
+          display: flex;
+          max-width: -webkit-fill-available;
+        }
+        .figma-12 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;

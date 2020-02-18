@@ -418,6 +418,12 @@ async function visitNode(shared, node, parent = null, notFirst = false) {
     preprintComponent: preprint
   };
 
+  // If it's a parent then set max width & height
+  if (parent == null) {
+    middleStyle.width = '100%';
+    middleStyle.height = '100%';
+  }
+
   // Style Plugins
   for (const plugin of options.stylePlugins) {
     await plugin(state, sharedScoped);
@@ -428,10 +434,13 @@ async function visitNode(shared, node, parent = null, notFirst = false) {
     await plugin(state, sharedScoped);
   }
 
-  // Render if it's not a parent
-  if (parent != null) {
-    printDiv(state, shared);
+  // If it's a parent then remove overflow
+  if (parent == null) {
+    delete middleStyle.position;
   }
+
+  // Render
+  printDiv(state, shared);
 
   print(docBuffer);
 

@@ -5,42 +5,46 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
   return (
     <>
       <div className="figma-1">
-        <div id="142:58" className="figma-0"></div>
-      </div>
-      <div className="figma-3">
-        <div id="142:60" className="figma-2">
-          <div id="142:62" className="figma-4">
-            <div
-              className="vector"
-              dangerouslySetInnerHTML={{
-                __html: `<svg preserveAspectRatio="none" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div id="142:71" className="figma-0">
+          <div className="figma-3">
+            <div id="142:58" className="figma-2"></div>
+          </div>
+          <div className="figma-5">
+            <div id="142:60" className="figma-4">
+              <div id="142:62" className="figma-6">
+                <div
+                  className="vector"
+                  dangerouslySetInnerHTML={{
+                    __html: `<svg preserveAspectRatio="none" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 1.629L9.311 5.69406L9.42302 6.04138L9.78796 6.04059L14.0592 6.03125L10.5982 8.53426L10.3025 8.74812L10.416 9.09496L11.7448 13.1543L8.29478 10.6361L8 10.421L7.70522 10.6361L4.25522 13.1543L5.58398 9.09496L5.69751 8.74812L5.4018 8.53426L1.94081 6.03125L6.21204 6.04059L6.57698 6.04138L6.689 5.69406L8 1.629Z" stroke="#4B4D52"/>
 </svg>
 `
-              }}
-            />
+                  }}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="figma-9">
-        <div id="142:64" className="figma-8">
-          <span className="figma-5" key="6">
-            chrome
-          </span>
-          <span className="figma-6" key="15">
-            ://newtab
-          </span>
-          <span className="figma-7" key="end">
-            tabtabtabtabtab
-          </span>
-        </div>
-      </div>
-      <div className="figma-11">
-        <div id="142:65" className="figma-10">
+          <div className="figma-11">
+            <div id="142:64" className="figma-10">
+              <span className="figma-7" key="6">
+                chrome
+              </span>
+              <span className="figma-8" key="15">
+                ://newtab
+              </span>
+              <span className="figma-9" key="end">
+                tabtabtabtabtab
+              </span>
+            </div>
+          </div>
           <div className="figma-13">
-            <div id="142:67" className="figma-12">
-              <div id="142:70" className="figma-14"></div>
-              <div id="142:69" className="figma-15"></div>
+            <div id="142:65" className="figma-12">
+              <div className="figma-15">
+                <div id="142:67" className="figma-14">
+                  <div id="142:70" className="figma-16"></div>
+                  <div id="142:69" className="figma-17"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -62,6 +66,23 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           position: absolute;
         }
         .figma-0 {
+          box-sizing: border-box;
+          pointer-events: auto;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0);
+        }
+        .figma-1 {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          pointer-events: none;
+          align-items: center;
+          height: 100%;
+          top: 0px;
+          left: 0px;
+        }
+        .figma-2 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -73,7 +94,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           background-color: rgba(239, 241, 244, 1);
           border-radius: 24px 24px 24px 24px;
         }
-        .figma-1 {
+        .figma-3 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -82,7 +103,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-2 {
+        .figma-4 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -94,7 +115,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           margin-bottom: 0px;
           background-color: rgba(0, 0, 0, 0);
         }
-        .figma-3 {
+        .figma-5 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -105,7 +126,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 1;
         }
-        .figma-4 {
+        .figma-6 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -116,11 +137,11 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           margin-bottom: 5px;
           min-height: 16px;
         }
-        .figma-5 {
+        .figma-7 {
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        .figma-6 {
+        .figma-8 {
           color: rgba(141, 145, 153, 1);
           font-style: normal;
           line-height: NaN%;
@@ -128,7 +149,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        .figma-7 {
+        .figma-9 {
           color: rgba(235, 87, 87, 1);
           font-style: normal;
           line-height: NaN%;
@@ -137,7 +158,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           text-overflow: ellipsis;
           flex: 1;
         }
-        .figma-8 {
+        .figma-10 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -158,7 +179,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           display: flex;
           max-width: -webkit-fill-available;
         }
-        .figma-9 {
+        .figma-11 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -169,7 +190,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 2;
         }
-        .figma-10 {
+        .figma-12 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -182,7 +203,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-11 {
+        .figma-13 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -192,7 +213,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 3;
         }
-        .figma-12 {
+        .figma-14 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -204,7 +225,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-13 {
+        .figma-15 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -214,7 +235,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-14 {
+        .figma-16 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -228,7 +249,7 @@ export const SearchField142D71: React.FC<{}> = observer(props => {
           border: 1px solid rgba(75, 77, 82, 1);
           border-radius: 2px 2px 0px 0px;
         }
-        .figma-15 {
+        .figma-17 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
