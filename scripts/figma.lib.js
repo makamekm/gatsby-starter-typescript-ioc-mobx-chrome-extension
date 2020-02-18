@@ -1,12 +1,22 @@
-const { generateComponentFile, getFileName, convertStyles, getComponentName, defaultStyles, visitNode } = require('./figma.shared');
+const fsPath = require('path');
+const {
+  generateComponentFile,
+  getFileName,
+  convertStyles,
+  getComponentName,
+  defaultStyles,
+  visitNode,
+  writeFile
+} = require('./figma.shared');
 
-module.exports = { createComponent, createComponents };
+module.exports = { createComponent, createComponents, generateComponent };
 
 async function createComponent(component, imgMap, componentMap, options = {}) {
   const name = getComponentName(component.name, options);
   const fileName = getFileName(name);
   const instance = name + component.id.replace(';', 'S').replace(':', 'D');
   const classPrefix = options.classPrefix || 'figma-';
+  const localComponentMap = {};
 
   let doc = '';
   let styleCounter = 0;
@@ -35,9 +45,12 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
     return null;
   };
 
+  const path = `src/design-system/${fileName}.tsx`;
+
   const shared = {
     name,
     fileName,
+    path,
     instance,
     props,
     component,
@@ -46,6 +59,7 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
     printStyle,
     imgMap,
     componentMap,
+    localComponentMap,
     stylePlugins: options.stylePlugins,
     contentPlugins: options.contentPlugins,
     options
@@ -53,15 +67,13 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
 
   print(`return (<>`);
 
-  const path = `src/design-system/${fileName}.tsx`;
-
   // Stage 1 (Generate the /Component for importing and code reuse)
 
-  await generateComponentFile(path, instance, name);
+  await generateComponentFile(shared, options);
 
   // Stage 2 (Generate the component from the root)
 
-  visitNode(shared, component);
+  await visitNode(shared, component);
 
   // Render props
   const decorator = options.decorator || 'observer';
@@ -88,7 +100,7 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
 
   // Stage 5 (Cache the component)
 
-  componentMap[component.id] = { instance, name, doc, fileName };
+  componentMap[component.id] = { instance, name, doc, fileName, localComponentMap };
 }
 
 async function createComponents(canvas, images, componentMap, options = {}) {
@@ -99,4 +111,29 @@ async function createComponents(canvas, images, componentMap, options = {}) {
       await createComponent(child, images, componentMap, options);
     }
   }
+}
+
+async function generateComponent(component, options) {
+  const path = fsPath.resolve(options.dir, `${component.fileName}.generated.tsx`);
+
+  // Content represents writing cursor
+  let contents = '';
+
+  // Header
+  contents += `import * as React from 'react';\n`;
+
+  const imports = options.imports || [`import { observer } from 'mobx-react';`];
+  imports.forEach(imp => {
+    contents += `${imp}\n`;
+  });
+
+  for (const key in component.localComponentMap) {
+    contents += `import { ${component.localComponentMap[key].name} } from './${component.localComponentMap[key].fileName}';\n`;
+  }
+
+  contents += `\n`;
+  contents += component.doc;
+
+  // Write the final result
+  await writeFile(path, contents);
 }

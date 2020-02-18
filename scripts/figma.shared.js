@@ -158,12 +158,12 @@ function expandChildren(node, parent, minChildren, maxChildren, centerChildren, 
   return added - offset;
 }
 
-async function generateComponentFile(path, instance, name) {
+async function generateComponentFile({ path, instance, fileName, name }, options = {}) {
   if (!fs.existsSync(path)) {
     let componentSrc = '';
     componentSrc += `import * as React from 'react';\n`;
     componentSrc += `import { observer } from 'mobx-react';\n`;
-    componentSrc += `import { ${instance} } from './generated';\n`;
+    componentSrc += `import { ${instance} } from './${fileName}.generated';\n`;
     componentSrc += `\n`;
     componentSrc += `export const ${name} = observer(props => {\n`;
     componentSrc += `return <${instance} {...props} />;\n`;
@@ -325,29 +325,29 @@ function emptyChildren({ content, minChildren, centerChildren, maxChildren }) {
   content.splice(0, content.length);
 }
 
-function renderChildren({ node, minChildren, centerChildren, maxChildren }, shared) {
+async function renderChildren({ node, minChildren, centerChildren, maxChildren }, shared) {
   const newNodeBounds = node.absoluteBoundingBox;
   const newLastVertical = newNodeBounds && newNodeBounds.y + newNodeBounds.height;
   let first = true;
 
   for (const child of minChildren) {
-    visitNode(shared, child, node, first ? null : newLastVertical);
+    await visitNode(shared, child, node, first ? null : newLastVertical);
     first = false;
   }
 
   for (const child of centerChildren) {
-    visitNode(shared, child, node, null);
+    await visitNode(shared, child, node, null);
   }
 
   first = true;
   for (const child of maxChildren) {
-    visitNode(shared, child, node, first ? null : newLastVertical);
+    await visitNode(shared, child, node, first ? null : newLastVertical);
     first = false;
   }
 }
 
-function visitNode(shared, node, parent = null, lastVertical = null) {
-  const { print, preprint, stylePlugins, contentPlugins, options } = shared;
+async function visitNode(shared, node, parent = null, lastVertical = null) {
+  const { print, preprint, options } = shared;
 
   const nodeProps = {};
 
@@ -408,10 +408,14 @@ function visitNode(shared, node, parent = null, lastVertical = null) {
   };
 
   // Style Plugins
-  stylePlugins.forEach(plugin => plugin(state, sharedScoped));
+  for (const plugin of options.stylePlugins) {
+    await plugin(state, sharedScoped);
+  }
 
   // Content Plugins
-  contentPlugins.forEach(plugin => plugin(state, sharedScoped));
+  for (const plugin of options.contentPlugins) {
+    await plugin(state, sharedScoped);
+  }
 
   // Render if it's not a parent
   if (parent != null) {
@@ -420,7 +424,7 @@ function visitNode(shared, node, parent = null, lastVertical = null) {
 
   print(docBuffer);
 
-  renderChildren(state, shared);
+  await renderChildren(state, shared);
 
   // WTF?!?!
   // if (node.name.charAt(0) === '$') {
