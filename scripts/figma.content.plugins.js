@@ -9,7 +9,8 @@ const contentPlugins = [
   renderIfTrue,
   renderIfFalse,
   setOnClick,
-  setId
+  setId,
+  addClassName
 ];
 
 function applyStyles(state) {
@@ -20,13 +21,13 @@ function applyStyles(state) {
 }
 
 // TODO: use import from './${getComponentName(node.name, options)}'
-async function setComponentFromCache(state, { component, imgMap, componentMap, localComponentMap, options }) {
+async function setComponentFromCache(state, { component, imgMap, componentMap, componentDescriptionMap, localComponentMap, options }) {
   const { node, content } = state;
   if (node.id !== component.id && node.name.charAt(0) === '#') {
     const name = getComponentName(node.name, options);
     emptyChildren(state);
     content.push(`<${name} {...props} nodeId='${node.id}' />`);
-    if (!componentMap[name]) await createComponent(node, imgMap, componentMap, options);
+    if (!componentMap[name]) await createComponent(node, imgMap, componentMap, componentDescriptionMap, options);
     localComponentMap[name] = componentMap[name];
   }
 }
@@ -91,6 +92,13 @@ function setId(state) {
   }
 }
 
+function addClassName(state) {
+  const { props, classNames } = state;
+  if (Object.keys(props).includes('class')) {
+    classNames.push(props.class);
+  }
+}
+
 module.exports = {
   applyStyles,
   contentPlugins,
@@ -101,5 +109,6 @@ module.exports = {
   renderIfTrue,
   renderIfFalse,
   setOnClick,
-  setId
+  setId,
+  addClassName
 };

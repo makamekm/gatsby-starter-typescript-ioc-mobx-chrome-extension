@@ -38,7 +38,7 @@ export const BrowserContentGenerated: React.FC<{ children: any }> = observer(pro
               <div id="96:33" className="figma-12">
                 <span key="end">Content Here</span>
               </div>
-              <div id="151:4" className="figma-13">
+              <div id="151:4" className="figma-13 test">
                 <GridTest {...props} nodeId="151:4" />
               </div>
             </div>

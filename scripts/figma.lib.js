@@ -56,7 +56,8 @@ module.exports = {
   typeFactoryDefault,
   createComponent,
   createComponents,
-  generateComponent
+  generateComponent,
+  getDescriptionStyles
 };
 
 function typeFactoryDefault({ props }) {
@@ -299,7 +300,7 @@ function createNodeBounds(node, parent, notFirst) {
   return null;
 }
 
-function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyle, nodeProps }, { printStyle, print }) {
+function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyle, nodeProps, classNames }, { printStyle, print }) {
   if (Object.keys(outerStyle).length > 0 && middleStyle.zIndex != null) {
     outerStyle.zIndex = middleStyle.zIndex;
   }
@@ -322,7 +323,7 @@ function printDiv({ node, increaseDivCounter, middleStyle, outerStyle, innerStyl
   Object.keys(nodeProps).forEach(key => {
     print(`${key}={${nodeProps[key]}}`);
   });
-  print(`className='${middleId}'`);
+  print(`className='${middleId}${classNames.length ? ' ' : ''}${classNames.join(' ')}'`);
   print(`>`);
   increaseDivCounter();
 
@@ -362,6 +363,7 @@ async function visitNode(shared, node, parent = null, notFirst = false) {
   const { print, preprint, options } = shared;
 
   const nodeProps = {};
+  const classNames = [];
 
   const minChildren = [];
   const maxChildren = [];
@@ -384,6 +386,7 @@ async function visitNode(shared, node, parent = null, notFirst = false) {
   const bounds = createNodeBounds(node, parent, notFirst);
 
   const state = {
+    classNames,
     node,
     props,
     increaseDivCounter,
@@ -540,6 +543,9 @@ function preprocessCanvasComponents(canvas, shared) {
       const child = canvas.children[i];
       preprocessTree(child, shared);
     }
+    if (child.type === 'COMPONENT') {
+      shared.componentDescriptionMap[child.id] = '';
+    }
   }
 }
 
@@ -558,7 +564,13 @@ function writeFile(path, contents) {
   );
 }
 
-async function createComponent(component, imgMap, componentMap, options = {}) {
+function getDescriptionStyles({ component, componentDescriptionMap, options }) {
+  const delimiter = options.styleDescriptionDelimiter || '!style!';
+  const description = componentDescriptionMap[component.id] || '';
+  return description.substring(description.indexOf(delimiter) + delimiter.length).replace(/\\n/g, `\n`);
+}
+
+async function createComponent(component, imgMap, componentMap, componentDescriptionMap, options = {}) {
   const name = getComponentName(component.name, options);
   const fileName = getFileName(name);
   const instance = getComponentInstance(component);
@@ -607,6 +619,7 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
     printStyle,
     imgMap,
     componentMap,
+    componentDescriptionMap,
     localComponentMap,
     stylePlugins: options.stylePlugins,
     contentPlugins: options.contentPlugins,
@@ -632,6 +645,14 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
     }`
   ); // Can be replaced with React.memo(...)
 
+  // Collect styles from component description
+
+  const descStyle = getDescriptionStyles(shared);
+
+  if (descStyle) {
+    styles += `\n${descStyle}`;
+  }
+
   // Stage 3 (Collect all styles)
 
   print(`<style jsx>{\`${styles}\n\`}</style>`);
@@ -646,12 +667,12 @@ async function createComponent(component, imgMap, componentMap, options = {}) {
   componentMap[name] = { instance, name, doc, fileName, localComponentMap };
 }
 
-async function createComponents(canvas, images, componentMap, options = {}) {
+async function createComponents(canvas, images, componentMap, componentDescriptionMap, options = {}) {
   for (let i = 0; i < canvas.children.length; i++) {
     const child = canvas.children[i];
     if (child.name.charAt(0) === '#' && child.visible !== false) {
       const child = canvas.children[i];
-      await createComponent(child, images, componentMap, options);
+      await createComponent(child, images, componentMap, componentDescriptionMap, options);
     }
   }
 }

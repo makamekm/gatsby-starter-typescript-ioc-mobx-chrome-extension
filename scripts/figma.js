@@ -5,7 +5,7 @@ require('dotenv').config();
 const fs = require('fs');
 
 const { preprocessCanvasComponents, createComponents, generateComponent } = require('./figma.lib');
-const { loadCanvas, loadImages, loadURLImages, getHeaders } = require('./figma.api');
+const { loadCanvas, loadNodes, loadImages, loadURLImages, getHeaders } = require('./figma.api');
 const { contentPlugins } = require('./figma.content.plugins');
 const { stylePlugins } = require('./figma.style.plugins');
 
@@ -20,6 +20,7 @@ const { stylePlugins } = require('./figma.style.plugins');
 // - paramsSplitIndex // default '&'
 // - paramSplitIndex // default '='
 // - objectIndex // default '.'
+// - styleDescriptionDelimiter // default '!style!'
 // - imports // default ['import { observer } from 'mobx-react';']
 // - decorator // default 'observer'
 // - typeFactory // default ({ props: componentProps }) => `{ ${Object.keys(componentProps).map(key => `${key}: ${componentProps[key] || 'any'};\n`).join('')} }`
@@ -52,17 +53,20 @@ function getConfig(options = {}) {
 }
 
 async function main(options = {}) {
-  const { headers, fileKey, dit } = getConfig(options);
+  const { headers, fileKey } = getConfig(options);
 
   // Create shared objects
   const vectorMap = {};
   const componentMap = {};
+  const componentDescriptionMap = {};
   const vectorList = [];
 
   const shared = {
     componentMap,
+    componentDescriptionMap,
     vectorMap,
-    vectorList
+    vectorList,
+    options
   };
 
   // Load the document from Figma
@@ -70,6 +74,13 @@ async function main(options = {}) {
 
   // Wrap vectors and images
   preprocessCanvasComponents(canvas, shared);
+
+  // Load components description
+  const nodes = await loadNodes(Object.keys(componentDescriptionMap), fileKey, headers);
+
+  for (const id in nodes) {
+    componentDescriptionMap[id] = nodes[id].components[id].description;
+  }
 
   // Load all images used in the document from Figma
   const imageJSON = await loadURLImages(vectorList, fileKey, headers);
@@ -79,7 +90,7 @@ async function main(options = {}) {
   fs.writeFileSync('./temp.json', JSON.stringify(canvas, null, 4));
 
   // Create components
-  await createComponents(canvas, images, componentMap, options);
+  await createComponents(canvas, images, componentMap, componentDescriptionMap, options);
 
   // Generate components
   for (const key in componentMap) {

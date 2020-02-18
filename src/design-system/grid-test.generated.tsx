@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 export const GridTestGenerated: React.FC<{}> = observer(props => {
   return (
     <>
-      <div id="151:3" className="figma-0">
+      <div id="151:3" className="figma-0 test">
         <div id="151:1" className="figma-1"></div>
         <div id="151:2" className="figma-2"></div>
       </div>
@@ -57,6 +57,10 @@ export const GridTestGenerated: React.FC<{}> = observer(props => {
           margin-bottom: 56px;
           min-height: 80px;
           background-color: rgba(196, 196, 196, 1);
+        }
+
+        .hello {
+          color: red;
         }
       `}</style>
     </>

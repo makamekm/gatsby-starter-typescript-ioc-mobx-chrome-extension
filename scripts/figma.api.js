@@ -6,6 +6,7 @@ module.exports = {
   loadCanvas,
   loadURLImages,
   loadImages,
+  loadNodes,
   getHeaders
 };
 
@@ -21,6 +22,12 @@ async function loadCanvas(fileKey, headers) {
   const document = data.document;
   const canvas = document.children[0];
   return canvas;
+}
+
+async function loadNodes(ids, fileKey, headers) {
+  let resp = await fetch(`${baseUrl}/v1/files/${fileKey}/nodes?geometry=paths&ids=${ids.join(',')}`, { headers });
+  let data = await resp.json();
+  return data.nodes;
 }
 
 async function loadURLImages(vectorList, fileKey, headers) {
