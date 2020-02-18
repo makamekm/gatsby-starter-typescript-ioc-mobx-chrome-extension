@@ -238,7 +238,8 @@ function getComponentName(name, options = {}) {
 
 function getComponentInstance(component, options = {}) {
   const name = getComponentName(component.name, options);
-  return name + component.id.replace(/;/g, 'S').replace(/:/g, 'D');
+  // return name + component.id.replace(/;/g, 'S').replace(/:/g, 'D');
+  return name + 'Generated';
 }
 
 function getElementParams(name, options = {}) {

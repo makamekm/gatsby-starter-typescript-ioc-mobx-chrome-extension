@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
+import { GridTest } from './grid-test';
 
-export const BrowserContent146D77: React.FC<{ children: any }> = observer(props => {
+export const BrowserContentGenerated: React.FC<{ children: any }> = observer(props => {
   const { children } = props;
   return (
     <>
@@ -36,6 +37,9 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
               </div>
               <div id="96:33" className="figma-12">
                 <span key="end">Content Here</span>
+              </div>
+              <div id="151:4" className="figma-13">
+                <GridTest {...props} nodeId="151:4" />
               </div>
             </div>
           )}
@@ -83,8 +87,8 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           margin-right: 0px;
           flex-grow: 1;
           margin-top: 0px;
-          margin-bottom: 26px;
-          min-height: 42px;
+          margin-bottom: -160px;
+          min-height: 228px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
@@ -96,7 +100,7 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           margin-right: -53px;
           flex-grow: 1;
           margin-top: 0px;
-          margin-bottom: 26px;
+          margin-bottom: 212px;
           min-height: 16px;
           max-width: 100%;
           background-color: rgba(0, 0, 0, 0);
@@ -279,8 +283,8 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           margin-left: 0px;
           width: 86px;
           min-width: 86px;
-          margin-top: -16px;
-          margin-bottom: 0px;
+          margin-top: -202px;
+          margin-bottom: 186px;
           min-height: 16px;
           color: rgba(0, 0, 0, 1);
           font-size: 14px;
@@ -292,6 +296,20 @@ export const BrowserContent146D77: React.FC<{ children: any }> = observer(props 
           letter-spacing: 0.28px;
           display: flex;
           max-width: -webkit-fill-available;
+        }
+        .figma-13 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 2;
+          margin-left: 0px;
+          width: 609px;
+          min-width: 100%;
+          margin-top: -176px;
+          margin-bottom: 0px;
+          min-height: 176px;
+          background-color: rgba(255, 255, 255, 1);
+          overflow: hidden;
         }
       `}</style>
     </>

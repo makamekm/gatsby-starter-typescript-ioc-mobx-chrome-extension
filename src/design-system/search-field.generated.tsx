@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 
-export const SearchField142D71: React.FC<{}> = observer(props => {
+export const SearchFieldGenerated: React.FC<{}> = observer(props => {
   return (
     <>
       <div className="figma-1">

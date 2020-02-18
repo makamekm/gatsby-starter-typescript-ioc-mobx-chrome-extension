@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 
-export const TabBar146D0: React.FC<{}> = observer(props => {
+export const TabBarGenerated: React.FC<{}> = observer(props => {
   return (
     <>
       <div id="146:0" className="figma-0">

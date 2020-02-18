@@ -2,7 +2,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { SearchField } from './search-field';
 
-export const Toolbar146D32: React.FC<{ test: React.MouseEventHandler<HTMLElement> }> = observer(props => {
+export const ToolbarGenerated: React.FC<{ test: React.MouseEventHandler<HTMLElement> }> = observer(props => {
   const { test } = props;
   return (
     <>

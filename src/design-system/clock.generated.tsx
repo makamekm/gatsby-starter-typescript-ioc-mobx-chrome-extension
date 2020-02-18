@@ -4,7 +4,7 @@ import { TabBar } from './tab-bar';
 import { Toolbar } from './toolbar';
 import { BrowserContent } from './browser-content';
 
-export const Clock15D2: React.FC<{}> = observer(props => {
+export const ClockGenerated: React.FC<{}> = observer(props => {
   return (
     <>
       <div id="15:2" className="figma-0">
