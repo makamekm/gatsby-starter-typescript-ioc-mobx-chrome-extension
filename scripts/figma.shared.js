@@ -4,6 +4,56 @@ const prettier = require('prettier');
 const VECTOR_TYPES = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'ELLIPSE', 'STAR'];
 const GROUP_TYPES = ['GROUP', 'BOOLEAN_OPERATION'];
 
+const defaultStyles = `
+input {
+  font: inherit;
+  border: inherit;
+  padding: inherit;
+  background-color: inherit;
+  color: inherit;
+}
+input:focus {
+  outline: none;
+}
+.vector :global(svg) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}`;
+
+module.exports = {
+  VECTOR_TYPES,
+  GROUP_TYPES,
+  colorString,
+  dropShadow,
+  innerShadow,
+  imageURL,
+  backgroundSize,
+  nodeSort,
+  getPaint,
+  paintToLinearGradient,
+  paintToRadialGradient,
+  expandChildren,
+  generateComponentFile,
+  applyFontStyle,
+  camelToSnake,
+  getFileName,
+  convertStyles,
+  getComponentName,
+  getComponentInstance,
+  getElementParams,
+  defaultStyles,
+  createNodeBounds,
+  printDiv,
+  emptyChildren,
+  renderChildren,
+  visitNode,
+  paintsRequireRender,
+  preprocessTree,
+  preprocessCanvasComponents,
+  writeFile
+};
+
 function colorString(color) {
   return `rgba(${Math.round(color.r * 255)}, ${Math.round(color.g * 255)}, ${Math.round(color.b * 255)}, ${color.a})`;
 }
@@ -189,6 +239,11 @@ function getComponentName(name, options = {}) {
   return name.replace(/\W+/g, '');
 }
 
+function getComponentInstance(component, options = {}) {
+  const name = getComponentName(component.name, options);
+  return name + component.id.replace(';', 'S').replace(':', 'D');
+}
+
 function getElementParams(name, options = {}) {
   let params = {};
   const delIndex = name.indexOf(options.delIndex || '??');
@@ -208,23 +263,6 @@ function getElementParams(name, options = {}) {
 
   return params;
 }
-
-const defaultStyles = `
-input {
-  font: inherit;
-  border: inherit;
-  padding: inherit;
-  background-color: inherit;
-  color: inherit;
-}
-input:focus {
-  outline: none;
-}
-.vector :global(svg) {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}`;
 
 function createNodeBounds(node, parent, lastVertical) {
   if (parent != null) {
@@ -495,35 +533,3 @@ function writeFile(path, contents) {
     })
   );
 }
-
-module.exports = {
-  VECTOR_TYPES,
-  GROUP_TYPES,
-  colorString,
-  dropShadow,
-  innerShadow,
-  imageURL,
-  backgroundSize,
-  nodeSort,
-  getPaint,
-  paintToLinearGradient,
-  paintToRadialGradient,
-  expandChildren,
-  generateComponentFile,
-  applyFontStyle,
-  camelToSnake,
-  getFileName,
-  convertStyles,
-  getComponentName,
-  getElementParams,
-  defaultStyles,
-  createNodeBounds,
-  printDiv,
-  emptyChildren,
-  renderChildren,
-  visitNode,
-  paintsRequireRender,
-  preprocessTree,
-  preprocessCanvasComponents,
-  writeFile
-};

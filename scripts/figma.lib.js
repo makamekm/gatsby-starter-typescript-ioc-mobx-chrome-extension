@@ -1,8 +1,8 @@
 const { generateComponentFile, getFileName, convertStyles, getComponentName, defaultStyles, visitNode } = require('./figma.shared');
-const { contentPlugins } = require('./figma.content.plugins');
-const { stylePlugins } = require('./figma.style.plugins');
 
-const createComponent = async (component, imgMap, componentMap, options = {}) => {
+module.exports = { createComponent, createComponents };
+
+async function createComponent(component, imgMap, componentMap, options = {}) {
   const name = getComponentName(component.name, options);
   const fileName = getFileName(name);
   const instance = name + component.id.replace(';', 'S').replace(':', 'D');
@@ -46,8 +46,8 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
     printStyle,
     imgMap,
     componentMap,
-    stylePlugins: options.stylePlugins || stylePlugins,
-    contentPlugins: options.contentPlugins || contentPlugins,
+    stylePlugins: options.stylePlugins,
+    contentPlugins: options.contentPlugins,
     options
   };
 
@@ -72,9 +72,9 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
         .map(key => `${key}: ${componentProps[key] || 'any'};\n`)
         .join('')} }`);
   preprint(
-    `export const ${instance}: React.FC<${typeFactory(shared)}> = ${decorator}(props => { const { ${Object.keys(props).join(
-      ', '
-    )} } = props;`
+    `export const ${instance}: React.FC<${typeFactory(shared)}> = ${decorator}(props => { ${
+      Object.keys(props).length ? `const { ${Object.keys(props).join(', ')} } = props;` : ''
+    }`
   ); // Can be replaced with React.memo(...)
 
   // Stage 3 (Collect all styles)
@@ -89,7 +89,7 @@ const createComponent = async (component, imgMap, componentMap, options = {}) =>
   // Stage 5 (Cache the component)
 
   componentMap[component.id] = { instance, name, doc, fileName };
-};
+}
 
 async function createComponents(canvas, images, componentMap, options = {}) {
   for (let i = 0; i < canvas.children.length; i++) {
@@ -100,5 +100,3 @@ async function createComponents(canvas, images, componentMap, options = {}) {
     }
   }
 }
-
-module.exports = { createComponent, createComponents };

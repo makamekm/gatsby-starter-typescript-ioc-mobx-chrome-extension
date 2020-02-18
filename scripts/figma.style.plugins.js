@@ -10,14 +10,17 @@ const {
   applyFontStyle
 } = require('./figma.shared');
 
-const stylePlugins = [
+const stylePlugins = [setMiddleOrder, setHorizontalAlign, setVerticalAlign, setHorizontalLayout, setFrameStyles, setTextRenderer];
+
+module.exports = {
+  stylePlugins,
   setMiddleOrder,
   setHorizontalAlign,
   setVerticalAlign,
   setHorizontalLayout,
   setFrameStyles,
   setTextRenderer
-];
+};
 
 function setMiddleOrder({ node, middleStyle }) {
   if (node.order) {
@@ -285,13 +288,3 @@ function setTextRenderer({ node, props, middleStyle, content }, { printStyle }) 
     }
   }
 }
-
-module.exports = {
-  stylePlugins,
-  setMiddleOrder,
-  setHorizontalAlign,
-  setVerticalAlign,
-  setHorizontalLayout,
-  setFrameStyles,
-  setTextRenderer
-};

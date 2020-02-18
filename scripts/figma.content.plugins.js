@@ -1,4 +1,5 @@
-const { getComponentName, emptyChildren } = require('./figma.shared');
+const { emptyChildren, getComponentName } = require('./figma.shared');
+const { createComponent } = require('./figma.lib');
 
 const contentPlugins = [
   applyStyles,
@@ -23,9 +24,10 @@ function applyStyles(state) {
 function setComponentFromCache(state, { component, imgMap, componentMap, options }) {
   const { node, content } = state;
   if (node.id !== component.id && node.name.charAt(0) === '#') {
+    const name = getComponentName(node.name, options);
     emptyChildren(state);
-    content.push(`<${node.name} {...props} nodeId='${node.id}' />`);
-    createComponent(node, imgMap, componentMap);
+    content.push(`<${name} {...props} nodeId='${node.id}' />`);
+    createComponent(node, imgMap, componentMap, options);
   }
 }
 

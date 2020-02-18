@@ -2,6 +2,12 @@ const fetch = require('node-fetch');
 
 const baseUrl = 'https://api.figma.com';
 
+module.exports = {
+  loadCanvas,
+  loadURLImages,
+  loadImages
+};
+
 async function loadCanvas(fileKey, headers) {
   let resp = await fetch(`${baseUrl}/v1/files/${fileKey}`, { headers });
   let data = await resp.json();
@@ -41,9 +47,3 @@ async function loadImages(imageJSON) {
   }
   return images;
 }
-
-module.exports = {
-  loadCanvas,
-  loadURLImages,
-  loadImages
-};

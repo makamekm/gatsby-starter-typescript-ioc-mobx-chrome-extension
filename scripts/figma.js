@@ -7,6 +7,8 @@ const fsPath = require('path');
 const { preprocessCanvasComponents, writeFile } = require('./figma.shared');
 const { createComponents } = require('./figma.lib');
 const { loadCanvas, loadImages, loadURLImages } = require('./figma.api');
+const { contentPlugins } = require('./figma.content.plugins');
+const { stylePlugins } = require('./figma.style.plugins');
 
 function getHeaders(devToken) {
   const headers = new fetch.Headers();
@@ -46,6 +48,14 @@ function getConfig(options = {}) {
   }
 
   const headers = getHeaders(devToken);
+
+  if (!options.contentPlugins) {
+    options.contentPlugins = contentPlugins;
+  }
+
+  if (!options.stylePlugins) {
+    options.stylePlugins = stylePlugins;
+  }
 
   return {
     headers,
@@ -102,7 +112,7 @@ async function main(options = {}) {
 
   // Generate getComponentFromId function
   for (const key in componentMap) {
-    contents += `import { ${componentMap[key].name} } from './${componentMap[key].fileName}.tsx';\n`;
+    contents += `import { ${componentMap[key].name} } from './${componentMap[key].fileName}';\n`;
     nextSection += componentMap[key].doc + '\n\n';
   }
   contents += '\n';
