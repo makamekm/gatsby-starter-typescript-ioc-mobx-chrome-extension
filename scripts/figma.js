@@ -3,7 +3,6 @@
 require('dotenv').config();
 
 const fs = require('fs');
-const fetch = require('node-fetch');
 
 const { preprocessCanvasComponents, createComponents, generateComponent } = require('./figma.lib');
 const { loadCanvas, loadImages, loadURLImages, getHeaders } = require('./figma.api');
