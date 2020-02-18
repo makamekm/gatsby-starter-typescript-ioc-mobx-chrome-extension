@@ -27,6 +27,9 @@
     "test": "run-s lint jest",
     "figma": "node scripts/figma.js w3ARSZjvPzL0qmu4ZWJSzx"
   },
+  "bin": {
+    "figma-react": "./scripts/figma.js"
+  },
   "engines": {
     "node": ">=8.0.0"
   },
