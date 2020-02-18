@@ -581,7 +581,9 @@ async function createComponent(component, imgMap, componentMap, componentDescrip
   let doc = '';
   let styleCounter = 0;
   let styles = defaultStyles;
-  let props = {};
+
+  const props = {};
+  const additionalStyles = [];
 
   const preprint = msg => {
     doc = `${msg}\n` + doc;
@@ -591,7 +593,11 @@ async function createComponent(component, imgMap, componentMap, componentDescrip
     doc += `${msg}\n`;
   };
 
-  const genClassName = () => classPrefix + styleCounter;
+  const genClassName = () => {
+    const value = classPrefix + styleCounter;
+    styleCounter++;
+    return value;
+  };
 
   const printStyle = style => {
     if (!style) return null;
@@ -599,7 +605,6 @@ async function createComponent(component, imgMap, componentMap, componentDescrip
     const convertedStyle = convertStyles(style);
     if (convertedStyle) {
       styles += `\n.${id} {\n${convertedStyle}\n}`;
-      styleCounter++;
       return id;
     }
     return null;
@@ -616,7 +621,9 @@ async function createComponent(component, imgMap, componentMap, componentDescrip
     component,
     print,
     preprint,
+    genClassName,
     printStyle,
+    additionalStyles,
     imgMap,
     componentMap,
     componentDescriptionMap,
@@ -644,6 +651,10 @@ async function createComponent(component, imgMap, componentMap, componentDescrip
     Object.keys(props).length ? `const { ${Object.keys(props).join(', ')} } = props;` : ''
     }`
   ); // Can be replaced with React.memo(...)
+
+  // Render additional styles
+
+  additionalStyles.forEach(s => styles += `\n${s}`);
 
   // Collect styles from component description
 

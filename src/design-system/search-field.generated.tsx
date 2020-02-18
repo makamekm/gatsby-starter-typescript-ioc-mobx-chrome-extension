@@ -6,12 +6,12 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
     <>
       <div className="figma-1">
         <div id="142:71" className="figma-0">
-          <div className="figma-3">
-            <div id="142:58" className="figma-2"></div>
+          <div className="figma-4">
+            <div id="142:58" className="figma-3"></div>
           </div>
-          <div className="figma-5">
-            <div id="142:60" className="figma-4">
-              <div id="142:62" className="figma-6">
+          <div className="figma-7">
+            <div id="142:60" className="figma-6">
+              <div id="142:62" className="figma-9">
                 <div
                   className="vector"
                   dangerouslySetInnerHTML={{
@@ -24,25 +24,25 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
               </div>
             </div>
           </div>
-          <div className="figma-11">
-            <div id="142:64" className="figma-10">
-              <span className="figma-7" key="6">
+          <div className="figma-16">
+            <div id="142:64" className="figma-15">
+              <span className="figma-12" key="6">
                 chrome
               </span>
-              <span className="figma-8" key="15">
+              <span className="figma-13" key="15">
                 ://newtab
               </span>
-              <span className="figma-9" key="end">
+              <span className="figma-14" key="end">
                 tabtabtabtabtab
               </span>
             </div>
           </div>
-          <div className="figma-13">
-            <div id="142:65" className="figma-12">
-              <div className="figma-15">
-                <div id="142:67" className="figma-14">
-                  <div id="142:70" className="figma-16"></div>
-                  <div id="142:69" className="figma-17"></div>
+          <div className="figma-19">
+            <div id="142:65" className="figma-18">
+              <div className="figma-22">
+                <div id="142:67" className="figma-21">
+                  <div id="142:70" className="figma-24"></div>
+                  <div id="142:69" className="figma-27"></div>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-2 {
+        .figma-3 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -94,7 +94,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(239, 241, 244, 1);
           border-radius: 24px 24px 24px 24px;
         }
-        .figma-3 {
+        .figma-4 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -103,7 +103,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-4 {
+        .figma-6 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -115,7 +115,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           margin-bottom: 0px;
           background-color: rgba(0, 0, 0, 0);
         }
-        .figma-5 {
+        .figma-7 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -126,7 +126,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 1;
         }
-        .figma-6 {
+        .figma-9 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -137,11 +137,11 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           margin-bottom: 5px;
           min-height: 16px;
         }
-        .figma-7 {
+        .figma-12 {
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        .figma-8 {
+        .figma-13 {
           color: rgba(141, 145, 153, 1);
           font-style: normal;
           line-height: NaN%;
@@ -149,7 +149,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        .figma-9 {
+        .figma-14 {
           color: rgba(235, 87, 87, 1);
           font-style: normal;
           line-height: NaN%;
@@ -158,7 +158,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           text-overflow: ellipsis;
           flex: 1;
         }
-        .figma-10 {
+        .figma-15 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -179,7 +179,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           display: flex;
           max-width: -webkit-fill-available;
         }
-        .figma-11 {
+        .figma-16 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -190,7 +190,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 2;
         }
-        .figma-12 {
+        .figma-18 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -203,7 +203,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-13 {
+        .figma-19 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -213,7 +213,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 3;
         }
-        .figma-14 {
+        .figma-21 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -225,7 +225,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-15 {
+        .figma-22 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -235,7 +235,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-16 {
+        .figma-24 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -249,7 +249,7 @@ export const SearchFieldGenerated: React.FC<{}> = observer(props => {
           border: 1px solid rgba(75, 77, 82, 1);
           border-radius: 2px 2px 0px 0px;
         }
-        .figma-17 {
+        .figma-27 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;

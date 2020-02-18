@@ -75,7 +75,7 @@ async function main(options = {}) {
   // Wrap vectors and images
   preprocessCanvasComponents(canvas, shared);
 
-  // Load components description
+  // Load component description
   const nodes = await loadNodes(Object.keys(componentDescriptionMap), fileKey, headers);
 
   for (const id in nodes) {

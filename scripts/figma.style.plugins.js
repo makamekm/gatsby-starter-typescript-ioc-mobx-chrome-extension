@@ -133,15 +133,27 @@ function setVerticalAlign({ node, middleStyle, outerStyle, bounds }) {
   }
 }
 
-function setHorizontalLayout({ node, middleStyle, innerStyle, parent }) {
+function setHorizontalLayout({ node, middleStyle, innerStyle, parent, classNames }, { genClassName, additionalStyles }) {
   if (node.layoutMode === 'HORIZONTAL') {
     innerStyle.display = 'flex';
     innerStyle.flexDirection = 'row';
     middleStyle.maxWidth = '100%';
     innerStyle.maxWidth = '100%';
-    innerStyle.marginTop = -parent.itemSpacing;
-    innerStyle.marginLeft = -parent.itemSpacing;
-    innerStyle.marginRight = -parent.itemSpacing;
+    innerStyle.marginTop = -node.itemSpacing;
+    innerStyle.marginLeft = -node.itemSpacing;
+    innerStyle.marginRight = -node.itemSpacing;
+
+    const currentClass = genClassName();
+    classNames.push(currentClass);
+
+    additionalStyles.push(`
+      .${currentClass} > * > * {
+        margin-left: ${parent.itemSpacing}px;
+        margin-right: ${parent.itemSpacing}px;
+        margin-top: ${parent.itemSpacing}px;
+        margin-bottom: ${0};
+      }
+    `);
   }
 
   if (parent && parent.layoutMode === 'HORIZONTAL') {

@@ -5,11 +5,11 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
   return (
     <>
       <div id="146:0" className="figma-0">
-        <div className="figma-2">
-          <div id="14:174" className="figma-1"></div>
-        </div>
         <div className="figma-4">
-          <div id="14:199" className="figma-3">
+          <div id="14:174" className="figma-3"></div>
+        </div>
+        <div className="figma-7">
+          <div id="14:199" className="figma-6">
             <div
               className="vector"
               dangerouslySetInnerHTML={{
@@ -26,11 +26,11 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
             />
           </div>
         </div>
-        <div id="14:178" className="figma-5">
-          <div className="figma-7">
-            <div id="14:180" className="figma-6">
-              <div className="figma-9">
-                <div id="14:181" className="figma-8">
+        <div id="14:178" className="figma-9">
+          <div className="figma-13">
+            <div id="14:180" className="figma-12">
+              <div className="figma-16">
+                <div id="14:181" className="figma-15">
                   <div
                     className="vector"
                     dangerouslySetInnerHTML={{
@@ -73,14 +73,14 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
             </div>
           </div>
         </div>
-        <div id="14:187" className="figma-10">
-          <div className="figma-12">
-            <div id="14:188" className="figma-11"></div>
+        <div id="14:187" className="figma-18">
+          <div className="figma-22">
+            <div id="14:188" className="figma-21"></div>
           </div>
-          <div className="figma-14">
-            <div id="14:189" className="figma-13">
-              <div className="figma-16">
-                <div id="14:190" className="figma-15">
+          <div className="figma-25">
+            <div id="14:189" className="figma-24">
+              <div className="figma-28">
+                <div id="14:190" className="figma-27">
                   <div
                     className="vector"
                     dangerouslySetInnerHTML={{
@@ -120,13 +120,13 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
               </div>
             </div>
           </div>
-          <div className="figma-18">
-            <div id="14:193" className="figma-17">
+          <div className="figma-32">
+            <div id="14:193" className="figma-31">
               <span key="end">Advisor Access</span>
             </div>
           </div>
-          <div className="figma-20">
-            <div id="14:194" className="figma-19">
+          <div className="figma-35">
+            <div id="14:194" className="figma-34">
               <div
                 className="vector"
                 dangerouslySetInnerHTML={{
@@ -138,8 +138,8 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
               />
             </div>
           </div>
-          <div className="figma-22">
-            <div id="14:197" className="figma-21">
+          <div className="figma-38">
+            <div id="14:197" className="figma-37">
               <div
                 className="vector"
                 dangerouslySetInnerHTML={{
@@ -151,7 +151,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
               />
             </div>
           </div>
-          <div id="14:198" className="figma-23">
+          <div id="14:198" className="figma-40">
             <div
               className="vector"
               dangerouslySetInnerHTML={{
@@ -163,9 +163,9 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
             />
           </div>
         </div>
-        <div id="14:175" className="figma-24">
-          <div className="figma-26">
-            <div id="52:0" className="figma-25">
+        <div id="14:175" className="figma-43">
+          <div className="figma-47">
+            <div id="52:0" className="figma-46">
               <div
                 className="vector"
                 dangerouslySetInnerHTML={{
@@ -204,7 +204,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-1 {
+        .figma-3 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -216,7 +216,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(225, 228, 235, 1);
           border-radius: 4px 4px 0px 0px;
         }
-        .figma-2 {
+        .figma-4 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -225,7 +225,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-3 {
+        .figma-6 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -236,7 +236,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           height: 32px;
           margin-top: 8px;
         }
-        .figma-4 {
+        .figma-7 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -247,7 +247,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 1;
         }
-        .figma-5 {
+        .figma-9 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -260,7 +260,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           min-height: 32px;
           background-color: rgba(0, 0, 0, 0);
         }
-        .figma-6 {
+        .figma-12 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -271,83 +271,8 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           margin-top: 0px;
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
-        }
-        .figma-7 {
-          position: absolute;
-          display: flex;
-          width: 100%;
-          pointer-events: none;
-          align-items: center;
-          height: 100%;
-          top: 0px;
-          left: 0px;
-        }
-        .figma-8 {
-          position: relative;
-          box-sizing: border-box;
-          pointer-events: auto;
-          width: 87.5%;
-          margin-left: 6.25%;
-          height: 87.5%;
-          top: 6.25%;
-        }
-        .figma-9 {
-          position: absolute;
-          display: flex;
-          width: 100%;
-          pointer-events: none;
-          height: 100%;
-          top: 0px;
-          left: 0px;
-        }
-        .figma-10 {
-          position: relative;
-          box-sizing: border-box;
-          pointer-events: auto;
-          z-index: 3;
-          margin-left: 120px;
-          width: 240px;
-          min-width: 240px;
-          margin-top: -32px;
-          margin-bottom: 0px;
-          min-height: 32px;
-          background-color: rgba(0, 0, 0, 0);
-        }
-        .figma-11 {
-          position: relative;
-          box-sizing: border-box;
-          pointer-events: auto;
-          margin-left: 0px;
-          margin-right: 0px;
-          flex-grow: 1;
-          margin-top: 0px;
-          margin-bottom: 0px;
-          background-color: rgba(255, 255, 255, 1);
-          border-radius: 8px 8px 0px 0px;
-        }
-        .figma-12 {
-          position: absolute;
-          display: flex;
-          width: 100%;
-          pointer-events: none;
-          height: 100%;
-          top: 0px;
-          left: 0px;
         }
         .figma-13 {
-          position: relative;
-          box-sizing: border-box;
-          pointer-events: auto;
-          z-index: 1;
-          margin-left: 12px;
-          width: 16px;
-          min-width: 16px;
-          height: 16px;
-          margin-top: 0px;
-          background-color: rgba(0, 0, 0, 0);
-          overflow: hidden;
-        }
-        .figma-14 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -356,14 +281,11 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           height: 100%;
           top: 0px;
           left: 0px;
-          z-index: 1;
         }
         .figma-15 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
-          transform: rotate(-179.99999499104388deg);
-          transform-origin: 50% 50%;
           width: 87.5%;
           margin-left: 6.25%;
           height: 87.5%;
@@ -378,7 +300,85 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-17 {
+        .figma-18 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 3;
+          margin-left: 120px;
+          width: 240px;
+          min-width: 240px;
+          margin-top: -32px;
+          margin-bottom: 0px;
+          min-height: 32px;
+          background-color: rgba(0, 0, 0, 0);
+        }
+        .figma-21 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          margin-left: 0px;
+          margin-right: 0px;
+          flex-grow: 1;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          background-color: rgba(255, 255, 255, 1);
+          border-radius: 8px 8px 0px 0px;
+        }
+        .figma-22 {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          pointer-events: none;
+          height: 100%;
+          top: 0px;
+          left: 0px;
+        }
+        .figma-24 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          z-index: 1;
+          margin-left: 12px;
+          width: 16px;
+          min-width: 16px;
+          height: 16px;
+          margin-top: 0px;
+          background-color: rgba(0, 0, 0, 0);
+          overflow: hidden;
+        }
+        .figma-25 {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          pointer-events: none;
+          align-items: center;
+          height: 100%;
+          top: 0px;
+          left: 0px;
+          z-index: 1;
+        }
+        .figma-27 {
+          position: relative;
+          box-sizing: border-box;
+          pointer-events: auto;
+          transform: rotate(-179.99999499104388deg);
+          transform-origin: 50% 50%;
+          width: 87.5%;
+          margin-left: 6.25%;
+          height: 87.5%;
+          top: 6.25%;
+        }
+        .figma-28 {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          pointer-events: none;
+          height: 100%;
+          top: 0px;
+          left: 0px;
+        }
+        .figma-31 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -399,7 +399,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           display: flex;
           max-width: -webkit-fill-available;
         }
-        .figma-18 {
+        .figma-32 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -410,7 +410,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 2;
         }
-        .figma-19 {
+        .figma-34 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -420,7 +420,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           height: 16px;
           margin-top: 0px;
         }
-        .figma-20 {
+        .figma-35 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -432,7 +432,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           left: 0px;
           z-index: 3;
         }
-        .figma-21 {
+        .figma-37 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -444,7 +444,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           margin-bottom: 0px;
           min-height: 8px;
         }
-        .figma-22 {
+        .figma-38 {
           position: relative;
           display: flex;
           width: 100%;
@@ -452,7 +452,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           justify-content: flex-end;
           z-index: 4;
         }
-        .figma-23 {
+        .figma-40 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -464,7 +464,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           margin-bottom: 0px;
           min-height: 8px;
         }
-        .figma-24 {
+        .figma-43 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -478,7 +478,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-25 {
+        .figma-46 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -486,7 +486,7 @@ export const TabBarGenerated: React.FC<{}> = observer(props => {
           height: 24px;
           margin-top: 0px;
         }
-        .figma-26 {
+        .figma-47 {
           position: absolute;
           display: flex;
           width: 100%;

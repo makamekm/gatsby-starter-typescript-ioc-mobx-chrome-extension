@@ -8,22 +8,22 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
   return (
     <>
       <div id="15:2" className="figma-0">
-        <div className="figma-2">
-          <div id="15:0" className="figma-1">
-            <div id="14:138" className="figma-3"></div>
-            <div id="146:1" className="figma-4">
+        <div className="figma-4">
+          <div id="15:0" className="figma-3">
+            <div id="14:138" className="figma-6"></div>
+            <div id="146:1" className="figma-9">
               <TabBar {...props} nodeId="146:1" />
             </div>
-            <div id="146:33" className="figma-5">
+            <div id="146:33" className="figma-12">
               <Toolbar {...props} nodeId="146:33" />
             </div>
-            <div className="figma-7">
-              <div id="72:1" className="figma-6">
-                <div className="figma-9">
-                  <div id="14:139" className="figma-8"></div>
+            <div className="figma-16">
+              <div id="72:1" className="figma-15">
+                <div className="figma-19">
+                  <div id="14:139" className="figma-18"></div>
                 </div>
-                <div className="figma-11">
-                  <div id="146:78" className="figma-10">
+                <div className="figma-22">
+                  <div id="146:78" className="figma-21">
                     <BrowserContent {...props} nodeId="146:78" />
                   </div>
                 </div>
@@ -56,7 +56,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(255, 255, 255, 0);
           overflow: hidden;
         }
-        .figma-1 {
+        .figma-3 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -67,7 +67,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           margin-bottom: 0px;
           background-color: rgba(0, 0, 0, 0);
         }
-        .figma-2 {
+        .figma-4 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -76,7 +76,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-3 {
+        .figma-6 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -91,7 +91,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           box-shadow: 0px 0px 1px rgba(75, 77, 82, 0.47999998927116394);
           border-radius: 4px 4px 0px 0px;
         }
-        .figma-4 {
+        .figma-9 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -105,7 +105,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-5 {
+        .figma-12 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -118,7 +118,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           min-height: 36px;
           background-color: rgba(255, 255, 255, 1);
         }
-        .figma-6 {
+        .figma-15 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -130,7 +130,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-7 {
+        .figma-16 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -139,7 +139,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-8 {
+        .figma-18 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -151,7 +151,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           background-image: url(https://s3-us-west-2.amazonaws.com/figma-alpha/img/efe9/8099/a0aa97c1aa64e286bc82e633cc9aed22);
           background-size: cover;
         }
-        .figma-9 {
+        .figma-19 {
           position: absolute;
           display: flex;
           width: 100%;
@@ -160,7 +160,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           top: 0px;
           left: 0px;
         }
-        .figma-10 {
+        .figma-21 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -173,7 +173,7 @@ export const ClockGenerated: React.FC<{}> = observer(props => {
           background-color: rgba(0, 0, 0, 0);
           overflow: hidden;
         }
-        .figma-11 {
+        .figma-22 {
           position: absolute;
           display: flex;
           width: 100%;

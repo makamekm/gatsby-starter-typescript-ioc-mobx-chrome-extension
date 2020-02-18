@@ -5,8 +5,8 @@ export const GridTestGenerated: React.FC<{}> = observer(props => {
   return (
     <>
       <div id="151:3" className="figma-0 test">
-        <div id="151:1" className="figma-1"></div>
-        <div id="151:2" className="figma-2"></div>
+        <div id="151:1" className="figma-3"></div>
+        <div id="151:2" className="figma-6"></div>
       </div>
       <style jsx>{`
         input {
@@ -33,7 +33,7 @@ export const GridTestGenerated: React.FC<{}> = observer(props => {
           overflow: hidden;
           min-width: 100%;
         }
-        .figma-1 {
+        .figma-3 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
@@ -45,7 +45,7 @@ export const GridTestGenerated: React.FC<{}> = observer(props => {
           min-height: 80px;
           background-color: rgba(196, 196, 196, 1);
         }
-        .figma-2 {
+        .figma-6 {
           position: relative;
           box-sizing: border-box;
           pointer-events: auto;
