@@ -564,9 +564,10 @@ function writeFile(path, contents) {
   );
 }
 
-function getDescriptionStyles({ component, componentDescriptionMap, options }) {
+function getDescriptionStyles({ componentDescriptionMap, options }, node) {
   const delimiter = options.styleDescriptionDelimiter || '!style!';
-  const description = componentDescriptionMap[component.id] || '';
+  const id = node.componentId || node.id;
+  const description = componentDescriptionMap[id] || '';
   return description.substring(description.indexOf(delimiter) + delimiter.length).replace(/\\n/g, `\n`);
 }
 
@@ -658,7 +659,7 @@ async function createComponent(component, imgMap, componentMap, componentDescrip
 
   // Collect styles from component description
 
-  const descStyle = getDescriptionStyles(shared);
+  const descStyle = getDescriptionStyles(shared, component);
 
   if (descStyle) {
     styles += `\n${descStyle}`;

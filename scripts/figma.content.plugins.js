@@ -1,4 +1,4 @@
-const { emptyChildren, getComponentName, createComponent } = require('./figma.lib');
+const { emptyChildren, getComponentName, createComponent, getDescriptionStyles } = require('./figma.lib');
 
 const contentPlugins = [
   applyStyles,
@@ -21,14 +21,20 @@ function applyStyles(state) {
 }
 
 // TODO: use import from './${getComponentName(node.name, options)}'
-async function setComponentFromCache(state, { component, imgMap, componentMap, componentDescriptionMap, localComponentMap, options }) {
+async function setComponentFromCache(state, shared) {
   const { node, content } = state;
+  const { component, imgMap, componentMap, componentDescriptionMap, localComponentMap, options, additionalStyles } = shared;
   if (node.id !== component.id && node.name.charAt(0) === '#') {
     const name = getComponentName(node.name, options);
     emptyChildren(state);
     content.push(`<${name} {...props} nodeId='${node.id}' />`);
     if (!componentMap[name]) await createComponent(node, imgMap, componentMap, componentDescriptionMap, options);
     localComponentMap[name] = componentMap[name];
+  } else if (node.id !== component.id) {
+    const styles = getDescriptionStyles(shared, node);
+    if (styles) {
+      additionalStyles.push(styles);
+    }
   }
 }
 
